@@ -3,6 +3,7 @@ package template.neodymium.tests.smoke;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.switchTo;
 import static com.codeborne.selenide.Condition.matchText;
 import static com.codeborne.selenide.Condition.text;
 
@@ -40,6 +41,9 @@ public class SliderTest extends AbstractTest {
 
 		//Open Homepage
 		HomePage homePage = OpenHomePageFlow.flow();
+		
+		//switch to iFrame of content
+		switchTo().frame($("iframe[name='code-result-d3mo39']"));
 
 		//Get the shadowDom-element that contains the sliderelements
 		SelenideElement slider = $(Selectors.shadowCss("#track", "p > input[type=range]"));
@@ -52,6 +56,9 @@ public class SliderTest extends AbstractTest {
 		
 		//Move Slider
 		executor.executeScript("document.querySelector('input[type=range]').value = 0");//This works but accesses only the parent element not the shadowDom
+		
+		//switch back to Mainframe
+		switchTo().defaultContent();
 	}
 	
 }

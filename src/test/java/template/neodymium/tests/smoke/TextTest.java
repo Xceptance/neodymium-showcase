@@ -36,6 +36,9 @@ public class TextTest extends AbstractTest {
 		//Open Homepage
 		HomePage homePage = OpenHomePageFlow.flow();
 		
+		//switch to iFrame of content
+		switchTo().frame($("iframe[name='code-result-d3mo39']"));
+		
 		//Get the shadowDom-element that contains the text
 		SelenideElement text = $(Selectors.shadowCss("p", "show-hello[name=John]"));
 		
@@ -45,6 +48,7 @@ public class TextTest extends AbstractTest {
 		//Check text
 		text.shouldHave(text("Hello"));
 
-        	switchTo().defaultContent();
+		//switch back to Mainframe
+		switchTo().defaultContent();
 	}
 }

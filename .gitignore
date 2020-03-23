@@ -5,3 +5,5 @@
 build
 /.allure/
 dev-*.properties
+config/dev - browser.properties
+config/dev - neodymium.properties
