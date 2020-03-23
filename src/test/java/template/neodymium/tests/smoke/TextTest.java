@@ -1,14 +1,13 @@
 package template.neodymium.tests.smoke;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.switchTo;
+
 import org.junit.Test;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Condition.matchText;
-import static com.codeborne.selenide.Condition.text;
-
-import com.xceptance.neodymium.util.Neodymium;
-import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.Selectors;
+import com.codeborne.selenide.SelenideElement;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -44,6 +43,8 @@ public class TextTest extends AbstractTest {
 		text.exists();//Still unsure if this actually works
 		
 		//Check text
-		text.has(text("Hello, John"));//this does not produce any error regardless of what text is entered.
+		text.shouldHave(text("Hello"));
+
+        	switchTo().defaultContent();
 	}
 }
