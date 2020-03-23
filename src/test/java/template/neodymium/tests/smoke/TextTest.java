@@ -33,9 +33,17 @@ public class TextTest extends AbstractTest {
 	@Test
 	@Description(value = "Check that Textfield exists and")
 	public void checkTextExists() {
+		
+		//Open Homepage
 		HomePage homePage = OpenHomePageFlow.flow();
+		
+		//Get the shadowDom-element that contains the text
 		SelenideElement text = $(Selectors.shadowCss("p", "show-hello[name=John]"));
-		text.exists();
-		text.has(text("Hello, John"));
+		
+		//check if this exists
+		text.exists();//Still unsure if this actually works
+		
+		//Check text
+		text.has(text("Hello, John"));//this does not produce any error regardless of what text is entered.
 	}
 }

@@ -37,11 +37,21 @@ public class SliderTest extends AbstractTest {
 	@Test
 	@Description(value = "Basic Slidertest")
 	public void testSlider() {
+
+		//Open Homepage
 		HomePage homePage = OpenHomePageFlow.flow();
+
+		//Get the shadowDom-element that contains the sliderelements
 		SelenideElement slider = $(Selectors.shadowCss("#track", "p > input[type=range]"));
-		slider.exists();
+		
+		//check if this exists
+		slider.exists(); //Still unsure if this actually works
+		
+		//Create Javascriptexecutor
 		JavascriptExecutor executor = (JavascriptExecutor)getWebDriver();
-		executor.executeScript("document.querySelector('input[type=range]').value = 0");
+		
+		//Move Slider
+		executor.executeScript("document.querySelector('input[type=range]').value = 0");//This works but accesses only the parent element not the shadowDom
 	}
 	
 }
