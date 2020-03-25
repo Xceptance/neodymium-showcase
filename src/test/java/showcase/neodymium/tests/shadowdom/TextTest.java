@@ -1,4 +1,4 @@
-package template.neodymium.tests.shadowdom;
+package showcase.neodymium.tests.shadowdom;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -16,9 +16,9 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.junit4.Tag;
-import template.flows.OpenHomePageFlow;
-import template.neodymium.tests.AbstractTest;
-import template.pageobjects.pages.ShadowDomPage;
+import showcase.flows.OpenHomePageFlow;
+import showcase.neodymium.tests.AbstractTest;
+import showcase.pageobjects.pages.ShadowDomPage;
 
 /**
  * @author kunze

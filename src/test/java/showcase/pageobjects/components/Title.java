@@ -1,4 +1,4 @@
-package template.pageobjects.components;
+package showcase.pageobjects.components;
 
 import org.junit.Assert;
 

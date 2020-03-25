@@ -1,4 +1,4 @@
-package template.pageobjects.pages;
+package showcase.pageobjects.pages;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.matchText;

@@ -1,4 +1,4 @@
-package template.pageobjects.pages;
+package showcase.pageobjects.pages;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.exist;

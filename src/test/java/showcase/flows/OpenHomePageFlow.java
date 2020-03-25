@@ -1,4 +1,4 @@
-package template.flows;
+package showcase.flows;
 
 import com.xceptance.neodymium.util.Neodymium;
 
@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Selenide.clearBrowserCookies;
 import static com.codeborne.selenide.Selenide.open;
 
 import io.cucumber.java.en.And;
-import template.pageobjects.pages.HomePage;
+import showcase.pageobjects.pages.HomePage;
 
 public class OpenHomePageFlow
 {

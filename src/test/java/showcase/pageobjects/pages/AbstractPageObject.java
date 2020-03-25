@@ -1,9 +1,9 @@
 /**
  * 
  */
-package template.pageobjects.pages;
+package showcase.pageobjects.pages;
 
-import template.pageobjects.components.Title;
+import showcase.pageobjects.components.Title;
 
 /**
  * @author pfotenhauer

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package template.neodymium.tests;
+package showcase.neodymium.tests;
 
 import org.junit.runner.RunWith;
 
