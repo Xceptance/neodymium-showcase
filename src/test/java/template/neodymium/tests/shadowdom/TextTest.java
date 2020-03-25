@@ -32,7 +32,7 @@ public class TextTest extends AbstractTest {
     
     @Test
     @Description(value = "Check that Textfield exists and")
-    public void testVisitingPage() {
+    public void testLandingPage() {
         
         // Goto the javadoc page
         ShadowDomPage shadowdomPage = new ShadowDomPage();
@@ -48,7 +48,7 @@ public class TextTest extends AbstractTest {
 	
 	@Test
 	@Description(value = "Check that Textfield exists and")
-	public void checkTextExists() {
+	public void testTextExists() {
 		
 		//Open javadoc page
 	    ShadowDomPage shadowdomPage = new ShadowDomPage();
