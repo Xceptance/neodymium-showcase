@@ -3,6 +3,7 @@ package showcase.neodymium.tests.shadowdom;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
+import static com.codeborne.selenide.Condition.exist;
 
 import org.junit.Test;
 
@@ -65,7 +66,7 @@ public class TextTest extends AbstractTest {
 		SelenideElement text = $(Selectors.shadowCss("p", "show-hello[name=John]"));
 		
 		//check if this exists
-		text.exists();//Still unsure if this actually works
+		text.should(exist);
 		
 		//Check text
 		text.shouldHave(text("Hello, John"));
