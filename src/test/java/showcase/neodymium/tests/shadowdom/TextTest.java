@@ -32,7 +32,7 @@ import showcase.pageobjects.pages.ShadowDomPage;
 public class TextTest extends AbstractTest {
     
     @Test
-    @Description(value = "Check that Textfield exists and")
+    @Description(value = "Check structure of Page")
     public void testLandingPage() {
         
         // Goto the javadoc page
@@ -48,7 +48,7 @@ public class TextTest extends AbstractTest {
     }
 	
 	@Test
-	@Description(value = "Check that Textfield exists and")
+	@Description(value = "Check that Textfield exists and control text")
 	public void testTextExists() {
 		
 		//Open javadoc page

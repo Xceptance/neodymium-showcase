@@ -29,7 +29,7 @@ public class ShadowDomPage extends AbstractPageObject
      * 
      * @see template.pageObjects.pages.AbstractPageObject()
      */
-    @Then("^The javado page should have sitetoolbar, navigation sidebar, content page and footer$")
+    @Then("^The javadoc page should have sitetoolbar, navigation sidebar, content page and footer$")
     @Step("validate the javadoc page")
     public void validateStructure()
     {
