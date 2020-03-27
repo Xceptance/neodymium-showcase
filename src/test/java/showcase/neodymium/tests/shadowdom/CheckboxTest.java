@@ -3,7 +3,8 @@ package showcase.neodymium.tests.shadowdom;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.cssClass;
+import static com.codeborne.selenide.Condition.not;
 
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.Selenide;
@@ -59,11 +60,16 @@ public class CheckboxTest extends AbstractTest {
         //check if correct site did open
         page.isExpectedPage();
         
-        //Get first checbox
-        SelenideElement checkbox = $(Selectors.shadowCss("div.mdc-checkbox", "mwc-checkbox[checked]"));
-        checkbox.shouldBe(visible);
+        //Get first checkbox
+        SelenideElement checkbox = $(Selectors.shadowCss("div.mdc-checkbox", "mwc-checkbox"));
         
-        //check Checkbox
-        checkbox.click();
+        //check Checkbox has not the selected class
+        checkbox.shouldHave(not(cssClass("mdc-checkbox--selected")));
+        
+        //click Checkbox
+        $("mwc-checkbox").click();
+        
+        //check Checkbox has selected class
+        checkbox.shouldHave(cssClass("mdc-checkbox--selected"));
     }
 }
