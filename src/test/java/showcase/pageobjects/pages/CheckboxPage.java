@@ -1,11 +1,14 @@
 package showcase.pageobjects.pages;
 
+import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.not;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 import com.codeborne.selenide.Selectors;
+import com.codeborne.selenide.SelenideElement;
 
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Step;
@@ -48,5 +51,29 @@ public class CheckboxPage extends AbstractPageObject {
         
         //check amount of checkboxes
         $$("mwc-checkbox").shouldHaveSize(6);
+        
+        //check Title
+        title.validateTitle("checkbox demo");
+    }
+    
+    /*
+     * (non-Javadoc)
+     * 
+     * @see template.pageObjects.pages.AbstractPageObject()
+     */
+    @Then("^The checkbox demo page should have $")
+    @Step("validate the demo page")
+    public void validateShadowCheckboxFunction(String target, String shadowHost, String cssClass) {
+      //Get checkbox
+        SelenideElement checkbox = $(Selectors.shadowCss(target, shadowHost));
+        
+        //check Checkbox has not the selected class
+        checkbox.shouldHave(not(cssClass(cssClass)));
+        
+        //click Checkbox
+        $(shadowHost).click();
+        
+        //check Checkbox has selected class
+        checkbox.shouldHave(cssClass(cssClass));
     }
 }

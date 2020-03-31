@@ -3,7 +3,7 @@ package showcase.neodymium.tests.shadowdom;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
-import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.visible;
 
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.junit4.Tag;
-import showcase.flows.OpenHomePageFlow;
+import showcase.flows.ShadowDomPageFlow;
 import showcase.neodymium.tests.AbstractTest;
 import showcase.pageobjects.pages.ShadowDomPage;
 
@@ -36,15 +36,13 @@ public class TextTest extends AbstractTest {
     public void testLandingPage() {
         
         // Goto the javadoc page
-        ShadowDomPage shadowdomPage = new ShadowDomPage();
-        Selenide.open("https://javascript.info/shadow-dom");
+        ShadowDomPage shadowdomPage = ShadowDomPageFlow.flow();
 
         // short validation to check that the correct page was opened
         shadowdomPage.isExpectedPage();
         
         // basic validation
         shadowdomPage.validateStructure();
-        shadowdomPage.title.validateTitle("Shadow DOM");
     }
 	
 	@Test
@@ -52,8 +50,7 @@ public class TextTest extends AbstractTest {
 	public void testTextExists() {
 		
 		//Open javadoc page
-	    ShadowDomPage shadowdomPage = new ShadowDomPage();
-	    Selenide.open("https://javascript.info/shadow-dom");
+	    ShadowDomPage shadowdomPage = ShadowDomPageFlow.flow();
 	    
 	    // short validation to check that the correct page was opened
 	    shadowdomPage.isExpectedPage();
@@ -61,15 +58,8 @@ public class TextTest extends AbstractTest {
 		//switch to iFrame of content
 		switchTo().frame($("iframe[style=\"height:60px\"]"));
 		
-		//Get the shadowDom-element that contains the text
-		//Syntax is shadowCss(element to be found, element that has the shadow Dom)
-		SelenideElement text = $(Selectors.shadowCss("p", "show-hello[name=John]"));
-		
-		//check if this exists
-		text.should(exist);
-		
-		//Check text
-		text.shouldHave(text("Hello, John"));
+		//check textfield
+		shadowdomPage.validateShadowTextfield("p", "show-hello[name=John]", "Hello, John");
 
 		//switch back to Mainframe
 		switchTo().defaultContent();

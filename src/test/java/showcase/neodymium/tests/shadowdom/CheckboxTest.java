@@ -16,6 +16,7 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.junit4.Tag;
+import showcase.flows.CheckboxPageFlow;
 import showcase.neodymium.tests.AbstractTest;
 
 import showcase.pageobjects.pages.CheckboxPage;
@@ -36,17 +37,13 @@ public class CheckboxTest extends AbstractTest {
     public void testCheckboxSite() {
         
         //open demo page
-        CheckboxPage page = new CheckboxPage();
-        Selenide.open("https://mwc-demos.glitch.me/demos/checkbox.html");     
+        CheckboxPage page = CheckboxPageFlow.flow();
         
         //check if correct site did open
         page.isExpectedPage();
         
         //validate Structure
         page.validateStructure();
-        
-        //check Title
-        page.title.validateTitle("checkbox demo");
     }
     
     @Test
@@ -54,22 +51,12 @@ public class CheckboxTest extends AbstractTest {
     public void testFunctionality() { 
         
         //open demo page
-        CheckboxPage page = new CheckboxPage();
-        Selenide.open("https://mwc-demos.glitch.me/demos/checkbox.html");     
+        CheckboxPage page = CheckboxPageFlow.flow();     
         
         //check if correct site did open
         page.isExpectedPage();
         
-        //Get first checkbox
-        SelenideElement checkbox = $(Selectors.shadowCss("div.mdc-checkbox", "mwc-checkbox"));
-        
-        //check Checkbox has not the selected class
-        checkbox.shouldHave(not(cssClass("mdc-checkbox--selected")));
-        
-        //click Checkbox
-        $("mwc-checkbox").click();
-        
-        //check Checkbox has selected class
-        checkbox.shouldHave(cssClass("mdc-checkbox--selected"));
+        //validate checkbox works
+        page.validateShadowCheckboxFunction("div.mdc-checkbox", "mwc-checkbox", "mdc-checkbox--selected");
     }
 }
