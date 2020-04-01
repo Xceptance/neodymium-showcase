@@ -1,15 +1,16 @@
 package showcase.neodymium.tests.shadowdom;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.switchTo;
-import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.visible;
 
 import org.junit.Test;
 
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -17,9 +18,8 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.junit4.Tag;
-import showcase.flows.OpenHomePageFlow;
 import showcase.neodymium.tests.AbstractTest;
-import showcase.pageobjects.pages.ShadowDomPage;
+import showcase.pageobjects.components.Title;
 
 /**
  * @author kunze
@@ -27,49 +27,41 @@ import showcase.pageobjects.pages.ShadowDomPage;
 @Severity(SeverityLevel.TRIVIAL)
 @Owner("Georg Kunze")
 @Tag("smoke")
-@DisplayName("TextTest")
-
+@DisplayName("Texttest")
 public class TextTest extends AbstractTest {
-    
-    @Test
-    @Description(value = "Check that Textfield exists and")
-    public void testLandingPage() {
-        
-        // Goto the javadoc page
-        ShadowDomPage shadowdomPage = new ShadowDomPage();
-        Selenide.open("https://javascript.info/shadow-dom");
-
-        // short validation to check that the correct page was opened
-        shadowdomPage.isExpectedPage();
-        
-        // basic validation
-        shadowdomPage.validateStructure();
-        shadowdomPage.title.validateTitle("Shadow DOM");
-    }
 	
 	@Test
-	@Description(value = "Check that Textfield exists and")
-	public void testTextExists() {
-		
-		//Open javadoc page
-	    ShadowDomPage shadowdomPage = new ShadowDomPage();
+	@Description(value = "Check that text field exists and control text")
+	public void testTextField() {
+	    //Open javadoc page
 	    Selenide.open("https://javascript.info/shadow-dom");
 	    
-	    // short validation to check that the correct page was opened
-	    shadowdomPage.isExpectedPage();
+	    //check title
+	    new Title().validateTitle("Shadow DOM");
+	    
+	    // Verifies that toolbar is visible
+        $("div.sitetoolbar").shouldBe(visible);
+        
+        // Verifies that content page is visible
+        $("div.page__inner").shouldBe(visible);
+        
+        // Verifies that sidebar is visible
+        $("div.sidebar__inner").shouldBe(visible);
+        
+        // Verifies that footer is visible
+        $("div.page-footer").shouldBe(visible);
+
+        // Asserts there's categories in the sidebar.
+        $$("div.sidebar__section").shouldHave(sizeGreaterThan(0));
 		
 		//switch to iFrame of content
 		switchTo().frame($("iframe[style=\"height:60px\"]"));
 		
-		//Get the shadowDom-element that contains the text
-		//Syntax is shadowCss(element to be found, element that has the shadow Dom)
-		SelenideElement text = $(Selectors.shadowCss("p", "show-hello[name=John]"));
+		//check text field
+		$(Selectors.shadowCss("p", "show-hello[name=John]")).shouldBe(visible);
 		
-		//check if this exists
-		text.should(exist);
-		
-		//Check text
-		text.shouldHave(text("Hello, John"));
+		//check text field has text
+		$(Selectors.shadowCss("p", "show-hello[name=John]")).shouldHave(text("Hello, John"));
 
 		//switch back to Mainframe
 		switchTo().defaultContent();
