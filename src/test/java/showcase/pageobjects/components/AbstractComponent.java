@@ -1,4 +1,4 @@
-package template.pageobjects.components;
+package showcase.pageobjects.components;
 
 public abstract class AbstractComponent
 {
