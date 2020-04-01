@@ -1,4 +1,10 @@
 default:
   homepage:
     title: Xceptance - The Software Testing Experts 
+    headline: Committed to Software Quality
+    
+german:
+  homepage:
+    title: Xceptance - Qualitätssicherung von Software
+    headline: Der Qualität von Software verpflichtet
    
