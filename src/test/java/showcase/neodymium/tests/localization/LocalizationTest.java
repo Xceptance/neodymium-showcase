@@ -41,32 +41,43 @@ public class LocalizationTest extends AbstractTest {
         
         //Headline example
         
-        //Get Headline element
+        //Get headline element
         SelenideElement headLine = $("div.landing-intro > h1");
+        
+        //Get subtitle element
+        SelenideElement subTitle = $("div.landing-intro > p");
         
         //Check headline element is visible
         headLine.shouldBe(visible);
+        subTitle.shouldBe(visible);
         
         //Check that headline is correct in english
         headLine.shouldHave(text(Neodymium.localizedText("homepage.headline")));
         
+        //Close the window
         Selenide.closeWindow();
+        
+        //Set locale to german(de_DE), so we can check the german version
+        Neodymium.configuration().setProperty("neodymium.locale", "de");
         
         //Open homepage in german
         Selenide.open("https://www.xceptance.com/de/");
         
         //Check title is correct in german
-        //Note: To use localized string with locale you have to call them like this:
-        //Neodymium.localizedText(key-to-string, locale)
-        //This will return the translated string for this locale, if it exists.
-        new Title().validateTitle(Neodymium.localizedText("homepage.title", "de"));
+        new Title().validateTitle(Neodymium.localizedText("homepage.title"));
         
         //Headline example
         
         //Check headline element is visible        
         headLine.shouldBe(visible);
+        subTitle.shouldBe(visible);
         
         //Check that headline is correct in german
-        headLine.shouldHave(text(Neodymium.localizedText("homepage.headline", "de")));
+        headLine.shouldHave(text(Neodymium.localizedText("homepage.headline")));
+        
+        //Check that subtitle is correct in german
+        //Note: Here the call to localizedText has a added locale to get a specific String
+        //from a specific locale.
+        subTitle.shouldHave(text(Neodymium.localizedText("homepage.subtitle", "german")));
     }
 }
