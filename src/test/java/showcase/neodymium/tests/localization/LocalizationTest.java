@@ -59,7 +59,7 @@ public class LocalizationTest extends AbstractTest {
         //Note: To use localized string with locale you have to call them like this:
         //Neodymium.localizedText(key-to-string, locale)
         //This will return the translated string for this locale, if it exists.
-        new Title().validateTitle(Neodymium.localizedText("homepage.title", "german"));
+        new Title().validateTitle(Neodymium.localizedText("homepage.title", "de"));
         
         //Headline example
         
@@ -67,6 +67,6 @@ public class LocalizationTest extends AbstractTest {
         headLine.shouldBe(visible);
         
         //Check that headline is correct in german
-        headLine.shouldHave(text(Neodymium.localizedText("homepage.headline", "german")));
+        headLine.shouldHave(text(Neodymium.localizedText("homepage.headline", "de")));
     }
 }
