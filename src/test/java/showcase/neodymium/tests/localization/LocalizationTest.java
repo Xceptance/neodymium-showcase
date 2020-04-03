@@ -31,12 +31,12 @@ public class LocalizationTest extends AbstractTest {
     @Description(value = "Showcase for localization test")
     public void testLocalization() {
         //Open homepage in english
-        Selenide.open("https://www.xceptance.com/en/");
-        
-        //Check title is correct in english
         //Note: To use localized string you have to call them like this:
         //Neodymium.localizedText(key-to-string)
         //This will search in the default language as no locale is given over.
+        Selenide.open(Neodymium.localizedText("homepage.url"));
+        
+        //Check title is correct in english
         new Title().validateTitle(Neodymium.localizedText("homepage.title"));
         
         //Headline example
@@ -61,7 +61,7 @@ public class LocalizationTest extends AbstractTest {
         Neodymium.configuration().setProperty("neodymium.locale", "de");
         
         //Open homepage in german
-        Selenide.open("https://www.xceptance.com/de/");
+        Selenide.open(Neodymium.localizedText("homepage.url"));
         
         //Check title is correct in german
         new Title().validateTitle(Neodymium.localizedText("homepage.title"));
