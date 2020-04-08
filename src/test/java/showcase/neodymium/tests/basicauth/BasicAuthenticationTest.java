@@ -30,9 +30,10 @@ public class BasicAuthenticationTest extends AbstractTest {
     @Test
     @Description(value = "Showcase for basic authentication")
     public void testBasicAuthentication() {
-        Neodymium.getLocalProxy().autoAuthorization("https://localhost:8443/webdav/", "webdav", "webdav", AuthType.BASIC);
+        //Neodymium.getLocalProxy().autoAuthorization("https://localhost:8443/webdav/", "webdav", "webdav", AuthType.BASIC);
         Selenide.open("https://localhost:8443/webdav/");
-        new Title().validateTitle("Content of folder");
+        //Selenide.open("https://localhost:8443/webdav/", "", Neodymium.configuration().basicAuthUsername(), Neodymium.configuration().basicAuthPassword());
+        new Title().validateTitle("Content of folder/");
         $("h1").should(exist);
     }
 }
