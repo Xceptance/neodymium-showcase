@@ -1,13 +1,16 @@
 package showcase.neodymium.tests.basicauth;
 
 import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.clearBrowserCookies;
 
 import org.junit.Test;
 
 import com.browserup.bup.proxy.auth.AuthType;
 import com.codeborne.selenide.Selenide;
 import com.xceptance.neodymium.util.Neodymium;
+import com.xceptance.neodymium.util.WebDriverUtils;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -25,15 +28,31 @@ import showcase.pageobjects.components.Title;
 @Owner("Georg Kunze")
 @Tag("smoke")
 @DisplayName("BasicAuthenticationTest")
+
 public class BasicAuthenticationTest extends AbstractTest {
 
-    @Test
+    //@Test
     @Description(value = "Showcase for basic authentication")
     public void testBasicAuthentication() {
-        //Neodymium.getLocalProxy().autoAuthorization("https://localhost:8443/webdav/", "webdav", "webdav", AuthType.BASIC);
-        Selenide.open("https://localhost:8443/webdav/");
-        //Selenide.open("https://localhost:8443/webdav/", "", Neodymium.configuration().basicAuthUsername(), Neodymium.configuration().basicAuthPassword());
-        new Title().validateTitle("Content of folder/");
-        $("h1").should(exist);
+        Selenide.open("https://authenticationtest.com/HTTPAuth/");
+        new Title().validateTitle("Authentication Test");
+        $(".alert-success").shouldBe(visible);
+    }
+    
+    @Test
+    @Description(value = "Showcase for authentication for specific page")
+    public void testSpecificPageAuthentication() {
+        Neodymium.getLocalProxy().autoAuthorization("authenticationtest.com", "User1", "Pass", AuthType.BASIC);
+        Selenide.open("https://authenticationtest.com/HTTPAuth/");
+        new Title().validateTitle("Authentication Test");
+        $(".alert-danger").shouldBe(visible);
+        Selenide.closeWindow();
+        WebDriverUtils.preventReuseAndTearDown();
+        WebDriverUtils.setUp("Chrome_1024x768");
+        Neodymium.getLocalProxy().autoAuthorization("authenticationtest.com", "User", "Pass", AuthType.BASIC);
+        Selenide.open("https://authenticationtest.com/HTTPAuth/");
+        new Title().validateTitle("Authentication Test");
+        $(".alert-success").shouldBe(visible);
+        Selenide.closeWebDriver();
     }
 }
