@@ -42,10 +42,13 @@
 				<configuration>
 					<forkCount>2</forkCount>
 					<testFailureIgnore>true</testFailureIgnore>
-					<argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
+					<argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+					</argLine>
 					<systemPropertyVariables>
-						<allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
-						<selenide.reports>${project.build.directory}/selenide-results</selenide.reports>
+						<allure.results.directory>${project.build.directory}/allure-results
+						</allure.results.directory>
+						<selenide.reports>${project.build.directory}/selenide-results
+						</selenide.reports>
 					</systemPropertyVariables>
 				</configuration>
 				<dependencies>
@@ -81,7 +84,7 @@
 						<configuration>
 							<includes>
 								<!-- Neodymium (pure Java) test cases -->
-								<include>template/neodymium/tests/**/*Test.java</include>
+								<include>showcase/neodymium/tests/**/*Test.java</include>
 							</includes>
 							<properties>
 								<property>
@@ -104,11 +107,13 @@
 						<configuration>
 							<includes>
 								<!-- Cucumber test cases -->
-								<include>template/cucumber/tests/RunAllFeaturesTest.java</include>
+								<include>showcase/cucumber/tests/RunAllFeaturesTest.java
+								</include>
 							</includes>
 							<systemPropertyVariables>
 								<cucumber.options>--plugin
-									io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm</cucumber.options>
+									io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm
+								</cucumber.options>
 							</systemPropertyVariables>
 						</configuration>
 					</plugin>
@@ -116,7 +121,15 @@
 			</build>
 		</profile>
 	</profiles>
-
+	
+	<repositories>
+		<repository>
+			<id>xceptance-snapshot-repository</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots
+			</url>
+		</repository>
+	</repositories>
+	
 	<dependencies>
 		<dependency>
 			<groupId>com.xceptance</groupId>
@@ -134,6 +147,11 @@
 			<groupId>com.codeborne</groupId>
 			<artifactId>selenide</artifactId>
 			<version>5.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.xceptance</groupId>
+			<artifactId>neodymium-plugin-applitools</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
