@@ -1,9 +1,7 @@
 package showcase.neodymium.tests.basicauth;
 
-import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.clearBrowserCookies;
 
 import org.junit.Test;
 
@@ -37,22 +35,31 @@ public class BasicAuthenticationTest extends AbstractTest {
         Selenide.open("https://authenticationtest.com/HTTPAuth/");
         new Title().validateTitle("Authentication Test");
         $(".alert-success").shouldBe(visible);
-    }
-    
-    @Test
-    @Description(value = "Showcase for authentication for specific page")
-    public void testSpecificPageAuthentication() {
-        Neodymium.getLocalProxy().autoAuthorization("authenticationtest.com", "User1", "Pass", AuthType.BASIC);
-        Selenide.open("https://authenticationtest.com/HTTPAuth/");
-        new Title().validateTitle("Authentication Test");
-        $(".alert-danger").shouldBe(visible);
         Selenide.closeWindow();
         WebDriverUtils.preventReuseAndTearDown();
+    }
+    
+    //@Test
+    @Description(value = "Showcase for authentication for specific page")
+    public void testSpecificPageAuthentication() {
         WebDriverUtils.setUp("Chrome_1024x768");
         Neodymium.getLocalProxy().autoAuthorization("authenticationtest.com", "User", "Pass", AuthType.BASIC);
         Selenide.open("https://authenticationtest.com/HTTPAuth/");
         new Title().validateTitle("Authentication Test");
         $(".alert-success").shouldBe(visible);
-        Selenide.closeWebDriver();
+        Selenide.closeWindow();
+        WebDriverUtils.preventReuseAndTearDown();
+    }
+    
+    @Test
+    @Description(value = "Showcase for authentication with MITM proxy")
+    public void testMITMProxyAuthentication() {
+        //WebDriverUtils.setUp("Chrome_1024x768");
+        Selenide.open("https://docs.mitmproxy.org/stable/");
+        new Title().validateTitle("Introduction");
+        $("#main").shouldBe(visible);
+        $("#sidebar").shouldBe(visible);
+        Selenide.closeWindow();
+        WebDriverUtils.preventReuseAndTearDown();
     }
 }
