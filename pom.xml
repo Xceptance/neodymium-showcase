@@ -30,7 +30,8 @@
 		<surefire.version>2.22.2</surefire.version>
 		<aspectj.version>1.9.5</aspectj.version>
 		<allure.version>2.10.0</allure.version>
-		<neodymium.version>3.5.0</neodymium.version>
+		<neodymium.version>3.6.0</neodymium.version>
+		<pdfbox.version>2.0.18</pdfbox.version>
 	</properties>
 
 	<build>
@@ -134,6 +135,11 @@
 			<groupId>com.codeborne</groupId>
 			<artifactId>selenide</artifactId>
 			<version>5.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>${pdfbox.version}</version>
 		</dependency>
 	</dependencies>
 
