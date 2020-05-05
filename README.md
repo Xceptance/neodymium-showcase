@@ -15,8 +15,8 @@ In `CheckboxTest.java` there is are more sophisticated usecases for shadow DOM i
 ## 2. Localization
 Under `showcase.neodymium.tests.localization` you can find how to use the localization feature of neodymium. Note that all the translated strings can be found in the `localization.yaml` in the config folder.
 ## 3. Web slider 
-The `showcase.neodymium.tests.slider` package contains a usecase to drag and drop a web slider.
-This usecase shows how to move a horizontal web slider to the right. 
+The `showcase.neodymium.tests.slider` package contains the usecases to drag and drop a web slider into different directions.
+There are usecases for horizontal and vertical movements. 
 
 ## License
 MIT
