@@ -2,14 +2,10 @@ package showcase.neodymium.tests.slider;
 
 import static com.codeborne.selenide.Selenide.$;
 
-import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
-import com.xceptance.neodymium.util.Neodymium;
 import com.xceptance.neodymium.util.SelenideAddons;
 
 import io.qameta.allure.Description;
@@ -31,31 +27,70 @@ public class SliderTest extends AbstractTest
 {
 
     @Test
-    @Description(value = "Showcase for a horizontal drag and drop of a web slider.")
-    public void testhorizontalMovement()
+    @Description(value = "Showcase for a horizontal drag and drop of a web slider to the right side.")
+    public void testHorizontalRightMovement()
     {
         // open demo page
         Selenide.open("https://demos.telerik.com/kendo-ui/slider/index");
 
         // move the slider to the right
+        // offset for the horizontal movement: 40
+        // offset for the vertical movement: 0
         // until the value: 8
-        // try this 5 times
-        Actions moveSlider = new Actions(Neodymium.getDriver());
+        // retries: 5
+        // pause between movements: 3000ms
+        SelenideAddons.dragAndDropUntilCondition($(".balSlider a[role=slider]"), $(".balSlider a[role=slider]"), 40, 0, 3000, 5,
+                                                 Condition.attribute("aria-valuenow", "8"));
+    }
 
-        int counter = 0;
-        while (!$(".balSlider a[role=slider]").has(Condition.attribute("aria-valuenow", "8")))
-        {
-            if (counter > 5)
-            {
-                SelenideAddons.wrapAssertionError(() -> {
-                    Assert.assertTrue("CircutBreaker: Was not able to move the element and to reach the condition. "
-                                      + "Tried: " + 5 + " times to move the element.", false);
-                });
-            }
-            Action action = moveSlider.dragAndDropBy($(".balSlider a[role=slider]").getWrappedElement(), 40, 0).build();
-            action.perform();
-            Selenide.sleep(3000);
-            counter++;
-        }
+    @Test
+    @Description(value = "Showcase for a horizontal drag and drop of a web slider to the left side.")
+    public void testHorizontalLeftMovement()
+    {
+        // open demo page
+        Selenide.open("https://demos.telerik.com/kendo-ui/slider/index");
+
+        // move the slider to the left
+        // offset for the horizontal movement: -40
+        // offset for the vertical movement: 0
+        // until the value: -8
+        // retries: 5
+        // pause between movements: 3000ms
+        SelenideAddons.dragAndDropUntilCondition($(".balSlider a[role=slider]"), $(".balSlider a[role=slider]"), -40, 0, 3000, 5,
+                                                 Condition.attribute("aria-valuenow", "-8"));
+    }
+
+    @Test
+    @Description(value = "Showcase for a vertical drag and drop of a web slider to the top.")
+    public void testVerticalUpMovement()
+    {
+        // open demo page
+        Selenide.open("https://demos.telerik.com/kendo-ui/slider/index");
+
+        // move the slider to the top
+        // offset for the horizontal movement: 0
+        // offset for the vertical movement: -10
+        // until the value: 16
+        // retries: 5
+        // pause between movements: 3000ms
+        SelenideAddons.dragAndDropUntilCondition($("#equalizer .k-slider-vertical:first-child a"), $("#equalizer .k-slider-vertical:first-child a"), 0, -10,
+                                                 3000, 5, Condition.attribute("aria-valuenow", "16"));
+    }
+
+    @Test
+    @Description(value = "Showcase for a vertical drag and drop of a web slider to the bottom.")
+    public void testVerticalDownMovement()
+    {
+        // open demo page
+        Selenide.open("https://demos.telerik.com/kendo-ui/slider/index");
+
+        // move the slider to the bottom
+        // offset for the horizontal movement: 0
+        // offset for the vertical movement: 10
+        // until the value: -6
+        // retries: 5
+        // pause between movements: 3000ms
+        SelenideAddons.dragAndDropUntilCondition($("#equalizer .k-slider-vertical:first-child a"), $("#equalizer .k-slider-vertical:first-child a"), 0, 10,
+                                                 3000, 5, Condition.attribute("aria-valuenow", "-6"));
     }
 }
