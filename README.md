@@ -15,9 +15,5 @@ In `TextTest.java` you can find a simple use case on how to automatically test s
 
 ## 2. Localization
 The tests in the `showcase.neodymium.tests.localization` package highlight how the [localization](https://github.com/Xceptance/neodymium-library/wiki/Localization) feature of neodymium is used. Note that all the translated strings and their keys can be found in the `config/localization.yaml` file. 
-## 3. Web slider 
-The `showcase.neodymium.tests.slider` package contains the use cases to drag and drop a web slider into different directions.
-There are use cases for horizontal and vertical movements. 
-
 ## License
 MIT
