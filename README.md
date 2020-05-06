@@ -1,5 +1,5 @@
 # Introduction
-This repository is a showcase project to demonstrate the usage of several features of the [Neodymium Library](https://github.com/Xceptance/neodymium-library). It was created based on the [Neodymium template](https://github.com/Xceptance/neodymium-template).
+This repository is a showcase project to demonstrate the usage of several features of the [Neodymium Library](https://github.com/Xceptance/neodymium-library).
 
 
 
