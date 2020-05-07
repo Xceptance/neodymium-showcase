@@ -7,7 +7,7 @@ This repository is a showcase project to demonstrate the usage of several featur
 Below is a summary of the content from this project.
 
 ## 1. Shadow DOM
-The `showcase.neodymium.tests.shadowdom` package contains the use cases for the shadow DOM automation. Please also have a look at our [wiki](https://github.com/Xceptance/neodymium-library/wiki/Shadow-DOM-Testing) for more information.
+The `showcase.neodymium.tests.shadowdom` package contains use cases for the shadow DOM automation. Please also have a look at our [wiki](https://github.com/Xceptance/neodymium-library/wiki/Shadow-DOM-Testing) for more information.
 #### 1.1 General Shadow DOM
 In `TextTest.java` you can find a simple use case on how to automatically test shadow DOM elements.
 #### 1.2. Nested Shadow DOM
