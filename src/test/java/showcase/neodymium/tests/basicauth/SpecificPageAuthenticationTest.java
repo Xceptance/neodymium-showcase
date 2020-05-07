@@ -4,17 +4,14 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
 
-import org.junit.Test;
-import org.aeonbits.owner.ConfigFactory;
-import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
-
-import com.codeborne.selenide.Selenide;
-import com.xceptance.neodymium.util.Neodymium;
+import org.junit.Test;
+import org.junit.AfterClass;
+import org.aeonbits.owner.ConfigFactory;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -23,6 +20,11 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.junit4.Tag;
 import showcase.neodymium.tests.AbstractTest;
+
+import com.browserup.bup.proxy.auth.AuthType;
+import com.codeborne.selenide.Selenide;
+import com.xceptance.neodymium.util.Neodymium;
+
 import showcase.neodymium.tests.NeodymiumTest;
 import showcase.pageobjects.components.Title;
 
@@ -32,19 +34,18 @@ import showcase.pageobjects.components.Title;
 @Severity(SeverityLevel.TRIVIAL)
 @Owner("Georg Kunze")
 @Tag("smoke")
-@DisplayName("BasicAuthenticationTest")
-
-public class BasicAuthenticationTest extends AbstractTest {
+@DisplayName("SpecificPageAuthenticationTest")
+public class SpecificPageAuthenticationTest extends AbstractTest {
     
     private static File tempConfigFile;
     
     @BeforeClass
     public static void beforeClass()
     {
-        // set up a temporary neodymium.properties
+// set up a temporary neodymium.properties
         
         //setup file at location
-        final String fileLocation = "config/temp-BasicAuthentication-neodymium.properties";
+        final String fileLocation = "config/temp-SpecificPageAuthentication-neodymium.properties";
         tempConfigFile = new File("./" + fileLocation);
         
         //Setup new properties and fill them with needed info
@@ -60,11 +61,15 @@ public class BasicAuthenticationTest extends AbstractTest {
         //assert that web driver is no loaded yet
         Assert.assertNull(Neodymium.getDriver());
     }
-
+    
     @Test
-    @Description(value = "Showcase for basic authentication")
-    public void testBasicAuthentication() {        
-        //Open webpage with authentication
+    @Description(value = "Showcase for authentication for specific page")
+    public void testSpecificPageAuthentication() {        
+        //Setup authentication for authenticationtest.com
+        //Note: Syntax here is autoAuthorization(host, username, password, authoraziation_type)
+        Neodymium.getLocalProxy().autoAuthorization("authenticationtest.com", "User", "Pass", AuthType.BASIC);
+        
+        //Open authenticationtest.com with http authentication
         Selenide.open("https://authenticationtest.com/HTTPAuth/");
         
         //Validate title
@@ -75,7 +80,7 @@ public class BasicAuthenticationTest extends AbstractTest {
         
         //Close the browser window
         Selenide.closeWindow();
-    }    
+    }
     
     @AfterClass
     public static void afterClass()
@@ -83,4 +88,5 @@ public class BasicAuthenticationTest extends AbstractTest {
         //delete temporary properties file
         NeodymiumTest.deleteTempFile(tempConfigFile);
     }
+
 }
