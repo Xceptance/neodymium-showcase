@@ -14,6 +14,8 @@ In `TextTest.java` you can find a simple usecase on how to automatically test sh
 In `CheckboxTest.java` there is are more sophisticated usecases for shadow DOM including nested shadow DOM's.
 ## 2. Localization
 Under `showcase.neodymium.tests.localization` you can find how to use the localization feature of neodymium. Note that all the translated strings can be found in the `localization.yaml` in the config folder.
+## 3. Web slider 
+The `showcase.neodymium.tests.slider` package contains the use cases to drag and drop a web slider into different directions e.g. horizontal and vertical.
 
 ## License
 MIT
