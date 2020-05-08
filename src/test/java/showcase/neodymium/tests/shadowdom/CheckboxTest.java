@@ -36,60 +36,49 @@ public class CheckboxTest extends AbstractTest {
     @Description(value = "Showcase for nested shadow DOM.")
     public void testNestedShadowDOM() {
         //open demo page
-        Selenide.open("https://mwc-demos.glitch.me/demos/checkbox.html");
+        Selenide.open("https://mwc-demos.glitch.me");
         
         //check if correct site did open
-        $("demo-header[component=Checkbox]").should(exist);
+        $("#header").should(exist);
         
         //check that the content frame exists
-        $("div.demo-group").shouldBe(visible);
+        $("div.sections-wrapper").shouldBe(visible);
         
         //check amount of checkboxes
-        $$("mwc-checkbox").shouldHaveSize(6);
+        $$("div > mwc-checkbox").shouldHaveSize(3);
         
         //check title
-        new Title().validateTitle("checkbox demo");
+        new Title().validateTitle("MWC Playground");
         
         //Nested shadow DOM demo test
         
         //Css-selector for the element of which the shadow-root is a child
-        String shadowHost = "demo-header[component=Checkbox]";
+        String shadowHost = "mwc-button[label='toggle menu']";
         
         //Css-selector for the element within the shadow DOM tree, which has the nested shadow DOM
-        String nestedShadowHost = "mwc-top-app-bar-fixed";
+        String nestedShadowHost = "#button > mwc-ripple";
         
         //Css-selector for the first target element
         //This has to identify the element within the nested shadow DOM tree
-        String target1 = "div.mdc-top-app-bar__row";        
+        String target = "div.mdc-ripple-surface";      
         
-        //check the top bar is visible
+        //Scroll to button
+        $(shadowHost).scrollTo();
+        
+        //check if target is not visible
         //Signature of the method shadowCss is 
         //shadowCss(target-element, parent-shadow-host, list-of-nested-shadow-hosts)
         //Note: the last parameter excepts either a simple string or a list of strings
         //the list has to contain in order all the nested shadow hosts that need to be
         //found, to be able to find the target element.
-        $(Selectors.shadowCss(target1, shadowHost, nestedShadowHost)).shouldBe(visible);
-        
-        //Additional examples
-        
-        //Css-selector for the second target element
-        String target2 = "#navigation";
-        
-        //check navigation section is visible
-        $(Selectors.shadowCss(target2, shadowHost, nestedShadowHost)).shouldBe(visible);
-        
-        //Css-selector for the second target element
-        String target3 = "#actions";
-        
-        //check navigation section is visible
-        $(Selectors.shadowCss(target3, shadowHost, nestedShadowHost)).shouldBe(visible);
+        $(Selectors.shadowCss(target, shadowHost, nestedShadowHost)).shouldNotBe(visible);
     }
     
-    @Test
+    //@Test
     @Description(value = "Simple showcase for usage of shadow DOM")
     public void testSimpleShadowDOM() { 
         //open demo page
-        Selenide.open("https://mwc-demos.glitch.me/demos/checkbox.html");   
+        Selenide.open("https://mwc-demos.glitch.me");   
         
         //Css-selector for the element of which the shadow-root is a child
         String shadowHost = "mwc-checkbox";
