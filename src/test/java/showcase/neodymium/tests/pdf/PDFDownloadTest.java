@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.codeborne.selenide.Selenide;
+import com.xceptance.neodymium.module.statement.browser.multibrowser.SuppressBrowsers;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -28,15 +29,14 @@ import org.apache.pdfbox.text.PDFTextStripper;
 @Owner("Georg Kunze")
 @Tag("smoke")
 @DisplayName("PDFDownloadTest")
-public class PDFDownloadTest extends AbstractTest {
+@SuppressBrowsers
+public class PDFDownloadTest extends AbstractTest 
+{
     @Test
-    @Description(value = "Showcase for PDF testing")
+    @Description("Showcase for PDF testing")
     public void testDownloadPDF() throws IOException, InterruptedException {
         //Download PDF
         File pdfFile = Selenide.download("https://s1.q4cdn.com/806093406/files/doc_downloads/test.pdf");
-        
-        //wait for download to finish
-        sleep(1500);
         
         //Create new pdf document and load file into it
         PDDocument document = PDDocument.load(pdfFile);
