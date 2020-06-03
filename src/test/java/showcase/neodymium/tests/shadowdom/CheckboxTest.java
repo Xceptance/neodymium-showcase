@@ -12,6 +12,7 @@ import static com.codeborne.selenide.Condition.visible;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.xceptance.neodymium.module.statement.browser.multibrowser.Browser;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -34,6 +35,8 @@ public class CheckboxTest extends AbstractTest {
         
     @Test
     @Description(value = "Showcase for nested shadow DOM.")
+    @Browser("FF_1024x768")
+    @Browser("Chrome_1024x768")
     public void testNestedShadowDOM() {
         //open demo page
         Selenide.open("https://mwc-demos.glitch.me");
