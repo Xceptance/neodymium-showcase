@@ -15,10 +15,9 @@ In `CheckboxTest.java` there is are more sophisticated usecases for shadow DOM i
 ## 2. Localization
 Under `showcase.neodymium.tests.localization` you can find how to use the localization feature of neodymium. Note that all the translated strings can be found in the `localization.yaml` in the config folder.
 ## 3. PDF Download
-In the `showcase.neodymium.tests.pdf` package is a basic test for downloading and checking a PDF file. In this test we use the pdfbox framework for handeling the PDF file.
-The selenide framework contains the `download` function. With it you can download a file directly via a given link.
-Then you have to load the PDF file into a document that can be handled by pdfbox. This is the `PDDocument` class. With this class you can extract any information from the PDF.
-In the example we simply extract all the text of the PDF, with the `PDFTextStripper` class, and compare it with an expected value.
+In the `showcase.neodymium.tests.pdf` package is a basic test for downloading and checking a PDF file. In this test, we use the PDFBox framework for handling a PDF file.
+The Selenide framework contains the `download` function which allows to download a file directly via a given link.
+Then, you have to load the PDF file with the PDFBox framework. With it we can get to the text and verify it.
 
 
 ## License
