@@ -1,10 +1,10 @@
 package showcase.neodymium.tests.pdf;
 
-import static com.codeborne.selenide.Selenide.sleep;
-
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,9 +19,6 @@ import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.junit4.Tag;
 import showcase.neodymium.tests.AbstractTest;
 
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.text.PDFTextStripper;
-
 /**
  * @author kunze
  */
@@ -30,24 +27,25 @@ import org.apache.pdfbox.text.PDFTextStripper;
 @Tag("smoke")
 @DisplayName("PDFDownloadTest")
 @SuppressBrowsers
-public class PDFDownloadTest extends AbstractTest 
+public class PDFDownloadTest extends AbstractTest
 {
     @Test
     @Description("Showcase for PDF testing")
-    public void testDownloadPDF() throws IOException, InterruptedException {
-        //Download PDF
+    public void testDownloadPDF() throws IOException, InterruptedException
+    {
+        // Download PDF
         File pdfFile = Selenide.download("https://s1.q4cdn.com/806093406/files/doc_downloads/test.pdf");
-        
-        //Create new pdf document and load file into it
+
+        // Create new pdf document and load file into it
         PDDocument document = PDDocument.load(pdfFile);
-        
-        //Read text of PDF into string
+
+        // Read text of PDF into string
         String text = new PDFTextStripper().getText(document);
-        
-        //Check the text
+
+        // Check the text
         Assert.assertTrue(text.contains("This is a test PDF document."));
-        
-        //close the dcument
+
+        // close the document
         document.close();
     }
 }
