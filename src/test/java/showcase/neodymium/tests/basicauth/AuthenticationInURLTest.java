@@ -20,15 +20,20 @@ import showcase.pageobjects.components.Title;
 @Owner("Georg Kunze")
 @Tag("smoke")
 @DisplayName("AuthenticationInURLTest")
-public class AuthenticationInURLTest extends AbstractTest {
-    
+public class AuthenticationInURLTest extends AbstractTest
+{
+
     @Test
     @Description(value = "Showcase for basic authentication")
-    public void testAuthenticationInURL() {
+    public void testAuthenticationInURL()
+    {
+        // Open Site with giving the open function the authentication data
         Selenide.open("http://www.httpwatch.com/httpgallery/authentication/authenticatedimage/default.aspx?0.7349707232788205",
                       "",
-                      "httpwatch", 
+                      "httpwatch",
                       "foo");
+
+        // validate title
         new Title().validateTitle("default.aspx (300×60)");
     }
 }
