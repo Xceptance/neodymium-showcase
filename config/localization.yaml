@@ -1,13 +1,11 @@
 default:
   homepage: 
-    url: https://www.xceptance.com/en/
     title: Xceptance - The Software Testing Experts 
     headline: Committed to Software Quality
     subtitle: We help out Clients optimize software testing and quality assurance
     
 de:
   homepage: 
-    url: https://www.xceptance.com/de/
     title: Xceptance - Qualitätssicherung von Software
     headline: Der Qualität von Software verpflichtet
    

@@ -36,7 +36,7 @@ public class LocalizationTest extends AbstractTest
         // Note: To use localized string you have to call them like this:
         // Neodymium.localizedText(key-to-string)
         // This will search in the default language as no locale is given over.
-        Selenide.open(Neodymium.localizedText("homepage.url"));
+        Selenide.open("https://www.xceptance.com/en/");
 
         // Check title is correct in english
         new Title().validateTitle(Neodymium.localizedText("homepage.title"));
@@ -66,7 +66,7 @@ public class LocalizationTest extends AbstractTest
         Neodymium.configuration().setProperty("neodymium.locale", "de");
 
         // Open homepage in german
-        Selenide.open(Neodymium.localizedText("homepage.url"));
+        Selenide.open("https://www.xceptance.com/de/");
 
         // Check title is correct in german
         new Title().validateTitle(Neodymium.localizedText("homepage.title"));
