@@ -75,7 +75,7 @@ public class CheckboxTest extends AbstractTest
         $(Selectors.shadowCss(target, shadowHost, nestedShadowHost)).shouldNotBe(visible);
     }
 
-    // @Test
+    @Test
     @Description(value = "Simple showcase for usage of shadow DOM")
     public void testSimpleShadowDOM()
     {
