@@ -56,6 +56,9 @@ public class LocalizationTest extends AbstractTest
         // Check that headline is correct in english
         headLine.shouldHave(text(Neodymium.localizedText("homepage.headline")));
 
+        // Check that subtitle is correct in english
+        subTitle.shouldHave(text(Neodymium.localizedText("homepage.subtitle")));
+
         // Close the window
         Selenide.closeWindow();
 
