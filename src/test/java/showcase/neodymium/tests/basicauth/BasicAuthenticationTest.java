@@ -33,10 +33,8 @@ import showcase.pageobjects.components.Title;
 @Owner("Georg Kunze")
 @Tag("smoke")
 @DisplayName("BasicAuthenticationTest")
-
 public class BasicAuthenticationTest extends AbstractTest
 {
-
     private static File tempConfigFile;
 
     @BeforeClass
