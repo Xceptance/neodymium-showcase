@@ -17,12 +17,24 @@ import com.codeborne.selenide.Selenide;
 import com.xceptance.neodymium.util.Neodymium;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.junit4.Tag;
+import showcase.neodymium.tests.AbstractTest;
 import showcase.neodymium.tests.NeodymiumTest;
 import showcase.pageobjects.components.Title;
 
-public class MITMProxyAuthenticationTest
+/**
+ * @author kunze
+ */
+@Severity(SeverityLevel.TRIVIAL)
+@Owner("Georg Kunze")
+@Tag("smoke")
+@DisplayName("MITMProxyAuthenticationTest")
+public class MITMProxyAuthenticationTest extends AbstractTest
 {
-
     private static File tempConfigFile;
 
     @BeforeClass
