@@ -9,7 +9,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.codeborne.selenide.Selenide;
-import com.xceptance.neodymium.module.statement.browser.multibrowser.SuppressBrowsers;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -26,7 +25,6 @@ import showcase.neodymium.tests.AbstractTest;
 @Owner("Georg Kunze")
 @Tag("smoke")
 @DisplayName("PDFDownloadTest")
-@SuppressBrowsers
 public class PDFDownloadTest extends AbstractTest
 {
     @Test
