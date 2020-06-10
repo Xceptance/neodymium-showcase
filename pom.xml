@@ -5,7 +5,7 @@
 
 	<groupId>com.xceptance.neodymium.project</groupId>
 	<artifactId>neodymium-showcase</artifactId>
-	<version>3.5.0-SNAPSHOT</version>
+	<version>3.6.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>neodymium-showcase</name>
@@ -31,6 +31,7 @@
 		<aspectj.version>1.9.5</aspectj.version>
 		<allure.version>2.10.0</allure.version>
 		<neodymium.version>3.6.0</neodymium.version>
+		<pdfbox.version>2.0.18</pdfbox.version>
 	</properties>
 
 	<build>
@@ -81,7 +82,7 @@
 						<configuration>
 							<includes>
 								<!-- Neodymium (pure Java) test cases -->
-								<include>template/neodymium/tests/**/*Test.java</include>
+								<include>showcase/neodymium/tests/**/*Test.java</include>
 							</includes>
 							<properties>
 								<property>
@@ -107,8 +108,7 @@
 								<include>template/cucumber/tests/RunAllFeaturesTest.java</include>
 							</includes>
 							<systemPropertyVariables>
-								<cucumber.options>--plugin
-									io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm</cucumber.options>
+								<cucumber.options>--plugin io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm</cucumber.options>
 							</systemPropertyVariables>
 						</configuration>
 					</plugin>
@@ -134,6 +134,11 @@
 			<groupId>com.codeborne</groupId>
 			<artifactId>selenide</artifactId>
 			<version>5.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>${pdfbox.version}</version>
 		</dependency>
 	</dependencies>
 
