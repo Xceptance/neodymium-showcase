@@ -59,9 +59,6 @@ public class LocalizationTest extends AbstractTest
         // Check that subtitle is correct in english
         subTitle.shouldHave(text(Neodymium.localizedText("homepage.subtitle")));
 
-        // Close the window
-        Selenide.closeWindow();
-
         // Set locale to german(de_DE), so we can check the german version
         Neodymium.configuration().setProperty("neodymium.locale", "de");
 
