@@ -66,7 +66,7 @@ public class BasicXcMailrTest extends AbstractXcMailrTest
     }
 
     @Test
-    public void testEmailCreated()
+    public void testEmailCreated() throws IOException
     {
         // Create temporary email with the XcMailrApi
         XcMailrApi.createTemporaryEmail(tempEmail);
@@ -76,7 +76,7 @@ public class BasicXcMailrTest extends AbstractXcMailrTest
     }
 
     @Test
-    public void testRetrieveLastEmailBySubject() throws MessagingException, ParseException
+    public void testRetrieveLastEmailBySubject() throws MessagingException, ParseException, IOException
     {
         // Subject of email
         final String subject = "Test";
@@ -96,9 +96,7 @@ public class BasicXcMailrTest extends AbstractXcMailrTest
         // Get emails from the emailserver. Syntax:
         // fetchEmails(email, senderemail, subject_to_filter, text_to_filter, htmlcontent_to_filter, format, lastMatch)
         // emails are in JSON format
-        // To do: right now retrieveLastEmailBySubject or retrieveLastEmailBySender return a JSONObject
-        // This will be fixed soon. Then this line needs to be replaced with above mentioned functions
-        String response = XcMailrApi.fetchEmails(tempEmail, CREDENTIALS.senderEmail(), subject, null, null, null, true);
+        String response = XcMailrApi.retrieveLastEmailBySubject(tempEmail, subject);
 
         // Get HTML content from first email of response
         String decodedString = XcMailrHelper.getFirstMailsHtmlContent(response);
