@@ -33,6 +33,14 @@
 		<neodymium.version>3.6.0</neodymium.version>
 		<pdfbox.version>2.0.18</pdfbox.version>
 	</properties>
+	
+	<repositories>
+		<repository>
+			<id>xceptance-public-repository</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots
+			</url>
+		</repository>
+	</repositories>
 
 	<build>
 		<plugins>
@@ -140,6 +148,11 @@
 			<artifactId>pdfbox</artifactId>
 			<version>${pdfbox.version}</version>
 		</dependency>
+		<dependency>
+           <groupId>com.xceptance</groupId>
+           <artifactId>neodymium-plugin-xcmailr</artifactId>
+           <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 	</dependencies>
 
 	<reporting>
