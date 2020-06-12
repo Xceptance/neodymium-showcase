@@ -90,12 +90,14 @@ public class BasicXcMailrTest extends AbstractXcMailrTest
         // Create EmailAccount with credentials of test email
         final EmailAccount emailAccount = new EmailAccount(CREDENTIALS.senderEmail(), CREDENTIALS.senderLogin(), CREDENTIALS.senderPassword(), CREDENTIALS.senderServer(), CREDENTIALS.senderPort(), false, true);
 
-        // Send email. The sysntax is send(email_from, email_to, subject, text_of_mail)
+        // Send email. The syntax is send(email_from, email_to, subject, text_of_mail)
         SendEmail.send(emailAccount, tempEmail, subject, textToSend);
 
         // Get emails from the emailserver. Syntax:
         // fetchEmails(email, senderemail, subject_to_filter, text_to_filter, htmlcontent_to_filter, format, lastMatch)
         // emails are in JSON format
+        // To do: right now retrieveLastEmailBySubject or retrieveLastEmailBySender return a JSONObject
+        // This will be fixed soon. Then this line needs to be replaced with above mentioned functions
         String response = XcMailrApi.fetchEmails(tempEmail, CREDENTIALS.senderEmail(), subject, null, null, null, true);
 
         // Get HTML content from first email of response

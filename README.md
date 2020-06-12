@@ -21,5 +21,9 @@ In the `showcase.neodymium.tests.pdf` package is a basic test for downloading an
 To first download such a file, we use Selenide's `download` function in order to download a file directly via a given link.
 Then, the PDF file is loaded with the PDFBox framework, so we can access the text and verify it.
 
+## 4. XcMailr Plugin
+The`showcase.neodymium.tests.xcmailr` package contains a simple testcase for the XcMailr plugin for Neodymium. For how to setup the plugin please refer to the `README.md` of the XcMailr plugin found [here](https://github.com/Xceptance/neodymium-plugin-xcmailr).
+The plugin needs credentials that need to be specified in the `credentials.properties`. Also a apitoken for the XcMailr needs to be provided in the `xcmailr.properties`. This can be done on the [XcMailr-website](https://xcmailr.xceptance.de/).
+
 ## License
 MIT
