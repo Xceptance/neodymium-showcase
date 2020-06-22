@@ -1,6 +1,8 @@
 # Introduction
 This repository is a showcase project to demonstrate the usage of several features of the [Neodymium Library](https://github.com/Xceptance/neodymium-library).
 
+It is a collection of single tests to demonstrate how Neodymium works and to give a an easy hands on experience. 
+Running all tests together can lead to errors due to the demo character and the different configurations needed for different systems under test.
 
 
 # Content

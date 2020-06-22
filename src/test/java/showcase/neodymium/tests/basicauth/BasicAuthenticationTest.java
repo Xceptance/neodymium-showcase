@@ -37,6 +37,11 @@ public class BasicAuthenticationTest extends AbstractTest
 {
     private static File tempConfigFile;
 
+    // this configuration part are only here for demo purposes
+    // normally this will be moved to the neodymium.properties
+    // for this test case a temporally file will be created
+    // the file gets the necessary properties for a successful test run
+    // after the actual test this temporally file will be deleted
     @BeforeClass
     public static void beforeClass()
     {
