@@ -1,12 +1,11 @@
 # Introduction
-This repository is a showcase project to demonstrate the usage of several features of the [Neodymium Library](https://github.com/Xceptance/neodymium-library).
+This repository is a Showcase project to demonstrate the usage of several features of the [Neodymium Library](https://github.com/Xceptance/neodymium-library).
 
-It is a collection of single tests to demonstrate how Neodymium works and to give a an easy hands on experience. 
-Running all tests together can lead to errors due to the demo character and the different configurations needed for different systems under test.
+To use Neodymium features in test development as intended from the very beginning on without struggling around with several required configurations each show case explains the approach technology, the implementation options as well as the belonging configuration next to where it is implemented. The reader gets also some recommendation about when an approach should be used or even not. 
 
 
-# Content
-Below is a summary of the content from this project.
+# Show cases
+Below is a summary of the show cases. Deeper documentation can be found in the show case code next to each show case. It is also possible to execute a show case after [setting up the Chrome Webdriver](https://github.com/Xceptance/neodymium-library/wiki/How-to-set-up-a-WebDriver). Just run the show case of interest as a JUnit test from with the IDE.
 
 ## 1. Shadow DOM
 The `showcase.neodymium.tests.shadowdom` package contains use cases for the shadow DOM automation. Please also have a look at our [wiki](https://github.com/Xceptance/neodymium-library/wiki/Shadow-DOM-Testing) for more information.
