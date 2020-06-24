@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import com.codeborne.selenide.Selenide;
 import com.xceptance.neodymium.util.Neodymium;
-import com.xceptance.neodymium.util.SelenideAddons;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -22,7 +21,7 @@ import showcase.pageobjects.components.Title;
 @Severity(SeverityLevel.NORMAL)
 @Owner("Test Developer")
 @Tag("show case")
-public class NeodymiumSelenideBasicAuthentication extends AbstractTest {
+public class SelenideBasicAuthentication extends AbstractTest {
 
   /*
    * If the system under test requires HTTP Basic Authentication then using Selenide within Neodymium
@@ -46,24 +45,22 @@ public class NeodymiumSelenideBasicAuthentication extends AbstractTest {
   @Before
   public void configurationCheck() {
     // required configuration checks
-    SelenideAddons.wrapAssertionError(() -> {
-      Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.localproxy is not set to false",
-          false,
-          Neodymium.configuration().useLocalProxy());
+    Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.localproxy is not set to false",
+        false,
+        Neodymium.configuration().useLocalProxy());
 
-      Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.basicauth.username is not set",
-          false,
-          Neodymium.configuration().basicAuthUsername().matches("^$"));
+    Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.basicauth.username is not set",
+        "User", // valid username for https://authenticationtest.com/HTTPAuth/
+        Neodymium.configuration().basicAuthUsername());
 
-      Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.basicauth.password is not set",
-          false,
-          Neodymium.configuration().basicAuthPassword().matches("^$"));
-    });
+    Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.basicauth.password is not set",
+        "Pass", // valid password for user at https://authenticationtest.com/HTTPAuth/ | User
+        Neodymium.configuration().basicAuthPassword());
   }
 
   @Test
   @Description(value = "Showcase for basic authentication using Selenide")
-  public void basicAuthenticationWithNeodymiumConfiguration() {
+  public void test() {
     // Open webpage which requires authentication
     Selenide.open("https://authenticationtest.com/HTTPAuth/",
         "",

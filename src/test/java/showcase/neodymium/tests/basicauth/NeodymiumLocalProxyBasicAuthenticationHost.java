@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.browserup.bup.proxy.auth.AuthType;
 import com.codeborne.selenide.Selenide;
 import com.xceptance.neodymium.util.Neodymium;
 
@@ -21,23 +22,17 @@ import showcase.pageobjects.components.Title;
 @Severity(SeverityLevel.NORMAL)
 @Owner("Test Developer")
 @Tag("show case")
-public class NeodymiumLocalProxyBasicAuthentication extends AbstractTest {
+public class NeodymiumLocalProxyBasicAuthenticationHost extends AbstractTest {
   /*
    * If the system under test requires HTTP Basic Authentication then using Neodymium Local Proxy
-   * is one possible approach. All requests are automatically routed through the Local Proxy
-   * running in the Neodymium test execution process. The Neodymium Local Proxy adds the
-   * credentials to the HTTP header to authenticate the request when opening the site.
-   * 
-   * The neodymium.url.host setting is taken by default to invoke the proxy for a host, but can also
-   * be set during runtime. (see: NeodymiumLocalProxyBasicAuthenticationHost showcase)
+   * is one possible approach. All requests are routed through the Local Proxy running in the Neodymium
+   * test execution processas as configured at runtime. This enables to use different hosts in the test suite.
+   * The Neodymium Local Proxy adds the credentials to the HTTP header to authenticate the request when opening the site.
    * 
    * REQUIRED CONFIGURATION
    * 
    * config/neodymium.properties:
    * - neodymium.localproxy = true # to passthrough the Local Proxy
-   * - neodymium.basicauth.username = User # HTTP Basic Auth username
-   * - neodymium.basicauth.password = Pass # HTTP Basic Auth password
-   * - neodymium.url.host = authenticationtest.com # HTTP Basic Auth host (taken by default)
    * 
    * CAUTION
    * This test case fails with the shipped default configuration.
@@ -50,23 +45,14 @@ public class NeodymiumLocalProxyBasicAuthentication extends AbstractTest {
     Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.localproxy is not set to true",
         true,
         Neodymium.configuration().useLocalProxy());
-        
-    Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.basicauth.username is not set",
-        "authenticationtest.com", // host of https://authenticationtest.com/HTTPAuth/
-        Neodymium.configuration().host());
-
-    Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.basicauth.username is not set",
-        "User", // valid username for https://authenticationtest.com/HTTPAuth/
-        Neodymium.configuration().basicAuthUsername());
-
-    Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.basicauth.password is not set",
-        "Pass", // valid password for user at https://authenticationtest.com/HTTPAuth/ | User
-        Neodymium.configuration().basicAuthPassword());
   }
 
   @Test
   @Description(value = "Showcase for basic authentication using Neodymium Local Proxy")
   public void test() {
+    // Setup authentication for specific host via proxy
+    Neodymium.getLocalProxy().autoAuthorization("authenticationtest.com", "User", "Pass", AuthType.BASIC);
+
     // Open webpage which requires authentication
     Selenide.open("https://authenticationtest.com/HTTPAuth/");
 

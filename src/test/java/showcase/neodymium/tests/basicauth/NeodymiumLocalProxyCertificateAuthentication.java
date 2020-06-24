@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import com.codeborne.selenide.Selenide;
 import com.xceptance.neodymium.util.Neodymium;
-import com.xceptance.neodymium.util.SelenideAddons;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -49,15 +48,32 @@ public class NeodymiumLocalProxyCertificateAuthentication extends AbstractTest {
   @Before
   public void configurationCheck() {
     // required configuration checks
-    SelenideAddons.wrapAssertionError(() -> {
-      Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.localproxy is not set to true",
-          true,
-          Neodymium.configuration().useLocalProxy());
+    Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.localproxy is not set to true",
+        true,
+        Neodymium.configuration().useLocalProxy());
 
-      Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.localproxy.certificate is not set to true",
-          true,
-          Neodymium.configuration().useLocalWithSelfSignedCertificate());
-    });
+    Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.localproxy.certificate is not set to true",
+        true,
+        Neodymium.configuration().useLocalWithSelfSignedCertificate());
+
+    Assert.assertEquals(
+        "NeodymiumLocalProxyBasicAuthentication: neodymium.localproxy.certificate.archiveFile check failed",
+        "./config/Certificate.pfx",
+        Neodymium.configuration().localProxyCertificateArchiveFile());
+
+    Assert.assertEquals(
+        "NeodymiumLocalProxyBasicAuthentication: neodymium.localproxy.certificate.archivetype check failed",
+        "PKCS12",
+        Neodymium.configuration().localProxyCertificateArchiveType());
+
+    Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.localproxy.certificate.name check failed",
+        "e6f60fbd-f9f3-436f-aba5-452861ae4570",
+        Neodymium.configuration().localProxyCertificateName());
+
+    Assert.assertEquals(
+        "NeodymiumLocalProxyBasicAuthentication: neodymium.localproxy.certificate.password check failed",
+        "MITMCertificatePassword",
+        Neodymium.configuration().localProxyCertificatePassword());
   }
 
   @Test
