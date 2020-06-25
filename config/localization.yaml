@@ -1,6 +1,6 @@
-comment:
-  description: This comment section is added for the show case only to explain how to use Neodymium Localization.
-  showcase: NeodymiumLocalizationShowcase
+COMMENT:
+  DESCRIPTION: This comment section is added for the show case only to explain how to use Neodymium Localization.
+  RELATED SHOWCASE: NeodymiumLocalizationShowcase
 
 default:
   homepage:
