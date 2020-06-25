@@ -108,7 +108,8 @@
 								<include>template/cucumber/tests/RunAllFeaturesTest.java</include>
 							</includes>
 							<systemPropertyVariables>
-								<cucumber.options>--plugin io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm</cucumber.options>
+								<cucumber.options>--plugin
+									io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm</cucumber.options>
 							</systemPropertyVariables>
 						</configuration>
 					</plugin>
@@ -136,6 +137,13 @@
 			<version>5.10.0</version>
 		</dependency>
 		<dependency>
+            <!-- 
+              The pdfbox dependency is added here to show how PDF files can be checked with a Neodymium test case
+              using another available technology like pdfbox.
+              
+              RELATED SHOWCASE
+              - PdfTextContentCheckShowcase
+              -->
 			<groupId>org.apache.pdfbox</groupId>
 			<artifactId>pdfbox</artifactId>
 			<version>${pdfbox.version}</version>
