@@ -1,3 +1,7 @@
+comment:
+  description: This comment section is added for the show case only to explain how to use Neodymium Localization.
+  showcase: NeodymiumLocalizationShowcase
+
 default:
   homepage:
     title: Xceptance - The Software Testing Experts 
