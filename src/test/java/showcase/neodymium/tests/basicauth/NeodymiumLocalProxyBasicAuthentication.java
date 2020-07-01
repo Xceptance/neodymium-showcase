@@ -41,7 +41,8 @@ import showcase.pageobjects.components.Title;
  */
 @Severity(SeverityLevel.NORMAL)
 @Owner("Test Developer")
-@Tag("show case")
+@Tag("embedded local proxy")
+@Tag("basic authorization")
 public class NeodymiumLocalProxyBasicAuthentication extends AbstractTest
 {
     @Before

@@ -22,8 +22,8 @@ import showcase.neodymium.tests.AbstractTest;
  * @author j.sengbusch
  */
 @Severity(SeverityLevel.TRIVIAL)
-@Owner("Johannes Sengbusch")
-@Tag("smoke")
+@Owner("Test Developer")
+@Tag("drag and drop")
 @DisplayName("Slidertest")
 public class SliderTest extends AbstractTest
 {

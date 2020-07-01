@@ -26,8 +26,8 @@ import showcase.pageobjects.components.Title;
  * @author kunze
  */
 @Severity(SeverityLevel.TRIVIAL)
-@Owner("Georg Kunze")
-@Tag("smoke")
+@Owner("Test Developer")
+@Tag("shadow dom")
 @DisplayName("Checkboxtest")
 public class CheckboxTest extends AbstractTest
 {
