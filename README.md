@@ -12,14 +12,14 @@ The `showcase.neodymium.tests.shadowdom` package contains use cases for the shad
 In `TextTest.java` you can find a simple use case on how to automatically test shadow DOM elements.
 #### 1.2. Nested Shadow DOM
 `CheckboxTest.java` contains more sophisticated use cases for shadow DOM including nested shadow DOMs. More information can be found [here](https://github.com/Xceptance/neodymium-library/wiki/Shadow-DOM-Testing).
-
 ## 2. Localization
-The tests in the `showcase.neodymium.tests.localization` package highlight how the [localization](https://github.com/Xceptance/neodymium-library/wiki/Localization) feature of neodymium is used. Note that all the translated strings and their keys can be found in the `config/localization.yaml` file.
-
+The tests in the `showcase.neodymium.tests.localization` package highlight how the [localization](https://github.com/Xceptance/neodymium-library/wiki/Localization) feature of neodymium is used. Note that all the translated strings and their keys can be found in the `config/localization.yaml` file. 
 ## 3. PDF Download
 In the `showcase.neodymium.tests.pdf` package is a basic test for downloading and checking a PDF file. In this test, we use the PDFBox framework for handling a PDF file.
 To first download such a file, we use Selenide's `download` function in order to download a file directly via a given link.
 Then, the PDF file is loaded with the PDFBox framework, so we can access the text and verify it.
+## 4. Web slider 
+The `showcase.neodymium.tests.slider` package contains the use cases to drag and drop a web slider into different directions e.g. horizontal and vertical.
 
 ## License
 MIT
