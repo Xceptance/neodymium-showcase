@@ -30,6 +30,19 @@ import showcase.pageobjects.components.Title;
 @DisplayName("Texttest")
 public class TextTest extends AbstractTest
 {
+    /*
+     * Shadow DOM is a technique for encapsulation. It allows the user to create a separate DOM. This new DOM can added
+     * to the normal DOM tree of a website without any side effects. It is a approach to create reusable components
+     * which can be inserted to every DOM tree easily. This show case provides possible approaches how to handle Shadow
+     * DOM elements.
+     * 
+     * REQUIRED CONFIGURATION
+     * 
+     * there are no required configurations - both tests are running without any adjustments inside the configuration
+     * files
+     * 
+     */
+
     @Test
     @Description(value = "Check that text field exists and control text")
     public void testTextField()
