@@ -27,6 +27,19 @@ import showcase.neodymium.tests.AbstractTest;
 @DisplayName("Slidertest")
 public class SliderTest extends AbstractTest
 {
+    /*
+     * Sliders are control elements to give the user the opportunity to select a value on a webpage. Mostly there are
+     * used horizontally but there are also vertical sliders. This show case provides possible approaches how to handle
+     * and interact with sliders and they indicators. The first 2 tests are shown horizontal and the other 2 vertical
+     * movements.
+     * 
+     * REQUIRED CONFIGURATION
+     * 
+     * there are no required configurations - all tests are running without any adjustments inside the configuration
+     * files
+     * 
+     */
+
     private static final int MAX_RETRIES = 5;
 
     private static final int INTERACTION_PAUSE = 3000;
