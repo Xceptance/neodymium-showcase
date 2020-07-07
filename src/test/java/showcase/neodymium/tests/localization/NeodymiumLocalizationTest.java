@@ -21,7 +21,7 @@ import showcase.pageobjects.components.Title;
 @Severity(SeverityLevel.NORMAL)
 @Owner("Test Developer")
 @Tag("localization")
-public class NeodymiumLocalizationShowcase extends AbstractTest
+public class NeodymiumLocalizationTest extends AbstractTest
 {
     /*
      * Most systems under test offer different languages in their front ends that the test ware needs to deal with.

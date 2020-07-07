@@ -21,7 +21,7 @@ import showcase.pageobjects.components.Title;
 @Severity(SeverityLevel.NORMAL)
 @Owner("Test Developer")
 @Tag("embedded local proxy")
-public class NeodymiumLocalProxyCertificateAuthentication extends AbstractTest
+public class NeodymiumLocalProxyCertificateAuthenticationTest extends AbstractTest
 {
 
     /*

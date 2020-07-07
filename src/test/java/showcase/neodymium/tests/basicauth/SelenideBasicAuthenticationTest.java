@@ -21,7 +21,7 @@ import showcase.pageobjects.components.Title;
 @Severity(SeverityLevel.NORMAL)
 @Owner("Test Developer")
 @Tag("basic authorization")
-public class SelenideBasicAuthentication extends AbstractTest
+public class SelenideBasicAuthenticationTest extends AbstractTest
 {
 
     /*

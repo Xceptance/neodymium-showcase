@@ -28,21 +28,18 @@ import showcase.pageobjects.components.Title;
 @Owner("Test Developer")
 @Tag("shadow dom")
 @DisplayName("Texttest")
-public class TextTest extends AbstractTest
+public class ShadowDomTextTest extends AbstractTest
 {
     /*
-     * Shadow DOM is a technique for encapsulation. It allows the user to create a separate DOM. This new DOM can added
-     * to the normal DOM tree of a website without any side effects. It is a approach to create reusable components
-     * which can be inserted to every DOM tree easily. This show case provides possible approaches how to handle Shadow
-     * DOM elements.
+     * Shadow DOM is a technique for encapsulation. It allows the user to create a separate and independent DOM. This
+     * second DOM can be nested into the DOM tree of a website without any side effects. This approach is used to build
+     * reusable components which can be integrated on every page without introducing side effect. This show case
+     * provides possible approaches how to perform tests for Shadow DOM elements.
      * 
      * REQUIRED CONFIGURATION
      * 
-     * there are no required configurations - both tests are running without any adjustments inside the configuration
-     * files
-     * 
+     * This test case does not require a specific setup(or adjustment) of the Neodymium configuration.
      */
-
     @Test
     @Description(value = "Check that text field exists and control text")
     public void testTextField()
@@ -53,31 +50,31 @@ public class TextTest extends AbstractTest
         // check title
         new Title().validateTitle("Shadow DOM");
 
-        // Verifies that toolbar is visible
+        // check that the toolbar exists
         $("div.sitetoolbar").shouldBe(visible);
 
-        // Verifies that content page is visible
+        // check that the content page exists
         $("div.page__inner").shouldBe(visible);
 
-        // Verifies that sidebar is visible
+        // check that the sidebar exists
         $("div.sidebar__inner").shouldBe(visible);
 
-        // Verifies that footer is visible
+        // check that the footer exists
         $("div.page-footer").shouldBe(visible);
 
-        // Asserts there's categories in the sidebar.
+        // check the correct amount of the sidebar
         $$("div.sidebar__section").shouldHave(sizeGreaterThan(0));
 
-        // switch to iFrame of content
+        // switch to the iFrame
         switchTo().frame($("iframe[style=\"height:60px\"]"));
 
-        // check text field
+        // check that the text field exists
         $(Selectors.shadowCss("p", "show-hello[name=John]")).shouldBe(visible);
 
-        // check text field has text
+        // check the correct content of the text field
         $(Selectors.shadowCss("p", "show-hello[name=John]")).shouldHave(text("Hello, John"));
 
-        // switch back to Mainframe
+        // leave the iFrame
         switchTo().defaultContent();
     }
 }

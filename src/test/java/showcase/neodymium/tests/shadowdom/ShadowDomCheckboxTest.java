@@ -29,7 +29,7 @@ import showcase.pageobjects.components.Title;
 @Owner("Test Developer")
 @Tag("shadow dom")
 @DisplayName("Checkboxtest")
-public class CheckboxTest extends AbstractTest
+public class ShadowDomCheckboxTest extends AbstractTest
 {
     /*
      * Shadow DOM is a technique for encapsulation. It allows the user to create a separate and independent DOM. This

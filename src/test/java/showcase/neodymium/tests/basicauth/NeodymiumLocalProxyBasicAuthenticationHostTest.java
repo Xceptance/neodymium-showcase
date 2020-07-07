@@ -23,7 +23,7 @@ import showcase.pageobjects.components.Title;
 @Owner("Test Developer")
 @Tag("embedded local proxy")
 @Tag("basic authorization")
-public class NeodymiumLocalProxyBasicAuthenticationHost extends AbstractTest
+public class NeodymiumLocalProxyBasicAuthenticationHostTest extends AbstractTest
 {
     /*
      * If the system under test requires HTTP Basic Authentication then using Neodymium Local Proxy is one possible

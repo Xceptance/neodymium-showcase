@@ -18,33 +18,34 @@ import io.qameta.allure.junit4.Tag;
 import showcase.neodymium.tests.AbstractTest;
 import showcase.pageobjects.components.Title;
 
-/*
- * If the system under test requires HTTP Basic Authentication then using an embedded local proxy provided by Neodymium is one possible approach.
- * Especially if the standard way (see: SelenideBasicAuthentication showcase) is not applicable due to restrictions of the used WebDriver.
- * The proxy is created on the fly and passed to the WebDriver. 
- * All requests running in the Neodymium test execution process are automatically routed through this proxy.
- * The local proxy provided by Neodymium can perform an automatic authorizations when the credentials and the matching url are provided.
- * 
- * The host, username and password settings are taken by default to invoke the auto authorization via the proxy for this host. 
- * It is also possible to configure this and additional systems during runtime. (see: NeodymiumLocalProxyBasicAuthenticationHost showcase) 
- * 
- * REQUIRED CONFIGURATION
- * 
- * config/neodymium.properties:
- * - neodymium.localproxy = true # to activate the local proxy 
- * - neodymium.basicauth.username = User # HTTP basic authorization user name 
- * - neodymium.basicauth.password = Pass # HTTP basic authorization password 
- * - neodymium.url.host = authenticationtest.com # HTTP basic authorization host (taken by default) 
- * 
- * CAUTION - This test case fails with the shipped default configuration. 
- * The configuration neodymium.localproxy has to be set from false to true to run it successfully.
- */
 @Severity(SeverityLevel.NORMAL)
 @Owner("Test Developer")
 @Tag("embedded local proxy")
 @Tag("basic authorization")
-public class NeodymiumLocalProxyBasicAuthentication extends AbstractTest
+public class NeodymiumLocalProxyBasicAuthenticationTest extends AbstractTest
 {
+    /*
+     * If the system under test requires HTTP Basic Authentication then using an embedded local proxy provided by
+     * Neodymium is one possible approach. Especially if the standard way (see: SelenideBasicAuthenticationTest
+     * showcase) is not applicable due to restrictions of the used WebDriver. The proxy is created on the fly and passed
+     * to the WebDriver. All requests running in the Neodymium test execution process are automatically routed through
+     * this proxy. The local proxy provided by Neodymium can perform an automatic authorizations when the credentials
+     * and the matching url are provided.
+     * 
+     * The host, username and password settings are taken by default to invoke the auto authorization via the proxy for
+     * this host. It is also possible to configure this and additional systems during runtime. (see:
+     * NeodymiumLocalProxyBasicAuthenticationHostTest showcase)
+     * 
+     * REQUIRED CONFIGURATION
+     * 
+     * config/neodymium.properties: - neodymium.localproxy = true # to activate the local proxy -
+     * neodymium.basicauth.username = User # HTTP basic authorization user name - neodymium.basicauth.password = Pass #
+     * HTTP basic authorization password - neodymium.url.host = authenticationtest.com # HTTP basic authorization host
+     * (taken by default)
+     * 
+     * CAUTION - This test case fails with the shipped default configuration. The configuration neodymium.localproxy has
+     * to be set from false to true to run it successfully.
+     */
     @Before
     public void configurationCheck()
     {

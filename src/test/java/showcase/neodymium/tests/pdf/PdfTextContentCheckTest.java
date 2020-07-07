@@ -20,7 +20,7 @@ import showcase.neodymium.tests.AbstractTest;
 @Severity(SeverityLevel.NORMAL)
 @Owner("Test Developer")
 @Tag("pdf")
-public class PdfTextContentCheckShowcase extends AbstractTest
+public class PdfTextContentCheckTest extends AbstractTest
 {
     /*
      * In some cases one may need to check at least the content of a PDF file issued by the system under test. Since
