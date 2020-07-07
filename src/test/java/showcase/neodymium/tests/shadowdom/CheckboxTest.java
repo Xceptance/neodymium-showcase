@@ -32,18 +32,15 @@ import showcase.pageobjects.components.Title;
 public class CheckboxTest extends AbstractTest
 {
     /*
-     * Shadow DOM is a technique for encapsulation. It allows the user to create a separate DOM. This new DOM can added
-     * to the normal DOM tree of a website without any side effects. It is a approach to create reusable components
-     * which can be inserted to every DOM tree easily. This show case provides possible approaches how to handle Shadow
-     * DOM elements.
+     * Shadow DOM is a technique for encapsulation. It allows the user to create a separate and independent DOM. This
+     * second DOM can be nested into the DOM tree of a website without any side effects. This approach is used to build
+     * reusable components which can be integrated on every page without introducing side effect. This show case
+     * provides possible approaches how to perform tests for Shadow DOM elements.
      * 
      * REQUIRED CONFIGURATION
      * 
-     * there are no required configurations - both tests are running without any adjustments inside the configuration
-     * files
-     * 
+     * This test case does not require a specific setup(or adjustment) of the Neodymium configuration.
      */
-
     @Test
     @Description(value = "Showcase for nested shadow DOM.")
     public void testNestedShadowDOM()
@@ -51,27 +48,32 @@ public class CheckboxTest extends AbstractTest
         // open demo page
         Selenide.open("https://mwc-demos.glitch.me");
 
-        // check if correct site did open
+        // check if the correct site was opened
         $("#header").should(exist);
 
         // check that the content frame exists
         $("div.sections-wrapper").shouldBe(visible);
 
-        // check amount of checkboxes
+        // check the correct amount of checkboxes
         $$("div > mwc-checkbox").shouldHaveSize(3);
 
         // check title
         new Title().validateTitle("MWC Playground");
 
-        // Nested shadow DOM demo test
+        /*
+         * Nested shadow DOM demo test
+         * 
+         * Since shadow DOM can be nested into any DOM it's possible to have a shadow DOM within a shadow DOM. The
+         * following tests demonstrates how you can handle this.
+         */
 
-        // Css-selector for the element of which the shadow-root is a child
+        // CSS selector for the element of which the shadow-root is a child
         String shadowHost = "mwc-button[label='toggle menu']";
 
-        // Css-selector for the element within the shadow DOM tree, which has the nested shadow DOM
+        // CSS-selector for the element within the shadow DOM tree, which has the nested shadow DOM
         String nestedShadowHost = "#button > mwc-ripple";
 
-        // Css-selector for the first target element
+        // CSS selector for the first target element
         // This has to identify the element within the nested shadow DOM tree
         String target = "div.mdc-ripple-surface";
 
@@ -94,10 +96,28 @@ public class CheckboxTest extends AbstractTest
         // open demo page
         Selenide.open("https://mwc-demos.glitch.me");
 
-        // Css-selector for the element of which the shadow-root is a child
+        // check if the correct site was opened
+        $("#header").should(exist);
+
+        // check that the content frame exists
+        $("div.sections-wrapper").shouldBe(visible);
+
+        // check the correct amount of checkboxes
+        $$("div > mwc-checkbox").shouldHaveSize(3);
+
+        // check title
+        new Title().validateTitle("MWC Playground");
+
+        /*
+         * Basic shadow DOM demo test
+         * 
+         * This is a straight forward approach how to validate shadow DOM elements.
+         */
+
+        // CSS selector for the element of which the shadow-root is a child
         String shadowHost = "mwc-checkbox";
 
-        // Css-selector for the target element
+        // CSS selector for the target element
         String target = "div.mdc-checkbox";
 
         // Get checkbox
