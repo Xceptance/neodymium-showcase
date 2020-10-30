@@ -50,25 +50,25 @@ public class ShadowDomTextTest extends AbstractTest
         // check title
         new Title().validateTitle("Shadow DOM");
 
-        // check that the toolbar exists
+        // check that the toolbar is visible
         $("div.sitetoolbar").shouldBe(visible);
 
-        // check that the content page exists
+        // check that the content page is visible
         $("div.page__inner").shouldBe(visible);
 
-        // check that the sidebar exists
+        // check that the sidebar is visible
         $("div.sidebar__inner").shouldBe(visible);
 
-        // check that the footer exists
+        // check that the footer is visible
         $("div.page-footer").shouldBe(visible);
 
-        // check the correct amount of the sidebar
+        // check that there are sections within the sidebar
         $$("div.sidebar__section").shouldHave(sizeGreaterThan(0));
 
         // switch to the iFrame
         switchTo().frame($("iframe[style=\"height:60px\"]"));
 
-        // check that the text field exists
+        // check that the text field is visible
         $(Selectors.shadowCss("p", "show-hello[name=John]")).shouldBe(visible);
 
         // check the correct content of the text field
