@@ -1,6 +1,7 @@
 package showcase.neodymium.tests.slider;
 
 import static com.codeborne.selenide.Condition.attribute;
+import static com.codeborne.selenide.Condition.hidden;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -8,6 +9,7 @@ import org.junit.Test;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.ex.ElementNotFound;
 import com.xceptance.neodymium.util.SelenideAddons;
 
 import io.qameta.allure.Description;
@@ -52,7 +54,7 @@ public class SliderTest extends AbstractTest
         openSliderPage();
 
         // the slider element that will be used for the test
-        SelenideElement elementUnderTest = $(".balSlider a[role=slider]");
+        SelenideElement elementUnderTest = $(".balSlider a[role=slider]").scrollIntoView("{block:'center'}");
 
         // Interaction: move the slider to the right
         //
@@ -74,7 +76,7 @@ public class SliderTest extends AbstractTest
         openSliderPage();
 
         // the slider element that will be used for the test
-        SelenideElement elementUnderTest = $(".balSlider a[role=slider]");
+        SelenideElement elementUnderTest = $(".balSlider a[role=slider]").scrollIntoView("{block:'center'}");
 
         // Interaction: move the slider to the left
         //
@@ -96,7 +98,7 @@ public class SliderTest extends AbstractTest
         openSliderPage();
 
         // the slider element that will be used for the test
-        SelenideElement elementUnderTest = $("#equalizer .k-slider-vertical:first-child a");
+        SelenideElement elementUnderTest = $("#equalizer .k-slider-vertical:first-child a").scrollIntoView("{block:'center'}");
 
         // Interaction: move the slider upwards
         //
@@ -118,7 +120,7 @@ public class SliderTest extends AbstractTest
         openSliderPage();
 
         // the slider element that will be used for the test
-        SelenideElement elementUnderTest = $("#equalizer .k-slider-vertical:first-child a");
+        SelenideElement elementUnderTest = $("#equalizer .k-slider-vertical:first-child a").scrollIntoView("{block:'center'}");
 
         // Interaction: move the slider downwards
         //
@@ -136,7 +138,23 @@ public class SliderTest extends AbstractTest
     {
         // open demo page
         Selenide.open("https://demos.telerik.com/kendo-ui/slider/index");
-        // close GDPR overlay
-        $("#onetrust-accept-btn-handler").shouldBe(visible).click();
+
+        // close GDPR overlay if visible
+        boolean overlayIsVisible = true;
+        try
+        {
+            $("#onetrust-accept-btn-handler").shouldBe(visible);
+        }
+        catch (ElementNotFound e)
+        {
+            overlayIsVisible = false;
+        }
+
+        if (overlayIsVisible)
+        {
+            $("#onetrust-accept-btn-handler").click();
+            $("#onetrust-consent-sdk .onetrust-pc-dark-filter").shouldBe(hidden);
+            Selenide.refresh();
+        }
     }
 }
