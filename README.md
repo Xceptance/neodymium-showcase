@@ -22,5 +22,9 @@ Then, the PDF file is loaded with the PDFBox framework, so we can access the tex
 ## 4. Web slider 
 The `showcase.neodymium.tests.slider` package contains the use cases to drag and drop a web slider into different directions e.g. horizontal and vertical.
 
+## 4. XcMailr Plugin
+The`showcase.neodymium.tests.xcmailr` package contains a simple testcase for the XcMailr plugin for Neodymium. For how to setup the plugin please refer to the `README.md` of the XcMailr plugin found [here](https://github.com/Xceptance/neodymium-plugin-xcmailr).
+The plugin needs credentials that need to be specified in the `credentials.properties`. Also a apitoken for the XcMailr needs to be provided in the `xcmailr.properties`. This can be done on the [XcMailr-website](https://xcmailr.xceptance.de/).
+
 ## License
 MIT

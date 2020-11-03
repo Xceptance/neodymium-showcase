@@ -25,15 +25,15 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
 		<surefire.version>2.22.2</surefire.version>
-		<aspectj.version>1.9.5</aspectj.version>
+		<aspectj.version>1.9.6</aspectj.version>
 		<allure.version>2.10.0</allure.version>
-		<neodymium.version>3.6.0</neodymium.version>
+		<neodymium.version>4.1.0</neodymium.version>
 		<pdfbox.version>2.0.18</pdfbox.version>
 	</properties>
-
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -124,17 +124,6 @@
 			<artifactId>neodymium-library</artifactId>
 			<version>${neodymium.version}</version>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>com.codeborne</groupId>
-					<artifactId>selenide</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.codeborne</groupId>
-			<artifactId>selenide</artifactId>
-			<version>5.10.0</version>
 		</dependency>
 		<dependency>
             <!-- 
@@ -148,6 +137,11 @@
 			<artifactId>pdfbox</artifactId>
 			<version>${pdfbox.version}</version>
 		</dependency>
+		<dependency>
+           <groupId>com.xceptance</groupId>
+           <artifactId>neodymium-plugin-xcmailr</artifactId>
+           <version>1.1.0</version>
+        </dependency>
 	</dependencies>
 
 	<reporting>

@@ -50,7 +50,7 @@ public class NeodymiumLocalProxyCertificateAuthenticationTest extends AbstractTe
                             true, Neodymium.configuration().useLocalProxy());
 
         Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.localproxy.certificate is not set to true",
-                            true, Neodymium.configuration().useLocalWithSelfSignedCertificate());
+                            true, Neodymium.configuration().useLocalProxyWithSelfSignedCertificate());
 
         Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.localproxy.certificate.archiveFile check failed",
                             "./config/Certificate.pfx", Neodymium.configuration().localProxyCertificateArchiveFile());
