@@ -2,6 +2,7 @@ package showcase.neodymium.tests.pdf;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
@@ -31,7 +32,7 @@ public class PDFDownloadTest extends AbstractTest
 {
     @Test
     @Description("Showcase for PDF testing")
-    public void testDownloadPDF() throws IOException, InterruptedException
+    public void testDownloadPDF() throws IOException, InterruptedException, URISyntaxException
     {
         // Download PDF
         File pdfFile = Selenide.download("https://s1.q4cdn.com/806093406/files/doc_downloads/test.pdf");
