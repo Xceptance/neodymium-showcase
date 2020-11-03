@@ -1,17 +1,18 @@
 package showcase.neodymium.tests.shadowdom;
 
-import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.not;
+import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 
 import org.junit.Test;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.xceptance.neodymium.util.Neodymium;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -46,19 +47,13 @@ public class ShadowDomCheckboxTest extends AbstractTest
     public void testNestedShadowDOM()
     {
         // open demo page
-        Selenide.open("https://mwc-demos.glitch.me");
+        Selenide.open("https://demo.vaadin.com/invoice-editor-app/");
 
         // check if the correct site was opened
-        $("#header").should(exist);
-
-        // check that the content frame exists
-        $("div.sections-wrapper").shouldBe(visible);
-
-        // check the correct amount of checkboxes
-        $$("div > mwc-checkbox").shouldHaveSize(3);
+        $("invoice-editor-app").should(exist);
 
         // check title
-        new Title().validateTitle("MWC Playground");
+        new Title().validateTitle("invoice-editor");
 
         /*
          * Nested shadow DOM demo test
@@ -68,14 +63,14 @@ public class ShadowDomCheckboxTest extends AbstractTest
          */
 
         // CSS selector for the element of which the shadow-root is a child
-        String shadowHost = "mwc-button[label='toggle menu']";
+        String shadowHost = "invoice-editor-app";
 
         // CSS-selector for the element within the shadow DOM tree, which has the nested shadow DOM
-        String nestedShadowHost = "#button > mwc-ripple";
+        String nestedShadowHost = "link-banner";
 
         // CSS selector for the first target element
         // This has to identify the element within the nested shadow DOM tree
-        String target = "div.mdc-ripple-surface";
+        String target = "#explainer";
 
         // Scroll to button
         $(shadowHost).scrollTo();
@@ -94,19 +89,13 @@ public class ShadowDomCheckboxTest extends AbstractTest
     public void testSimpleShadowDOM()
     {
         // open demo page
-        Selenide.open("https://mwc-demos.glitch.me");
+        Selenide.open("https://demo.vaadin.com/invoice-editor-app/");
 
         // check if the correct site was opened
-        $("#header").should(exist);
-
-        // check that the content frame exists
-        $("div.sections-wrapper").shouldBe(visible);
-
-        // check the correct amount of checkboxes
-        $$("div > mwc-checkbox").shouldHaveSize(3);
+        $("invoice-editor-app").should(exist);
 
         // check title
-        new Title().validateTitle("MWC Playground");
+        new Title().validateTitle("invoice-editor");
 
         /*
          * Basic shadow DOM demo test
@@ -115,23 +104,26 @@ public class ShadowDomCheckboxTest extends AbstractTest
          */
 
         // CSS selector for the element of which the shadow-root is a child
-        String shadowHost = "mwc-checkbox";
+        String shadowHost = "invoice-editor-app";
 
         // CSS selector for the target element
-        String target = "div.mdc-checkbox";
+        String target = ".currency-selector";
 
         // Get checkbox
         // Signature for the shadowCss method for this simple case is
         // shadowCss(target-element, parent-shadow-host)
-        SelenideElement checkbox = $(Selectors.shadowCss(target, shadowHost));
+        SelenideElement currencySelect = $(Selectors.shadowCss(target, shadowHost));
 
-        // check checkbox has not the selected class
-        checkbox.shouldHave(not(cssClass("mdc-checkbox--selected")));
+        // check select component has the default value
+        currencySelect.shouldHave(value("EUR"));
 
-        // click checkbox
-        $(shadowHost).click();
+        // click select component
+        $(currencySelect).click();
 
-        // check checkbox has selected class
-        checkbox.shouldHave(cssClass("mdc-checkbox--selected"));
+        // perform an interaction to change the value of the select component
+        new Actions(Neodymium.getRemoteWebDriver()).sendKeys("G", Keys.ENTER).build().perform();
+
+        // check select component has selected value
+        currencySelect.shouldHave(value("GBP"));
     }
 }
