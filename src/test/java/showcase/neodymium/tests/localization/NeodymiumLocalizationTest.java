@@ -39,13 +39,13 @@ public class NeodymiumLocalizationTest extends AbstractTest
     @Description(value = "Neodymium localization show case")
     public void test()
     {
-        // Open home page in english
+        // Open home page in English
         // Note: To use localized string you have to call them like this:
         // Neodymium.localizedText(key-to-string)
         // This will search in the default language as no locale is given over.
         Selenide.open("https://www.xceptance.com/en/");
 
-        // Check title is correct in english
+        // Check title is correct in English
         new Title().validateTitle(Neodymium.localizedText("homepage.title"));
 
         // Headline example
