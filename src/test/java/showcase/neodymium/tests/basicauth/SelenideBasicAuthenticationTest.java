@@ -62,14 +62,14 @@ public class SelenideBasicAuthenticationTest extends AbstractTest
     @Description(value = "Showcase for basic authentication using Selenide")
     public void test()
     {
-        // Open webpage which requires authentication
+        // open web page which requires authentication
         Selenide.open("https://authenticationtest.com/HTTPAuth/", "", Neodymium.configuration().basicAuthUsername(),
                       Neodymium.configuration().basicAuthPassword());
 
-        // Validate title
+        // validate title
         new Title().validateTitle("Authentication Test");
 
-        // Check that basic alert message is visible
+        // check that basic alert message is visible
         $(".alert-success").shouldBe(visible);
     }
 }
