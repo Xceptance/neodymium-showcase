@@ -33,7 +33,7 @@ public class NeodymiumLocalProxyBasicAuthenticationHostTest extends AbstractTest
      * 
      * REQUIRED CONFIGURATION
      * 
-     * config/neodymium.properties: - neodymium.localproxy = true # to passthrough the Local Proxy
+     * config/neodymium.properties: - neodymium.localproxy = true # to activate the Local Proxy
      * 
      * CAUTION This test case fails with the shipped default configuration. The configuration neodymium.localproxy has
      * to be set from false to true to run it successfully.

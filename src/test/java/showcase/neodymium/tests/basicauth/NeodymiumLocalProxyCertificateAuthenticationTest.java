@@ -32,7 +32,7 @@ public class NeodymiumLocalProxyCertificateAuthenticationTest extends AbstractTe
      * 
      * REQUIRED CONFIGURATION
      * 
-     * config/neodymium.properties: - neodymium.localproxy = true # to passthrough the Local Proxy -
+     * config/neodymium.properties: - neodymium.localproxy = true # to activate the Local Proxy -
      * neodymium.localproxy.certificate = true # to enable MITM certificate -
      * neodymium.localproxy.certificate.archiveFile = ./config/Certificate.pfx # certificate archive file -
      * neodymium.localproxy.certificate.archivetype = PKCS12 # archive file format -

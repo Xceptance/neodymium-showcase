@@ -34,7 +34,7 @@ public class ShadowDomCheckboxTest extends AbstractTest
 {
     /*
      * Shadow DOM is a technique for encapsulation. It allows the user to create a separate and independent DOM. This
-     * second DOM can be nested into the DOM tree of a website without any side effects. This approach is used to build
+     * second DOM can be nested into the DOM tree of a web site without any side effects. This approach is used to build
      * reusable components which can be integrated on every page without introducing side effect. This show case
      * provides possible approaches how to perform tests for Shadow DOM elements.
      * 
@@ -109,9 +109,8 @@ public class ShadowDomCheckboxTest extends AbstractTest
         // CSS selector for the target element
         String target = ".currency-selector";
 
-        // Get checkbox
-        // Signature for the shadowCss method for this simple case is
-        // shadowCss(target-element, parent-shadow-host)
+        // Get currency web component
+        // Signature for the shadowCss method for this simple case is shadowCss(target-element, parent-shadow-host)
         SelenideElement currencySelect = $(Selectors.shadowCss(target, shadowHost));
 
         // check select component has the default value

@@ -26,15 +26,15 @@ public class NeodymiumLocalProxyBasicAuthenticationTest extends AbstractTest
 {
     /*
      * If the system under test requires HTTP Basic Authentication then using an embedded local proxy provided by
-     * Neodymium is one possible approach. Especially if the standard way (see: SelenideBasicAuthenticationTest
-     * showcase) is not applicable due to restrictions of the used WebDriver. The proxy is created on the fly and passed
-     * to the WebDriver. All requests running in the Neodymium test execution process are automatically routed through
-     * this proxy. The local proxy provided by Neodymium can perform an automatic authorizations when the credentials
-     * and the matching url are provided.
+     * Neodymium is one possible approach. Especially if the standard way (see: SelenideBasicAuthenticationTest show
+     * case) is not applicable due to restrictions of the used WebDriver. The proxy is created on the fly and passed to
+     * the WebDriver. All requests running in the Neodymium test execution process are automatically routed through this
+     * proxy. The local proxy provided by Neodymium can perform an automatic authorizations when the credentials and the
+     * matching url are provided.
      * 
      * The host, username and password settings are taken by default to invoke the auto authorization via the proxy for
      * this host. It is also possible to configure this and additional systems during runtime. (see:
-     * NeodymiumLocalProxyBasicAuthenticationHostTest showcase)
+     * NeodymiumLocalProxyBasicAuthenticationHostTest show case)
      * 
      * REQUIRED CONFIGURATION
      * 

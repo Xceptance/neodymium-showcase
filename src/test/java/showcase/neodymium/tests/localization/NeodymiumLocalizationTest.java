@@ -39,7 +39,7 @@ public class NeodymiumLocalizationTest extends AbstractTest
     @Description(value = "Neodymium localization show case")
     public void test()
     {
-        // Open homepage in english
+        // Open home page in english
         // Note: To use localized string you have to call them like this:
         // Neodymium.localizedText(key-to-string)
         // This will search in the default language as no locale is given over.
