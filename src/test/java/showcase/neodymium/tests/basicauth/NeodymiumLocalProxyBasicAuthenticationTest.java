@@ -27,7 +27,7 @@ import showcase.pageobjects.components.Title;
  * proxy provided by Neodymium can perform automatic authorizations.<br>
  * The host, username and password settings (from the Neodymium configuration) are taken by default to invoke the auto
  * authorization via the proxy for this host. It is also possible to configure this manually and add additional systems
- * during runtime. (see: {@link NeodymiumLocalProxyBasicAuthenticationHostTest} show case)<br>
+ * during runtime (see: {@link NeodymiumLocalProxyBasicAuthenticationHostTest} show case).<br>
  * <br>
  * <b>REQUIRED CONFIGURATION<b> config/neodymium.properties:
  * <ul>

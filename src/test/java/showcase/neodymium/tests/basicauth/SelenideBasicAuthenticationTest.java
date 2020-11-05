@@ -18,29 +18,29 @@ import io.qameta.allure.junit4.Tag;
 import showcase.neodymium.tests.AbstractTest;
 import showcase.pageobjects.components.Title;
 
+/**
+ * If the system under test requires HTTP Basic Authentication then using Selenide together with the Neodymium
+ * configuration is a possible approach. The basic authentication credentials can be set within the Neodymium
+ * configuration and used when calling
+ * {@link Selenide#open(String relativeOrAbsoluteUrl, String domain, String login, String password)} as this show case
+ * demonstrates.<br>
+ * Selenide prefixes the basic authentication credentials to the URL. Due to security reasons this method is not
+ * supported for all browsers (e.g. Edge) anymore. Some browsers require enabling this method before it can be used. If
+ * your test project needs testing with such a browser you can consider the usage of the embedded local proxy provided
+ * by Neodymium as a solution (see: {@link NeodymiumLocalProxyBasicAuthenticationHostTest} show case).<br>
+ * <br>
+ * <b>REQUIRED CONFIGURATION<b> config/neodymium.properties:
+ * <ul>
+ * <li>neodymium.localproxy = false # deactivate the embedded local proxy</li>
+ * <li>neodymium.basicauth.username = User # HTTP Basic Auth username</li>
+ * <li>neodymium.basicauth.password = Pass # HTTP Basic Auth password</li>
+ * </ul>
+ */
 @Severity(SeverityLevel.NORMAL)
 @Owner("Test Developer")
 @Tag("basic authorization")
 public class SelenideBasicAuthenticationTest extends AbstractTest
 {
-
-    /*
-     * If the system under test requires HTTP Basic Authentication then using Selenide within Neodymium is another
-     * possible approach. The Neodymium basic authentication credentials are passed from the configuration to
-     * Selenide.open as this approach shows.
-     * 
-     * Selenide inside uses basic access authentication by prepending username:password@ to the hostname in the URL. For
-     * security reasons not all browsers (e.g. Edge) support this method anymore. Other browsers must be enabled before
-     * using special configurations.
-     * 
-     * If the test ware needs to support multiple browsers as Neodymium offers the Neodymium Local Proxy solves this.
-     * 
-     * REQUIRED CONFIGURATION
-     * 
-     * config/neodymium.properties: - neodymium.localproxy = false # avoid the Local Proxy -
-     * neodymium.basicauth.username = User # HTTP Basic Auth username - neodymium.basicauth.password = Pass # HTTP Basic
-     * Auth password
-     */
 
     @Before
     public void configurationCheck()
@@ -49,7 +49,7 @@ public class SelenideBasicAuthenticationTest extends AbstractTest
         Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.localproxy is not set to false",
                             false, Neodymium.configuration().useLocalProxy());
 
-        // valid username for https://authenticationtest.com/HTTPAuth/
+        // valid user name for https://authenticationtest.com/HTTPAuth/
         Assert.assertEquals("NeodymiumLocalProxyBasicAuthentication: neodymium.basicauth.username is not set",
                             "User", Neodymium.configuration().basicAuthUsername());
 
