@@ -24,9 +24,9 @@ import showcase.neodymium.tests.AbstractTest;
  * added to the test automation.<br>
  * This show case gives an basic example how to implement an PDF content check using pdfbox.<br>
  * <br>
- * <b>REQUIRED CONFIGURATION</b>
+ * <b>REQUIRED CONFIGURATION</b> <i>pom.xml</i>:
  * <ul>
- * <li>pom.xml: - org.apache.pdfbox must be added to the dependencies section</li>
+ * <li>org.apache.pdfbox/pdfbox must be added to the dependencies section</li>
  * </ul>
  */
 @Severity(SeverityLevel.NORMAL)

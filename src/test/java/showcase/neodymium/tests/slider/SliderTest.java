@@ -21,7 +21,16 @@ import io.qameta.allure.junit4.Tag;
 import showcase.neodymium.tests.AbstractTest;
 
 /**
- * @author j.sengbusch
+ * Sliders are control elements to give the user the opportunity to select a value on a web page. Mostly there are used
+ * horizontally but there are also vertical sliders. Manipulation of slider can be a little tricky using the pure
+ * Selenium API. Therefore Neodymium provides an approach that requires less knowledge about Selenium's paradigms.<br>
+ * This show case provides possible approaches how to handle and interact with sliders and they indicators. The first
+ * and the second test demonstrate horizontal while the other tests show case vertical movements.<br>
+ * <br>
+ * <b>REQUIRED CONFIGURATION<b>
+ * <ul>
+ * <li>This test case does not require a specific setup (or adjustment) of the Neodymium configuration</li>
+ * </ul>
  */
 @Severity(SeverityLevel.TRIVIAL)
 @Owner("Test Developer")
@@ -29,19 +38,6 @@ import showcase.neodymium.tests.AbstractTest;
 @DisplayName("Slidertest")
 public class SliderTest extends AbstractTest
 {
-    /*
-     * Sliders are control elements to give the user the opportunity to select a value on a web page. Mostly there are
-     * used horizontally but there are also vertical sliders. This show case provides possible approaches how to handle
-     * and interact with sliders and they indicators. The first 2 tests are shown horizontal and the other 2 vertical
-     * movements.
-     * 
-     * REQUIRED CONFIGURATION
-     * 
-     * there are no required configurations - all tests are running without any adjustments inside the configuration
-     * files
-     * 
-     */
-
     private static final int MAX_RETRIES = 5;
 
     private static final int INTERACTION_PAUSE = 3000;
@@ -134,6 +130,7 @@ public class SliderTest extends AbstractTest
         SelenideAddons.dragAndDropUntilCondition(elementUnderTest, elementUnderTest, 0, 10, INTERACTION_PAUSE, MAX_RETRIES, attribute("aria-valuenow", "-6"));
     }
 
+    // a helper function to open the page and close the GDPR dialog to avoid duplicate code
     private void openSliderPage()
     {
         // open demo page

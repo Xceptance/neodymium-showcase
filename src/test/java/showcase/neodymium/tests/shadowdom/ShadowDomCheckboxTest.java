@@ -24,7 +24,15 @@ import showcase.neodymium.tests.AbstractTest;
 import showcase.pageobjects.components.Title;
 
 /**
- * @author kunze
+ * Shadow DOM is a technique for encapsulation. It allows the user to create a separate and independent DOM. This second
+ * DOM can be nested into the DOM tree of a web site without any side effects. This approach is used to build reusable
+ * components which can be integrated on every page without introducing side effect.<br>
+ * This show case provides possible approaches how to perform tests for Shadow DOM elements.<br>
+ * <br>
+ * <b>REQUIRED CONFIGURATION<b>
+ * <ul>
+ * <li>This test case does not require a specific setup (or adjustment) of the Neodymium configuration</li>
+ * </ul>
  */
 @Severity(SeverityLevel.TRIVIAL)
 @Owner("Test Developer")
@@ -32,16 +40,6 @@ import showcase.pageobjects.components.Title;
 @DisplayName("Checkboxtest")
 public class ShadowDomCheckboxTest extends AbstractTest
 {
-    /*
-     * Shadow DOM is a technique for encapsulation. It allows the user to create a separate and independent DOM. This
-     * second DOM can be nested into the DOM tree of a web site without any side effects. This approach is used to build
-     * reusable components which can be integrated on every page without introducing side effect. This show case
-     * provides possible approaches how to perform tests for Shadow DOM elements.
-     * 
-     * REQUIRED CONFIGURATION
-     * 
-     * This test case does not require a specific setup(or adjustment) of the Neodymium configuration.
-     */
     @Test
     @Description(value = "Showcase for nested shadow DOM.")
     public void testNestedShadowDOM()

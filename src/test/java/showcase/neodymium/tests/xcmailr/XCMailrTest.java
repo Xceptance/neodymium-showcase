@@ -23,33 +23,41 @@ import showcase.neodymium.tests.AbstractTest;
 import xcmailr.client.Mail;
 
 /**
- * @author kunze
- * @author mpfotenhauer
+ * In case there is a need to validate that e-mail was sent and arrived in some acceptable time or/and to verify if the
+ * e-mail has expected subject and content XCMailr Api can be used (more about it here
+ * https://github.com/Xceptance/XCMailr#api-token)<br>
+ * Neodymium XCMailr Plugin allows reducing an effort as there is no need to build the requests by yourself and
+ * increasing readability, as the request doesn't have to be formulated in the middle of the test.<br>
+ * <br>
+ * <b>ATTENTION:</b> This test case requires manual actions.<br>
+ * To have this test case working you need to perform three tasks.
+ * <ul>
+ * <li>* The first is to configure the things mentioned below.</li>
+ * <li>The second is to start the test.</li>
+ * <li>The third task is to send an e-mail to the configured mailbox using the subject and the textToSend configures in
+ * the class fields below. If the e-mail is received within 15 minutes your test should become successful.</li>
+ * </ul>
+ * <b>REQUIRED CONFIGURATION:</b><br>
+ * <i>config/xcmailr.properties</i>:
+ * <ul>
+ * <li>xcmailr.apiToken = <your api token> (read how to get one in the link above)</li>
+ * <li>xcmailr.url = <your XcMailrs instance url> (read how to get one in the link above)</li>
+ * </ul>
+ * <i>as a class field below</i>:
+ * <ul>
+ * <li>receiverEmail = the e-mail address you like to create a mailbox on your XcMailr instance</li>
+ * </ul>
+ * <i>pom.xml</i>:
+ * <ul>
+ * <li>com.xceptance/neodymium-plugin-xcmailr must be added to the dependencies section</li>
+ * </ul>
  */
 @Severity(SeverityLevel.TRIVIAL)
-@Owner("Georg Kunze")
+@Owner("Test Developer")
 @Tag("smoke")
 @DisplayName("BasicXCMailrTest")
 public class XCMailrTest extends AbstractTest
 {
-    /*
-     * In case there is a need to validate that e-mail was sent and arrived in some acceptable time or/and to verify if
-     * the e-mail has expected subject and content XCMailr Api can be used (more about it here
-     * https://github.com/Xceptance/XCMailr#api-token)
-     * 
-     * Neodymium XCMailr Plugin allows reducing an effort as there is no need to build the requests by yourself and
-     * increasing readability, as the request doesn't have to be formulated in the middle of the test
-     * 
-     * To have this test case working you need to perform three tasks. The first is to configure the things mentioned
-     * below. The second is to start the test. The third task is to send an e-mail to the configured mailbox using the
-     * subject and the textToSend configures in the class fields below. If the e-mail is received within 15 minutes your
-     * test should become successful.
-     * 
-     * REQUIRED CONFIGURATION: config/xcmailr.properties : - xcmailr.apiToken = <your api token> (read how to get one in
-     * the link above) config/xcmailr.properties : - xcmailr.url = <your XcMailrs instance url> (read how to get one in
-     * the link above) as a class field below : - receiverEmail = the e-mail address you like to create a mailbox on
-     * your XcMailr instance
-     */
 
     // the subject of the first email
     protected final static String subject = "TestMailSubjectToUse";

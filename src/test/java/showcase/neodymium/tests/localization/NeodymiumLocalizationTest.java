@@ -24,7 +24,7 @@ import showcase.pageobjects.components.Title;
  * format) are correct. Neodymium provides support to handle this. This show case demonstrates a possible approaches how
  * to use the Neodymium localization feature.<br>
  * <br>
- * <b>REQUIRED CONFIGURATION</b> config/localization.yaml:
+ * <b>REQUIRED CONFIGURATION</b> <i>config/localization.yaml</i>:
  * <ul>
  * <li>The localization file is structured using YAML structured and Neodymium introduces a override mechanism. The most
  * specific definition for a key and a locale will be taken. Otherwise a default value is taken or an exception is

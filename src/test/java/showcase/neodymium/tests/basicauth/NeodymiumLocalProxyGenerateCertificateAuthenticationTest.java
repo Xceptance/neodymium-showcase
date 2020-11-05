@@ -30,7 +30,7 @@ import showcase.pageobjects.components.Title;
  * If a certificate is required that is signed by an authority for your test case this can be configured using Neodymium
  * (see: {@link NeodymiumLocalProxyCertificateAuthenticationTest} show case)<br>
  * <br>
- * <b>REQUIRED CONFIGURATION</b> config/neodymium.properties:
+ * <b>REQUIRED CONFIGURATION<b> <i>config/neodymium.properties</i>:
  * <ul>
  * <li>neodymium.localproxy = true # to activate the local proxy</li>
  * <li>neodymium.localproxy.certificate = true # to enable MITM certificate</li>

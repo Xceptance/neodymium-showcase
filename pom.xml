@@ -131,13 +131,19 @@
               using another available technology like pdfbox.
               
               RELATED SHOWCASE
-              - PdfTextContentCheckShowcase
+              - PdfTextContentCheckTest
               -->
 			<groupId>org.apache.pdfbox</groupId>
 			<artifactId>pdfbox</artifactId>
 			<version>${pdfbox.version}</version>
 		</dependency>
 		<dependency>
+            <!-- 
+              The XCMailr plugin dependency is added here to show how retrieve and validate e-mails with a Neodymium test case.
+              
+              RELATED SHOWCASE:
+              - XCMailrTest
+              -->
            <groupId>com.xceptance</groupId>
            <artifactId>neodymium-plugin-xcmailr</artifactId>
            <version>1.1.0</version>

@@ -29,7 +29,7 @@ import showcase.pageobjects.components.Title;
  * your test project needs testing with such a browser you can consider the usage of the embedded local proxy provided
  * by Neodymium as a solution (see: {@link NeodymiumLocalProxyBasicAuthenticationHostTest} show case).<br>
  * <br>
- * <b>REQUIRED CONFIGURATION<b> config/neodymium.properties:
+ * <b>REQUIRED CONFIGURATION<b> <i>config/neodymium.properties</i>:
  * <ul>
  * <li>neodymium.localproxy = false # deactivate the embedded local proxy</li>
  * <li>neodymium.basicauth.username = User # HTTP Basic Auth username</li>
