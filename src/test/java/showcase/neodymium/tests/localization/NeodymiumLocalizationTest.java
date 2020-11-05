@@ -18,75 +18,81 @@ import io.qameta.allure.junit4.Tag;
 import showcase.neodymium.tests.AbstractTest;
 import showcase.pageobjects.components.Title;
 
+/**
+ * Most web sites provide their content in different languages to address different users. Due to the fact test
+ * automation has often to work with localized content or even validate that general localized formats (e.G. the price
+ * format) are correct. Neodymium provides support to handle this. This show case demonstrates a possible approaches how
+ * to use the Neodymium localization feature.<br>
+ * <br>
+ * <b>REQUIRED CONFIGURATION</b> config/localization.yaml:
+ * <ul>
+ * <li>The localization file is structured using YAML structured and Neodymium introduces a override mechanism. The most
+ * specific definition for a key and a locale will be taken. Otherwise a default value is taken or an exception is
+ * raised if no value for the key could be found within the localization file.</li>
+ * </ul>
+ */
 @Severity(SeverityLevel.NORMAL)
 @Owner("Test Developer")
 @Tag("localization")
 public class NeodymiumLocalizationTest extends AbstractTest
 {
-    /*
-     * Most systems under test offer different languages in their front ends that the test ware needs to deal with.
-     * Localized content might be subject of the test. Neodymium offers a basic way to handle this. This show case
-     * provides possible approaches how to use the Neodymium localization.
-     * 
-     * REQUIRED CONFIGURATION
-     * 
-     * config/localization.yaml: - YAML structured content to be used - upmost element is taken as the Neodymium locale
-     * - below the Neodymium locale is the localized content, that may get deeper structured
-     * 
-     */
-
     @Test
     @Description(value = "Neodymium localization show case")
     public void test()
     {
-        // Open home page in English
-        // Note: To use localized string you have to call them like this:
-        // Neodymium.localizedText(key-to-string)
-        // This will search in the default language as no locale is given over.
+        /*
+         * Testing the page in English
+         */
+
+        // open home page in English
         Selenide.open("https://www.xceptance.com/en/");
 
-        // Check title is correct in English
-        new Title().validateTitle(Neodymium.localizedText("homepage.title"));
+        // to retrieve a localized string you have to call Neodymium.localizedText("key-to-string")
+        // this will search in the configured default language as no specific locale is provided as parameter
+        String titleText = Neodymium.localizedText("homepage.title");
 
-        // Headline example
+        // check page title is correct in English
+        new Title().validateTitle(titleText);
 
-        // Get headline element
+        // get headline and subtitle element only needs to be done once
         SelenideElement headLine = $("div.landing-intro > h1");
-
-        // Get subtitle element
         SelenideElement subTitle = $("div.landing-intro > p");
 
-        // Check headline element is visible
+        // check headline and subtitle are visible
         headLine.shouldBe(visible);
         subTitle.shouldBe(visible);
 
-        // Check that headline is correct in English
+        // check that headline is correct in English
         headLine.shouldHave(text(Neodymium.localizedText("homepage.headline")));
 
-        // Check that subtitle is correct in English
+        // check that subtitle is correct in English
         subTitle.shouldHave(text(Neodymium.localizedText("homepage.subtitle")));
 
-        // Set locale to German(de_DE), so we can check the German version
-        Neodymium.configuration().setProperty("neodymium.locale", "de");
+        /*
+         * Testing the page in German
+         */
 
-        // Open homepage in German
+        // set locale to German(de_DE), so we can check the German version
+        Neodymium.configuration().setProperty("neodymium.locale", "de_DE");
+
+        // open home page in German
         Selenide.open("https://www.xceptance.com/de/");
 
-        // Check title is correct in German
+        // check page title is correct in German
         new Title().validateTitle(Neodymium.localizedText("homepage.title"));
 
-        // Headline example
-
-        // Check headline element is visible
+        // check headline and subtitle are visible
         headLine.shouldBe(visible);
         subTitle.shouldBe(visible);
 
-        // Check that headline is correct in German
+        // check that headline is correct in German
         headLine.shouldHave(text(Neodymium.localizedText("homepage.headline")));
 
-        // Check that subtitle is correct in German
-        // Here the call to localizedText has another locale as second parameter to get
-        // a specific String from that specific locale.
-        subTitle.shouldHave(text(Neodymium.localizedText("homepage.subtitle", "german")));
+        // here the localizedText call demonstrates how retrieve the value for a specific locale if needed
+        // note: this example is a constructed normally you wouldn't divide a translation like this
+        String germanSubTitle = Neodymium.localizedText("homepage.subtitle", "de_AT");
+
+        // check that subtitle is correct in German
+        subTitle.shouldHave(text(germanSubTitle));
     }
 }
