@@ -5,26 +5,36 @@ To use Neodymium features in test development as intended from the very beginnin
 
 
 # Show cases
-Below is a summary of the show cases. Deeper documentation can be found in the show case code next to each show case. It is also possible to execute a show case after [setting up the Chrome Webdriver](https://github.com/Xceptance/neodymium-library/wiki/How-to-set-up-a-WebDriver). Just run the show case of interest as a JUnit test from with the IDE.
+Below is a summary of the show cases. Deeper documentation can be found in the show case code next to each show case. It is also possible to execute a show case after [setting up the Chrome WebDriver](https://github.com/Xceptance/neodymium-library/wiki/How-to-set-up-a-WebDriver). Just run the show case of interest as a JUnit test from with the IDE.
 
 ## 1. Shadow DOM
 The `showcase.neodymium.tests.shadowdom` package contains use cases for the shadow DOM automation. Please also have a look at our [wiki](https://github.com/Xceptance/neodymium-library/wiki/Shadow-DOM-Testing) for more information.
-#### 1.1 General Shadow DOM
-In `TextTest.java` you can find a simple use case on how to automatically test shadow DOM elements.
-#### 1.2. Nested Shadow DOM
-`CheckboxTest.java` contains more sophisticated use cases for shadow DOM including nested shadow DOMs. More information can be found [here](https://github.com/Xceptance/neodymium-library/wiki/Shadow-DOM-Testing).
-## 2. Localization
-The tests in the `showcase.neodymium.tests.localization` package highlight how the [localization](https://github.com/Xceptance/neodymium-library/wiki/Localization) feature of neodymium is used. Note that all the translated strings and their keys can be found in the `config/localization.yaml` file. 
-## 3. PDF Download
-In the `showcase.neodymium.tests.pdf` package is a basic test for downloading and checking a PDF file. In this test, we use the PDFBox framework for handling a PDF file.
-To first download such a file, we use Selenide's `download` function in order to download a file directly via a given link.
-Then, the PDF file is loaded with the PDFBox framework, so we can access the text and verify it.
-## 4. Web slider 
-The `showcase.neodymium.tests.slider` package contains the use cases to drag and drop a web slider into different directions e.g. horizontal and vertical.
 
-## 4. XcMailr Plugin
-The `showcase.neodymium.tests.xcmailr` package contains a simple testcase for the XcMailr plugin for Neodymium. For how to setup the plugin please refer to the `README.md` of the XcMailr plugin found [here](https://github.com/Xceptance/neodymium-plugin-xcmailr).
-The plugin needs credentials that need to be specified in the `credentials.properties`. Also a apitoken for the XcMailr needs to be provided in the `xcmailr.properties`. This can be done on the [XcMailr-website](https://xcmailr.xceptance.de/).
+* `ShadowDomTextTest.java` demonstrates a simple use case on how to automatically test shadow DOM elements.
+* `ShadowDomCheckboxTest.java` contains more sophisticated use cases for shadow DOM including nested shadow DOMs.
+
+## 2. Localization
+The tests in the `showcase.neodymium.tests.localization` package highlight how the [localization](https://github.com/Xceptance/neodymium-library/wiki/Localization) feature of Neodymium is used. Note that all the translated wordings and their keys can be found in the `config/localization.yaml` file. 
+
+## 3. PDF Download
+In the `showcase.neodymium.tests.pdf` package is a basic test for downloading and checking a PDF file. In this test, we use the PDFBox framework for handling a PDF file. To download such a file, we use Selenide's `download` function It downloads a file directly via a given link.
+Afterwards, the PDF file is loaded with the PDFBox framework, so we can access the text and verify it.
+
+## 4. Web slider 
+The `showcase.neodymium.tests.slider` package contains use cases to drag and drop a web slider into different directions e.g. horizontal and vertical. The function provided by Neodymium can also be used to drag and drop any element that supports this.
+
+## 5. Basic authentication  
+The `showcase.neodymium.tests.basicauth` package contains several approaches how to setup basic authentication within your test automation project.
+ 
+* `SelenideBasicAuthenticationTest.java` demonstrates how to perform a standard basic authentication via URL.
+* `NeodymiumLocalProxyBasicAuthenticationTest.java` shows what is needed to perform an automatic authentication via the embedded local proxy provided by Neodymium.
+* `NeodymiumLocalProxyBasicAuthenticationHostTest.java` shows what is needed to perform a manual authentication via the embedded local proxy provided by Neodymium.
+* `NeodymiumLocalProxyGenerateCertificateAuthenticationTest.java` shows how to secure the traffic with an automatic generated certificate via the embedded local proxy provided by Neodymium.
+* `NeodymiumLocalProxyCertificateAuthenticationTest.java` shows how to secure the traffic by providing an own certificate via the embedded local proxy provided by Neodymium.
+
+## 6. XcMailr Plugin
+The `showcase.neodymium.tests.xcmailr` package contains a simple test case for the XcMailr plugin for Neodymium. You can find more information about it by consulting the `README.md` of the XcMailr plugin which can be found [here](https://github.com/Xceptance/neodymium-plugin-xcmailr).
+This test case requires some effort in setting up the test environment since there is no publicly free XcMailr service available. Hence you need to set up an instance of the [XCMailr](https://github.com/Xceptance/XCMailr) on your own or get in contact with [Xceptance](https://www.xceptance.com/en/contact/) if you are in need for using such a service within your test. The remaining setup is described within the test case and shouldn't be to challenging.
 
 ## License
 MIT
