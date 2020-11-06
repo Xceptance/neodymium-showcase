@@ -1,66 +1,40 @@
 # Introduction
-This repository is supposed to be used as template for test automation projects using [Neodymium Library](https://github.com/Xceptance/neodymium-library). It contains both a pure Java and a Cucumber approach as well. A test automation template based on best practice libraries and added missing functionalities to aid test automation done by Xceptance.
+This repository is a Showcase project to demonstrate the usage of several features of the [Neodymium Library](https://github.com/Xceptance/neodymium-library).
 
-# Getting familiar
-Please perform the Hello World tutorial first to get a first insight and feeling for test automation with Neodymium.
-Afterwards you are ready to deep dive into more complex scenarios. 
-Our [Neodymium-example](https://github.com/Xceptance/neodymium-example) project demonstrates all the cool stuff that's possible with Neodymium.
-Furthermore, we set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium-library/wiki) to explain different concepts and use cases. 
-
-# Hello World
-## Get your own copy
-1. Fork this project
-2. Rename the project (Open the `pom.xml` and adjust the name tag)
-3. Import the project into an IDE of your choice. (It should be able to handle Maven project in order to sort all the dependencies for you)
-
-## Set up
-4. Set up WebDrivers and Browsers
-   1. Open `config\neodymium.properties`
-   2. Set and uncomment the property `neodymium.webDriver.chrome.pathToDriverServer`
-   3. Set and uncomment the property `neodymium.webDriver.chrome.pathToBrowser` if you want don't want to use the default Chrome
-5. Change the URL (or try with [https://www.xceptance.com:443/en/](https://www.xceptance.com:443/en/) (already set) for demo purposes)
-   1. Open `config\neodymium.properties`
-   2. Set `neodymium.url.protocol` to the protocol, i.e. `https`
-   3. Set `neodymium.url.host` to the host, i.e. `www.xceptance.com`
-   4. Set `neodymium.url.site` to the path, i.e. `en`
-   5. Set `neodymium.url.port` to the port with a colon in front, i.e. `:443`
-   
-   Within the configuration those values are combined using the following rule: `${neodymium.url.protocol}://${neodymium.url.host}${neodymium.url.port}/${neodymium.url.site}/`
-   
-   Instead of setting all these single values, the property `neodymium.url` could also simply be changed to the desired URL. However, since the [Owner](http://owner.aeonbits.org/) framework allows reading and especially mutating properties among others, it is more helpful to separate the URL in its respective parts.
+To use Neodymium features in test development as intended from the very beginning on without struggling around with several required configurations each show case explains the approach technology, the implementation options as well as the belonging configuration next to where it is implemented. The reader gets also some recommendation about when an approach should be used or even not. 
 
 
-## Execution
-6. Run the `template.neodymium.tests.smoke.HomePageTest.java` from the Neodymium package as JUnit test
+# Show cases
+Below is a summary of the show cases. Deeper documentation can be found in the show case code next to each show case. It is also possible to execute a show case after [setting up the Chrome WebDriver](https://github.com/Xceptance/neodymium-library/wiki/How-to-set-up-a-WebDriver). Just run the show case of interest as a JUnit test from with the IDE.
 
-## Validate the World with Neodymium 
-7. Adjust the validation within the `template.pageObjects.pages.HomePage.java` to match the site that is going to be tested (only if you changed it)
-8. Run the `template.neodymium.tests.smoke.HomePageTest.java` again
+## 1. Shadow DOM
+The `showcase.neodymium.tests.shadowdom` package contains use cases for the shadow DOM automation. Please also have a look at our [wiki](https://github.com/Xceptance/neodymium-library/wiki/Shadow-DOM-Testing) for more information.
 
-## Validate the World with Cucumber
-9. Run the `template.cucumber.tests.RunAllFeatures.java` from the Cucumber package as JUnit test
+* `ShadowDomTextTest.java` demonstrates a simple use case on how to automatically test shadow DOM elements.
+* `ShadowDomCheckboxTest.java` contains more sophisticated use cases for shadow DOM including nested shadow DOMs.
 
-# Taking ownership 
-If you want to adopt the template for your own project your certainly would like to change the template folder to something project specific.
-Please perform the following steps to rename it:
-1. Rename the `template` package to a name of your choice
-2. Update the `pom.xml` (especially the Surefire configuration that states which tests should be executed)
-3. Update the `@CucumberOptions` within `template.cucumber.tests.RunAllTests.java` to have the new path in features and glue
+## 2. Localization
+The tests in the `showcase.neodymium.tests.localization` package highlight how the [localization](https://github.com/Xceptance/neodymium-library/wiki/Localization) feature of Neodymium is used. Note that all the translated wordings and their keys can be found in the `config/localization.yaml` file. 
 
-# Remove unneeded code approach
-After you have decided whether you want to go the pure Java or the Cucumber way. You can simply delete the folder of the unused approach (either `src/test/java/template/neodymium` or `src/test/java/template/cucumber`).
-If you like you can also clean up the Surefire configuration in the `pom.xml` by removing the now unused `<include>` path.
+## 3. PDF Download
+In the `showcase.neodymium.tests.pdf` package is a basic test for downloading and checking a PDF file. In this test, we use the PDFBox framework for handling a PDF file. To download such a file, we use Selenide's `download` function It downloads a file directly via a given link.
+Afterwards, the PDF file is loaded with the PDFBox framework, so we can access the text and verify it.
 
-```XML
-<includes>
-    <!-- Neodymium (pure Java) test cases -->
-    <include>template/neodymium/tests/**/*Test.java</include>
-    <!-- Cucumber test cases -->
-    <include>template/cucumber/tests/RunAllFeaturesTest.java</include>
-</includes>
-```
+## 4. Web slider 
+The `showcase.neodymium.tests.slider` package contains use cases to drag and drop a web slider into different directions e.g. horizontal and vertical. The function provided by Neodymium can also be used to drag and drop any element that supports this.
 
-In case you want to use both approaches you are free to do so and take advantage of both of their strengths.
+## 5. Basic authentication  
+The `showcase.neodymium.tests.basicauth` package contains several approaches how to setup basic authentication within your test automation project.
+ 
+* `SelenideBasicAuthenticationTest.java` demonstrates how to perform a standard basic authentication via URL.
+* `NeodymiumLocalProxyBasicAuthenticationTest.java` shows what is needed to perform an automatic authentication via the embedded local proxy provided by Neodymium.
+* `NeodymiumLocalProxyBasicAuthenticationHostTest.java` shows what is needed to perform a manual authentication via the embedded local proxy provided by Neodymium.
+* `NeodymiumLocalProxyGenerateCertificateAuthenticationTest.java` shows how to secure the traffic with an automatic generated certificate via the embedded local proxy provided by Neodymium.
+* `NeodymiumLocalProxyCertificateAuthenticationTest.java` shows how to secure the traffic by providing an own certificate via the embedded local proxy provided by Neodymium.
+
+## 6. XcMailr Plugin
+The `showcase.neodymium.tests.xcmailr` package contains a simple test case for the XcMailr plugin for Neodymium. You can find more information about it by consulting the `README.md` of the XcMailr plugin which can be found [here](https://github.com/Xceptance/neodymium-plugin-xcmailr).
+This test case requires some effort in setting up the test environment since there is no publicly free XcMailr service available. Hence you need to set up an instance of the [XCMailr](https://github.com/Xceptance/XCMailr) on your own or get in contact with [Xceptance](https://www.xceptance.com/en/contact/) if you are in need for using such a service within your test. The remaining setup is described within the test case and shouldn't be to challenging.
 
 ## License
 MIT
