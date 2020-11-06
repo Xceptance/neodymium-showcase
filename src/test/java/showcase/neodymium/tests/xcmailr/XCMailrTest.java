@@ -37,11 +37,11 @@ import xcmailr.client.Mail;
  * <li>The third task is to send an e-mail to the configured mailbox using the subject and the textToSend configures in
  * the class fields below. If the e-mail is received within 15 minutes your test should become successful.</li>
  * </ul>
- * <b>REQUIRED CONFIGURATION:</b><br>
+ * <b>REQUIRED CONFIGURATION</b>:<br>
  * <i>config/xcmailr.properties</i>:
  * <ul>
- * <li>xcmailr.apiToken = <your api token> (read how to get one in the link above)</li>
- * <li>xcmailr.url = <your XcMailrs instance url> (read how to get one in the link above)</li>
+ * <li>xcmailr.apiToken = [YOUR_XCMAILR_API_TOKEN] (read how to get one in the link above)</li>
+ * <li>xcmailr.url = [YOUR_XCMAILR_INSTANCE_URL] (read how to get one in the link above)</li>
  * </ul>
  * <i>as a class field below</i>:
  * <ul>

@@ -27,7 +27,7 @@ import showcase.pageobjects.components.Title;
  * components which can be integrated on every page without introducing side effect.<br>
  * This show case provides possible approaches how to perform tests for Shadow DOM elements.<br>
  * <br>
- * <b>REQUIRED CONFIGURATION<b>
+ * <b>REQUIRED CONFIGURATION</b>:
  * <ul>
  * <li>This test case does not require a specific setup (or adjustment) of the Neodymium configuration</li>
  * </ul>

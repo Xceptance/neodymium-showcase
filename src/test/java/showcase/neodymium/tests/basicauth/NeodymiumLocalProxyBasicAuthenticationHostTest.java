@@ -28,10 +28,10 @@ import showcase.pageobjects.components.Title;
  * proxy provided by Neodymium can perform automatic authorizations.<br>
  * The local proxy adds the credentials to the HTTP header to authenticate the request when opening the site. <br>
  * <br>
- * <b>REQUIRED CONFIGURATION<b> <i>config/neodymium.properties</i>:
+ * <b>REQUIRED CONFIGURATION</b> <i>config/neodymium.properties</i>:
  * <ul>
  * <li>neodymium.localproxy = true # to activate the Local Proxy</li>
- * <ul>
+ * </ul>
  * <b>CAUTION:</b> This test case fails with the shipped default configuration. Please perform the configurations
  * mentioned above.
  */

@@ -29,7 +29,7 @@ import showcase.pageobjects.components.Title;
  * authorization via the proxy for this host. It is also possible to configure this manually and add additional systems
  * during runtime (see: {@link NeodymiumLocalProxyBasicAuthenticationHostTest} show case).<br>
  * <br>
- * <b>REQUIRED CONFIGURATION<b> <i>config/neodymium.properties</i>:
+ * <b>REQUIRED CONFIGURATION</b> <i>config/neodymium.properties</i>:
  * <ul>
  * <li>neodymium.localproxy = true # to activate the local proxy</li>
  * <li>neodymium.basicauth.username = User # HTTP basic authorization user name</li>
