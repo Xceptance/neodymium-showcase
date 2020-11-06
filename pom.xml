@@ -5,7 +5,7 @@
 
 	<groupId>com.xceptance.neodymium.project</groupId>
 	<artifactId>neodymium-showcase</artifactId>
-	<version>3.6.0-SNAPSHOT</version>
+	<version>4.1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>neodymium-showcase</name>
@@ -31,9 +31,9 @@
 		<aspectj.version>1.9.6</aspectj.version>
 		<allure.version>2.10.0</allure.version>
 		<neodymium.version>4.1.0</neodymium.version>
-		<pdfbox.version>2.0.18</pdfbox.version>
+		<pdfbox.version>2.0.21</pdfbox.version>
 	</properties>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -41,9 +41,19 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${surefire.version}</version>
 				<configuration>
-					<forkCount>2</forkCount>
+					<forkCount>1</forkCount>
 					<testFailureIgnore>true</testFailureIgnore>
+					<includes>
+						<!-- Neodymium (pure Java) test cases -->
+						<include>showcase/neodymium/tests/**/*Test.java</include>
+					</includes>
 					<argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
+					<properties>
+						<property>
+							<name>listener</name>
+							<value>io.qameta.allure.junit4.AllureJunit4</value>
+						</property>
+					</properties>
 					<systemPropertyVariables>
 						<allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
 						<selenide.reports>${project.build.directory}/selenide-results</selenide.reports>
@@ -65,58 +75,25 @@
 					<reportVersion>${allure.version}</reportVersion>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.2.0</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<source>11</source>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>java</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<configuration>
-							<includes>
-								<!-- Neodymium (pure Java) test cases -->
-								<include>showcase/neodymium/tests/**/*Test.java</include>
-							</includes>
-							<properties>
-								<property>
-									<name>listener</name>
-									<value>io.qameta.allure.junit4.AllureJunit4</value>
-								</property>
-							</properties>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>cucumber</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<configuration>
-							<includes>
-								<!-- Cucumber test cases -->
-								<include>template/cucumber/tests/RunAllFeaturesTest.java</include>
-							</includes>
-							<systemPropertyVariables>
-								<cucumber.options>--plugin
-									io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm</cucumber.options>
-							</systemPropertyVariables>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 
 	<dependencies>
 		<dependency>
@@ -126,28 +103,20 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-            <!-- 
-              The pdfbox dependency is added here to show how PDF files can be checked with a Neodymium test case
-              using another available technology like pdfbox.
-              
-              RELATED SHOWCASE
-              - PdfTextContentCheckTest
-              -->
+			<!-- The pdfbox dependency is added here to show how PDF files can be 
+				checked with a Neodymium test case using another available technology like 
+				pdfbox. RELATED SHOWCASE - PdfTextContentCheckTest -->
 			<groupId>org.apache.pdfbox</groupId>
 			<artifactId>pdfbox</artifactId>
 			<version>${pdfbox.version}</version>
 		</dependency>
 		<dependency>
-            <!-- 
-              The XCMailr plugin dependency is added here to show how retrieve and validate e-mails with a Neodymium test case.
-              
-              RELATED SHOWCASE:
-              - XCMailrTest
-              -->
-           <groupId>com.xceptance</groupId>
-           <artifactId>neodymium-plugin-xcmailr</artifactId>
-           <version>1.1.0</version>
-        </dependency>
+			<!-- The XCMailr plugin dependency is added here to show how retrieve 
+				and validate e-mails with a Neodymium test case. RELATED SHOWCASE: - XCMailrTest -->
+			<groupId>com.xceptance</groupId>
+			<artifactId>neodymium-plugin-xcmailr</artifactId>
+			<version>1.1.0</version>
+		</dependency>
 	</dependencies>
 
 	<reporting>
@@ -156,15 +125,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-report-plugin</artifactId>
 				<version>${surefire.version}</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.1.1</version>
-				<configuration>
-					<additionalparam>-Xdoclint:none</additionalparam>
-					<source>8</source>
-				</configuration>
 			</plugin>
 		</plugins>
 	</reporting>
