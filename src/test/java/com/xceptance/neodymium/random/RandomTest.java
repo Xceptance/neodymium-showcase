@@ -13,11 +13,13 @@ public class RandomTest {
 	@Test
 	@Description(value = "Showcase for usage of Neodymium#getRandom.")
 	public void testRandom() {
+
 		Random random = Neodymium.getRandom();
-		System.out.println("randomNumber   = ");
 
 		for (int i = 1; i < 100; i++) {
-			int randomNumber = random.nextInt(11);
+			// generate values between zero (inclusive) and nextInt(bound) (exclusive)
+			// add 1 to get values between 1 and nextInt(bound)
+			int randomNumber = random.nextInt(10) +1;
 			System.out.println("randomNumber   = " + randomNumber);
 		}
 	}
