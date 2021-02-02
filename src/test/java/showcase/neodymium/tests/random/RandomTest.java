@@ -1,4 +1,4 @@
-package com.xceptance.neodymium.random;
+package showcase.neodymium.tests.random;
 
 import java.util.Random;
 
