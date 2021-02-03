@@ -1,71 +1,72 @@
 package showcase.neodymium.tests.random;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
-import static com.codeborne.selenide.Condition.hidden;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.ex.ElementNotFound;
+import com.xceptance.neodymium.util.Neodymium;
 
 import io.qameta.allure.Description;
 
-public class FixedRandomTest {
-	private Random random;
+public class FixedRandomTest
+{
+    @Before
+    public void configurationCheck()
+    {
+        // by setting the neodymium.context.random.initialValue, the random result can be kept constant
+        // check if the initialValue is enabled in neodymium.properties
+        Assert.assertEquals("FixedRandomTest: neodymium.context.random.initialValue is not set",
+                            Long.valueOf("123456789"), Neodymium.configuration().initialRandomValue());
+    }
 
-	protected static final Logger LOGGER = LoggerFactory.getLogger(RandomJobOffersTest.class);
+    @Test
+    @Description(value = "Showcase for usage of Neodymium#getRandom.")
+    public void testRandom()
+    {
+        Random random = Neodymium.getRandom();
 
-	@Test
-	@Description(value = "Showcase for fixec random Test.")
-	public void testRandomJobs() {
-		// open the demo page and prepare it for the test
-		openJobPage();
+        ArrayList<String> listOfNames = new ArrayList<String>();
+        listOfNames.add("Mia");
+        listOfNames.add("Emilia");
+        listOfNames.add("Hannah");
+        listOfNames.add("Emma");
+        listOfNames.add("Sophia");
+        listOfNames.add("Noah");
+        listOfNames.add("Ben");
+        listOfNames.add("Matteo");
+        listOfNames.add("Finn");
+        listOfNames.add("Leon");
 
-		// count the job offers in the list
-//		.jobs-plain-list>li>a
-//		.tab-content>.jobs-plain-list>li>a
-		int jobOffersCount = $$(".jobs-plain-list>li>a").size();
-		LOGGER.error("Count of job offers = " + jobOffersCount);
-		
-		// create a random number between 1 and job offers count in the list
-		random = new Random();
-		final int randomNumber = random.nextInt(jobOffersCount) + 1;
-		LOGGER.error("random Number = " + randomNumber);
-//		$$(".tab-content>.jobs-plain-list>li>a").get(randomNumber).click();  //li:nth-child(" + position + ")
-//		$(".jobs-plain-list>li:nth-child(" + randomNumber + ")>a").click();
-		$(".tab-content>.jobs-plain-list>li:nth-child(7)>a").click();
-		
-		// test job offer detail page contains ".job-listing-col.job-col-header" twice
-		// it is unique in this page
-		$$(".job-listing-col.job-col-header").shouldHave(sizeGreaterThanOrEqual(2));
+        // shuffles the order in the array
+        Collections.shuffle(listOfNames, random);
 
-	}
+        Assert.assertEquals("Leon", listOfNames.get(0));
+        Assert.assertEquals("Hannah", listOfNames.get(1));
+        Assert.assertEquals("Emilia", listOfNames.get(2));
+        Assert.assertEquals("Ben", listOfNames.get(3));
+        Assert.assertEquals("Sophia", listOfNames.get(4));
+        Assert.assertEquals("Finn", listOfNames.get(5));
+        Assert.assertEquals("Matteo", listOfNames.get(6));
+        Assert.assertEquals("Emma", listOfNames.get(7));
+        Assert.assertEquals("Mia", listOfNames.get(8));
+        Assert.assertEquals("Noah", listOfNames.get(9));
 
-	// a helper function to open the job page //and close the GDPR dialog to avoid
-	// duplicate code
-	private void openJobPage() {
-		// open demo page
-		Selenide.open("https://www.xceptance.com/de/careers/");
+        // shuffles the order in the array again
+        Collections.shuffle(listOfNames, random);
 
-		// close GDPR overlay if visible
-		boolean overlayIsVisible = true;
-		try {
-			$(".btn-link").shouldBe(visible);
-		} catch (ElementNotFound e) {
-			overlayIsVisible = false;
-		}
-
-		if (overlayIsVisible) {
-			$(".btn-link").click();
-			$(".btn-link").shouldBe(hidden);
-			Selenide.refresh();
-		}
-	}
+        Assert.assertEquals("Emilia", listOfNames.get(0));
+        Assert.assertEquals("Leon", listOfNames.get(1));
+        Assert.assertEquals("Noah", listOfNames.get(2));
+        Assert.assertEquals("Hannah", listOfNames.get(3));
+        Assert.assertEquals("Finn", listOfNames.get(4));
+        Assert.assertEquals("Matteo", listOfNames.get(5));
+        Assert.assertEquals("Sophia", listOfNames.get(6));
+        Assert.assertEquals("Ben", listOfNames.get(7));
+        Assert.assertEquals("Mia", listOfNames.get(8));
+        Assert.assertEquals("Emma", listOfNames.get(9));
+    }
 }
