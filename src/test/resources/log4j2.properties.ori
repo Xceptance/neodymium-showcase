@@ -1,0 +1,70 @@
+##############################################################################
+##
+## log4j2 Settings
+##
+## The log4j2 configuration used by Neodymium when running the tests.
+##
+##############################################################################
+#
+### Logger definitions ###
+
+# status - level of internal Log4j2 events logged to the console
+# Use it to debug the log4j2 logging
+#status = trace
+
+name = NeodymiumConfiguration
+
+property.projectPath = showcase
+
+property.filename1 = target/log/FirstTest-log4j2.log
+#property.filename2 = target/log/SecondTest-log4j2.log
+
+appender.console.type = Console
+appender.console.name = STDOUT
+appender.console.layout.type = PatternLayout
+appender.console.layout.pattern = [%-5level] %d{HH:mm:ss} %m%n
+appender.console.filter.threshold.type = ThresholdFilter
+appender.console.filter.threshold.level = trace
+
+logger.console.name = ${projectPath}
+logger.console.level = trace
+logger.console.additivity = true
+
+appender.file1.type = File
+appender.file1.name = FILE1
+appender.file1.append = false
+#appender.file1.filter.threshold.type = ThresholdFilter
+# overwrites rootLogger.level and logger.file1.level
+#appender.file1.filter.threshold.level = trace
+appender.file1.fileName = ${filename1}
+appender.file1.layout.type = PatternLayout
+appender.file1.layout.pattern = %d{yyyy-MM-dd HH:mm:ss} %m%n
+
+logger.file1.name = ${projectPath}.neodymium.tests.logging.LoggingFirstTest
+logger.file1.level = trace
+# additivity - default = true
+logger.file1.additivity = false
+logger.file1.appenderRef.console.ref = FILE1
+
+#appender.file2.type = File
+#appender.file2.name = FILE2
+#appender.file2.append = false
+##appender.file2.filter.threshold.type = ThresholdFilter
+##appender.file2.filter.threshold.level = info
+#appender.file2.fileName = ${filename2}
+#appender.file2.layout.type = PatternLayout
+#appender.file2.layout.pattern = %d{yyyy-MM-dd HH:mm:ss} %m%n
+#
+#logger.file2.name = ${projectPath}.neodymium.tests.logging.LoggingSecondTest
+#logger.file2.level = trace
+#logger.file2.additivity = false
+#logger.file2.appenderRef.console.ref = FILE2
+
+# It always exists and at the top of any logger hierarchy (like Object.class in java)
+# If no configuration has been defined, it is automatically generated with
+# - rootLogger.level = error
+# - rootLogger.appenderRef.console.ref = STDOUT
+rootLogger.level = trace
+rootLogger.appenderRef.file1.ref = FILE1
+#rootLogger.appenderRef.file2.ref = FILE2
+rootLogger.appenderRef.console.ref = STDOUT
