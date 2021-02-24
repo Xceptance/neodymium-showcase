@@ -15,8 +15,6 @@ public class LoggingSecondTest
     public void testSecondLogging()
     {
         // change the Logger.level in the log4j2.properties file and run the test
-        logger.fatal("Currently rootLogger.level is " + logger.getLevel());
-
         logger.trace("LoggingSecondTest - Trace");
         logger.debug("LoggingSecondTest - Debug");
         logger.info("LoggingSecondTest - Info");

@@ -21,8 +21,6 @@ public class LoggingFirstTest
     public void testFirstLogging()
     {
         // change the Logger.level in the log4j2.properties file and run the test
-        logger.fatal("Currently rootLogger.level is " + logger.getLevel());
-
         logger.trace("LoggingFirstTest - Trace");
         logger.debug("LoggingFirstTest - Debug");
         logger.info("LoggingFirstTest - Info");

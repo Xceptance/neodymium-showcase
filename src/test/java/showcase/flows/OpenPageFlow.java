@@ -9,30 +9,30 @@ import com.codeborne.selenide.ex.ElementNotFound;
 
 public class OpenPageFlow
 {
+    /**
+     * Helper function to open the job page and close the GDPR dialog to avoid duplicate code
+     */
     public static void openXceptanceJobOffersPage()
     {
-        // a helper function to open the job page and close the GDPR dialog to avoid duplicate code
+        // open demo page
+        Selenide.open("https://www.xceptance.com/de/careers/");
+
+        // close GDPR overlay if visible
+        boolean overlayIsVisible = true;
+        try
         {
-            // open demo page
-            Selenide.open("https://www.xceptance.com/de/careers/");
+            $(".btn-link").shouldBe(visible);
+        }
+        catch (ElementNotFound e)
+        {
+            overlayIsVisible = false;
+        }
 
-            // close GDPR overlay if visible
-            boolean overlayIsVisible = true;
-            try
-            {
-                $(".btn-link").shouldBe(visible);
-            }
-            catch (ElementNotFound e)
-            {
-                overlayIsVisible = false;
-            }
-
-            if (overlayIsVisible)
-            {
-                $(".btn-link").click();
-                $(".btn-link").shouldBe(hidden);
-                Selenide.refresh();
-            }
+        if (overlayIsVisible)
+        {
+            $(".btn-link").click();
+            $(".btn-link").shouldBe(hidden);
+            Selenide.refresh();
         }
     }
 }

@@ -5,9 +5,11 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.codeborne.selenide.ElementsCollection;
+import com.xceptance.neodymium.util.Neodymium;
 import com.xceptance.neodymium.util.NeodymiumRandom;
 
 import io.qameta.allure.Description;
@@ -15,6 +17,15 @@ import showcase.flows.OpenPageFlow;
 
 public class RandomJobOffersTest
 {
+    @Before
+    public void configurationCheck()
+    {
+        // by setting the neodymium.context.random.initialValue, the random result can be kept constant
+        // check if the initialValue is NOT set in neodymium.properties so that a really random result is chosen
+        Assert.assertNotEquals("FixedRandomTest: neodymium.context.random.initialValue is set",
+                               Long.valueOf("123456789"), Neodymium.configuration().initialRandomValue());
+    }
+
     @Test
     @Description(value = "Showcase for clicking a random element in the list of urrent job offers.")
     public void testRandomJobs()
@@ -30,8 +41,8 @@ public class RandomJobOffersTest
         // count the job offers in the list
         final int jobOffersCount = jobOffersList.size();
 
-        // create a random number between 1 and job offers count in the list
-        final int randomNumber = NeodymiumRandom.nextInt(jobOffersCount) + 1;
+        // create a random number between 0 and job offers count in the list
+        final int randomNumber = NeodymiumRandom.nextInt(jobOffersCount);
 
         // remember the selected headline
         final String headline = jobOffersList.get(randomNumber).getText();
@@ -40,7 +51,6 @@ public class RandomJobOffersTest
         jobOffersList.get(randomNumber).click();
 
         // check if job offer detail page contains same headline
-        Assert.assertEquals("The headline is not the same", headline,
-                            $$(".job-listing-col.job-col-header>h2").first().getText());
+        $(".job-listing-col.job-col-header>h2").shouldHave(exactText(headline));
     }
 }
