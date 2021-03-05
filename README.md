@@ -36,5 +36,14 @@ The `showcase.neodymium.tests.basicauth` package contains several approaches how
 The `showcase.neodymium.tests.xcmailr` package contains a simple test case for the XcMailr plugin for Neodymium. You can find more information about it by consulting the `README.md` of the XcMailr plugin which can be found [here](https://github.com/Xceptance/neodymium-plugin-xcmailr).
 This test case requires some effort in setting up the test environment since there is no publicly free XcMailr service available. Hence you need to set up an instance of the [XCMailr](https://github.com/Xceptance/XCMailr) on your own or get in contact with [Xceptance](https://www.xceptance.com/en/contact/) if you are in need for using such a service within your test. The remaining setup is described within the test case and shouldn't be to challenging.
 
+## 7. Random test data  
+The `showcase.neodymium.tests.random` package contains the selection of random web elements from a website under test.
+ 
+* `FixedRandomTest.java` shows how a random test can be run again in the same way.
+* `RandomJobOffersTest.java` demonstrates the selection of different job offers. 
+
+## 8. Logging with log4j2  
+The `showcase.neodymium.tests.logging` package shows how log4j2 can be used for logging. The configuration is specified in the log4j2.properties file. Logging can be set differently for console output and log files. With two test cases it is shown that it is even possible to define the logging per test.
+
 ## License
 MIT
