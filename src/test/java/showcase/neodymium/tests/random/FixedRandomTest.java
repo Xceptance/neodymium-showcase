@@ -8,11 +8,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.xceptance.neodymium.module.statement.browser.multibrowser.SuppressBrowsers;
 import com.xceptance.neodymium.util.Neodymium;
 
 import io.qameta.allure.Description;
+import showcase.neodymium.tests.AbstractTest;
 
-public class FixedRandomTest
+@SuppressBrowsers
+public class FixedRandomTest extends AbstractTest
 {
     @Before
     public void configurationCheck()

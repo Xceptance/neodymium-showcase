@@ -4,9 +4,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
-import io.qameta.allure.Description;
+import com.xceptance.neodymium.module.statement.browser.multibrowser.SuppressBrowsers;
 
-public class LoggingFirstTest
+import io.qameta.allure.Description;
+import showcase.neodymium.tests.AbstractTest;
+
+@SuppressBrowsers
+public class LoggingFirstTest extends AbstractTest
 {
     private static Logger logger = LogManager.getLogger(LoggingFirstTest.class);
 

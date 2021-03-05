@@ -14,8 +14,9 @@ import com.xceptance.neodymium.util.NeodymiumRandom;
 
 import io.qameta.allure.Description;
 import showcase.flows.OpenPageFlow;
+import showcase.neodymium.tests.AbstractTest;
 
-public class RandomJobOffersTest
+public class RandomJobOffersTest extends AbstractTest
 {
     @Before
     public void configurationCheck()

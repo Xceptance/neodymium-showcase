@@ -32,7 +32,6 @@ public class OpenPageFlow
         {
             $(".btn-link").click();
             $(".btn-link").shouldBe(hidden);
-            Selenide.refresh();
         }
     }
 }
