@@ -22,8 +22,8 @@ public class RandomJobOffersTest
     {
         // by setting the neodymium.context.random.initialValue, the random result can be kept constant
         // check if the initialValue is NOT set in neodymium.properties so that a really random result is chosen
-        Assert.assertNotEquals("FixedRandomTest: neodymium.context.random.initialValue is set",
-                               Long.valueOf("123456789"), Neodymium.configuration().initialRandomValue());
+        Assert.assertNull("FixedRandomTest: neodymium.context.random.initialValue is set",
+                          Neodymium.configuration().initialRandomValue());
     }
 
     @Test

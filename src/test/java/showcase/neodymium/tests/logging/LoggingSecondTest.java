@@ -10,8 +10,9 @@ public class LoggingSecondTest
 {
     private static Logger logger = LogManager.getLogger(LoggingSecondTest.class);
 
+    // This second test is added to show that a separate log file can be written for each test case.
     @Test
-    @Description("Showcase for logging with log4j.")
+    @Description("Showcase for logging with log4j2.")
     public void testSecondLogging()
     {
         // change the Logger.level in the log4j2.properties file and run the test
