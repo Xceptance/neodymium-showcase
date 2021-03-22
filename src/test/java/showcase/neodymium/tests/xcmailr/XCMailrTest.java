@@ -72,14 +72,14 @@ public class XCMailrTest extends AbstractTest
     public static void configureApiToken() throws ClientProtocolException, IOException
     {
         // required configuration checks
-        Assert.assertNotEquals("Please enter your xcmailr api token to config/xcmailr.properties",
-                               "", XcMailrApi.getConfiguration().apiToken());
+        Assert.assertNotNull("Please enter your xcmailr api token to config/xcmailr.properties",
+                             XcMailrApi.getConfiguration().apiToken());
 
-        Assert.assertNotEquals("Please enter your xcmailr url to config/xcmailr.properties",
-                               "", XcMailrApi.getConfiguration().url());
+        Assert.assertNotNull("Please enter your xcmailr url to config/xcmailr.properties",
+                             XcMailrApi.getConfiguration().url());
 
-        Assert.assertNotEquals("Please enter the e-mail address you will create at your xcmailr instance.",
-                               "", receiverEmail);
+        Assert.assertNotNull("Please enter the e-mail address you will create at your xcmailr instance.",
+                             receiverEmail);
     }
 
     @Before

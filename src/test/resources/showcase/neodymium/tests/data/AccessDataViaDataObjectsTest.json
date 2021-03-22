@@ -1,10 +1,10 @@
 [
 	{
-		"testId": "en/JSON test data access using Neodymium DataUtils method",
+		"testId": "en/JSON test data access using java Pojo",
 		"lang": "en",
 		"teaserMessage": "Committed to Software Quality",
 		"teaserComment": "We help our clients optimize software testing and quality assurance",
-		"thumbnails": [
+		"serviceTiles": [
 			{
 				"heading": "Manual & Automated Testing",
 				"explanation": "We test your product based on individual requirements, with an ideal mix of manual and automated testing."
@@ -25,11 +25,11 @@
 		"numberServices": 4
 	},
 	{
-		"testId": "de/JSON test data access using Neodymium DataUtils method",
+		"testId": "de/JSON test data access using java Pojo",
 		"lang": "de",
 		"teaserMessage": "Der Qualität von Software verpflichtet",
 		"teaserComment": "Wir begleiten Sie auf Ihrem Weg zum besten Produkt.",
-		"thumbnails": [
+		"serviceTiles": [
 			{
 				"heading": "Manuelle Tests & Testautomatisierung",
 				"explanation": "Wir arbeiten mit einem ide­alen Mix aus ma­nu­ellen und auto­ma­ti­sierten Test­ver­fah­ren, ganz nach Ihren per­sön­lichen Wün­schen und Vor­stel­lungen."
