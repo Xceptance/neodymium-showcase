@@ -19,9 +19,9 @@ import showcase.neodymium.tests.data.dataobjects.HomePageTestData;
 import showcase.neodymium.tests.data.dataobjects.ServiceTile;
 
 /**
- * This is a show case to explain how to deal with test data using the Neodymium built in features.<br>
+ * This is a show case to explain how to deal with test data using the Neodymium built-in features.<br>
  * The example focuses on test data retrieval based on data objects.<br>
- * In this case the test data are converted from a JSON file into java POJOs HomePageTestData and ServiceTile.<br>
+ * In this case the test data are converted from a JSON file into Java POJOs HomePageTestData and ServiceTile.<br>
  * This is an example of working with a more complex test object that contains a list of serviceTiles.
  */
 @Tag("data object test data access")
@@ -29,8 +29,9 @@ public class AccessDataViaDataObjectsTest extends AbstractTest
 {
 
     @Test
-    @Description(value = "Get test data using java Pojo")
-    // in this case no @DataSet annotation is necessary because all test cases are to be executed
+    @Description(value = "Get test data using Java Pojo")
+    // by default all available data sets will be executed, so there is no need to call them explicitly via the @dataset
+    // annotation
     public void test()
     {
         // use DataUtils to map the test data into the corresponding data objects HomePageTestData and ServiceTile
@@ -40,7 +41,7 @@ public class AccessDataViaDataObjectsTest extends AbstractTest
         // use the testDataHomePage.getLang() method
         Selenide.open("https://www.xceptance.com/" + testDataHomePage.getLang());
 
-        // check for Message and Comment
+        // check for message and comment
         $(".landing-intro>h1").should(matchText(testDataHomePage.getTeaserMessage()));
         $(".landing-intro>p").should(matchText(testDataHomePage.getTeaserComment()));
 
