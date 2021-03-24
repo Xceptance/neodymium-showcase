@@ -45,5 +45,8 @@ The `showcase.neodymium.tests.random` package contains the selection of random w
 ## 8. Logging with log4j2  
 The `showcase.neodymium.tests.logging` package shows how log4j2 can be used for logging. The configuration is specified in the log4j2.properties file. Logging can be set differently for console output and log files. With two test cases it is shown that it is even possible to define the logging per test.
 
+## 9. iFrame
+This show case in the `showcase.neodymium.tests.iframe` package explains with an example implementation how to test a web site using frames. Selenide offers a straight forward approach to handle such frames and within Neodymium this is simply applied.
+
 ## License
 MIT
