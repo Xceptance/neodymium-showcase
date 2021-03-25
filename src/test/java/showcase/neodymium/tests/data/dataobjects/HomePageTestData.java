@@ -8,7 +8,6 @@ import java.util.List;
  */
 public class HomePageTestData
 {
-
     private String lang;
 
     private String teaserMessage;
@@ -45,4 +44,14 @@ public class HomePageTestData
         return serviceTiles;
     }
 
+    @Override
+    public String toString()
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.append("HomePageTestData [Language=" + lang + ", ");
+        builder.append("TeaserMessage=" + teaserMessage + ", ");
+        builder.append("TeaserComment=" + teaserComment + ", ");
+        builder.append("Number of Services=" + numberServices + "]");
+        return builder.toString();
+    }
 }

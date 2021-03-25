@@ -10,6 +10,8 @@ public class ServiceTile
 
     private String explanation;
 
+    private Integer position;
+
     public String getHeading()
     {
         return heading;
@@ -20,4 +22,18 @@ public class ServiceTile
         return explanation;
     }
 
+    public int getPosition()
+    {
+        return position;
+    }
+
+    @Override
+    public String toString()
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.append("ServiceTile [heading=" + heading + ", ");
+        builder.append("Explanation=" + explanation + ", ");
+        builder.append("Position=" + position + "]");
+        return builder.toString();
+    }
 }

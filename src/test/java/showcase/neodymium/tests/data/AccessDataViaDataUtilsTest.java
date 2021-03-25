@@ -31,19 +31,19 @@ public class AccessDataViaDataUtilsTest extends AbstractTest
         // use DataUtils to get the values of the running data set
         Selenide.open("https://www.xceptance.com/" + DataUtils.asString("lang"));
 
-        // check Message and Comment
+        // check message and comment
         $(".landing-intro>h1").should(matchText(DataUtils.asString("teaserMessage")));
         $(".landing-intro>p").should(matchText(DataUtils.asString("teaserComment")));
 
         // check serviceTiles on the page
-        int i = 1;
+        int i = 0;
         while (DataUtils.exists("serviceTile_" + i + "_heading"))
         {
             // check heading text
-            $$(".caption .icon>h2").get(i - 1).should(matchesText(DataUtils.asString("serviceTile_" + i + "_heading")));
+            $$(".caption .icon>h2").get(i).should(matchesText(DataUtils.asString("serviceTile_" + i + "_heading")));
 
             // check explanation text
-            $$(".caption > p").get(i - 1).should(matchesText(DataUtils.asString("serviceTile_" + i + "_explanation")));
+            $$(".caption > p").get(i).should(matchesText(DataUtils.asString("serviceTile_" + i + "_explanation")));
 
             // next serviceTile
             i++;

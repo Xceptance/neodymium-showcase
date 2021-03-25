@@ -14,14 +14,13 @@ import io.qameta.allure.Description;
 import showcase.neodymium.tests.AbstractTest;
 
 /**
- * This is a show case to explain how to deal with test data using the Neodymium built in features.<br>
+ * This is a show case to explain how to deal with test data using the Neodymium built-in features.<br>
  * The example shows how to select test data with @DataSet annotation
  */
+// disables data set support for the whole class
+@SuppressDataSets
 public class AccessDataViaDataSetAnnotationTest extends AbstractTest
 {
-    // disables data set support for the whole class
-    @SuppressDataSets
-
     @Test
     @Description(value = "Get test data using @DataSet annotation")
     // this method will run only once and without any data set because of the SuppressDataSets annotation on the class
@@ -35,7 +34,7 @@ public class AccessDataViaDataSetAnnotationTest extends AbstractTest
     }
 
     @Test
-    // overrides the class level @SuppressDataSets to run with the first data set
+    // overrides the class level @SuppressDataSets to run only the first data set
     @DataSet(1)
     public void onlyFirstDataSet()
     {
@@ -48,7 +47,7 @@ public class AccessDataViaDataSetAnnotationTest extends AbstractTest
     }
 
     @Test
-    // overrides the class level @SuppressDataSets to run with all data sets
+    // overrides the class level @SuppressDataSets to run all data sets
     @DataSet
     public void allDataSets()
     {

@@ -21,7 +21,7 @@ import showcase.neodymium.tests.data.dataobjects.ServiceTile;
  * By default, Neodymium looks for a data file that has the same name as the test case and is located in the same
  * package in the resources folder.<br>
  * This example shows the reading from a JSON file that does not meet the naming conventions.<br>
- * Therefore it is specified with the @DataFile annotation.<br>
+ * Therefore it is specified using the @DataFile annotation.<br>
  * The method DataUtils.get() uses the JsonPath here.
  */
 @Tag("data object test data access")
@@ -38,7 +38,7 @@ public class AccessDataViaJsonPathTest extends AbstractTest
         // use the JsonPath with DataUtils.get()
         Selenide.open("https://www.xceptance.com/" + DataUtils.get("$.lang", String.class));
 
-        // check for Message and Comment
+        // check for message and comment
         $(".landing-intro>h1").should(matchText(DataUtils.get("$.teaserMessage", String.class)));
         $(".landing-intro>p").should(matchText(DataUtils.get("$.teaserComment", String.class)));
 

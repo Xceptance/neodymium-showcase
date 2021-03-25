@@ -5,8 +5,6 @@ import static com.codeborne.selenide.Condition.matchesText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-import java.util.Iterator;
-
 import org.junit.Test;
 
 import com.codeborne.selenide.Selenide;
@@ -30,13 +28,13 @@ public class AccessDataViaDataObjectsTest extends AbstractTest
 
     @Test
     @Description(value = "Get test data using Java Pojo")
-    // by default all available data sets will be executed, so there is no need to call them explicitly via the @dataset
+    // by default all available data sets will be executed, so there is no need to call them explicitly via the @DataSet
     // annotation
     public void test()
     {
         // use DataUtils to map the test data into the corresponding data objects HomePageTestData and ServiceTile
         HomePageTestData testDataHomePage = DataUtils.get(HomePageTestData.class);
-
+        System.out.println(testDataHomePage);
         // open home page in the DataSet language
         // use the testDataHomePage.getLang() method
         Selenide.open("https://www.xceptance.com/" + testDataHomePage.getLang());
@@ -45,22 +43,18 @@ public class AccessDataViaDataObjectsTest extends AbstractTest
         $(".landing-intro>h1").should(matchText(testDataHomePage.getTeaserMessage()));
         $(".landing-intro>p").should(matchText(testDataHomePage.getTeaserComment()));
 
-        // check for serviceTiles on the page
+        // check for service tiles on the page
         // the ServiceTile test data are provided within HomePageTestData as a list
-        Iterator<ServiceTile> testDataServiceTiles = testDataHomePage.getServiceTiles().iterator();
-        int i = 0;
-        while (testDataServiceTiles.hasNext())
+        for (ServiceTile serviceTile : testDataHomePage.getServiceTiles())
         {
-            ServiceTile serviceTile = testDataServiceTiles.next();
-
+            System.out.println(serviceTile);
             // check heading with its position
-            $$(".caption .icon>h2").get(i).should(matchesText(serviceTile.getHeading()));
+            $$(".caption .icon>h2").get(serviceTile.getPosition()).should(matchesText(serviceTile.getHeading()));
 
             // check explanation test with its position
-            $$(".caption > p").get(i).should(matchesText(serviceTile.getExplanation()));
+            $$(".caption > p").get(serviceTile.getPosition()).should(matchesText(serviceTile.getExplanation()));
 
             // next serviceTile is expected at next position
-            i++;
         }
 
         // check the number of services
