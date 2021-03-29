@@ -1,0 +1,14 @@
+[
+    {
+        "testId": "0001",
+        "language": "en",
+        "headline": "Committed to Software Quality",
+        "description": "We help our clients optimize software testing and quality assurance"
+    },
+    {
+        "testId": "0002",
+        "language": "de",
+        "headline": "Der Qualität von Software verpflichtet",
+        "description": "Wir begleiten Sie auf Ihrem Weg zum besten Produkt."
+    }   
+]
