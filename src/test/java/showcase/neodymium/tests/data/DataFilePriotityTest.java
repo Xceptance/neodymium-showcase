@@ -32,10 +32,10 @@ public class DataFilePriotityTest extends AbstractTest
     public void test()
     {
 
-        // use Neodymium.dataValue to get the "lang" value from the current data set
-        String lang = Neodymium.dataValue("lang");
+        // use Neodymium.dataValue to get the "language" value from the current data set
+        String language = Neodymium.dataValue("language");
         // open home page in the DataSet language
-        Selenide.open("https://www.xceptance.com/" + lang);
+        Selenide.open("https://www.xceptance.com/" + language);
 
         // use Neodymium.dataValue to get the other test data values from the actual data set
         $(".landing-intro>h1").should(matchText(Neodymium.dataValue("teaserMessage")));

@@ -2,7 +2,7 @@
 <datafile>
 	<dataset>
 		<data key="testId">en/XML test data access using Neodymium DataUtils method</data>
-		<data key="lang">en</data>
+		<data key="language">en</data>
 		<data key="teaserMessage">Committed to Software Quality</data>
 		<data key="teaserComment">We help our clients optimize software testing and quality assurance</data>
 		<data key="serviceTile_0_heading">Manual &amp; Automated Testing</data>
@@ -17,7 +17,7 @@
 	</dataset>
 	<dataset>
 		<data key="testId">de/XML test data access using Neodymium DataUtils method</data>
-		<data key="lang">de</data>
+		<data key="language">de</data>
 		<data key="teaserMessage">Der Qualität von Software verpflichtet</data>
 		<data key="teaserComment">Wir begleiten Sie auf Ihrem Weg zum besten Produkt.</data><data key="serviceTile_1_heading">Manual &amp; Automated Testing</data>
 		<data key="serviceTile_0_heading">Manuelle Tests &amp; Testautomatisierung</data>

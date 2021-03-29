@@ -36,9 +36,9 @@ public class AccessDataViaDataObjectsTest extends AbstractTest
         HomePageTestData testDataHomePage = DataUtils.get(HomePageTestData.class);
 
         // use the testDataHomePage.getLang() method to retrieve the language
-        String lang = testDataHomePage.getLanguage();
+        String language = testDataHomePage.getLanguage();
         // open home page in the DataSet language
-        Selenide.open("https://www.xceptance.com/" + lang);
+        Selenide.open("https://www.xceptance.com/" + language);
 
         // check for message and comment
         $(".landing-intro>h1").should(matchText(testDataHomePage.getTeaserMessage()));

@@ -39,7 +39,7 @@ public class AccessDataViaDataSetAnnotationTest extends AbstractTest
     public void onlyFirstDataSet()
     {
         // open home page in the right language
-        Selenide.open("https://www.xceptance.com/" + DataUtils.asString("lang"));
+        Selenide.open("https://www.xceptance.com/" + DataUtils.asString("language"));
 
         // check headline and description
         $(".landing-intro>h1").should(matchText(DataUtils.asString("headline")));
@@ -52,7 +52,7 @@ public class AccessDataViaDataSetAnnotationTest extends AbstractTest
     public void allDataSets()
     {
         // open home page in the right language
-        Selenide.open("https://www.xceptance.com/" + DataUtils.asString("lang"));
+        Selenide.open("https://www.xceptance.com/" + DataUtils.asString("language"));
 
         // check headline and description
         $(".landing-intro>h1").should(matchText(DataUtils.asString("headline")));

@@ -36,9 +36,9 @@ public class AccessDataViaJsonPathTest extends AbstractTest
     {
 
         // use the JsonPath with DataUtils.get() to retrieve the language
-        String lang = DataUtils.get("$.lang", String.class);
+        String language = DataUtils.get("$.language", String.class);
         // open home page in the DataSet language
-        Selenide.open("https://www.xceptance.com/" + lang);
+        Selenide.open("https://www.xceptance.com/" + language);
 
         // check for message and comment
         $(".landing-intro>h1").should(matchText(DataUtils.get("$.teaserMessage", String.class)));

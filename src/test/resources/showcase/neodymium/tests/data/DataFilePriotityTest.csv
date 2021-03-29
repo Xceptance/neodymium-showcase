@@ -1,3 +1,3 @@
-testId,lang,teaserMessage,teaserComment
+testId,language,teaserMessage,teaserComment
 "en/CSV test data access using Neodymium.dataValue method","en","Committed to Software Quality","We help our clients optimize software testing and quality assurance"
 "de/CSV test data access using Neodymium.dataValue method","de","Der Qualität von Software verpflichtet","Wir begleiten Sie auf Ihrem Weg zum besten Produkt."

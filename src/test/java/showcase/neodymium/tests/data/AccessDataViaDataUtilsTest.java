@@ -28,9 +28,9 @@ public class AccessDataViaDataUtilsTest extends AbstractTest
     public void test()
     {
         // use DataUtils to get the values of the current data set
-        String lang = DataUtils.asString("lang");
+        String language = DataUtils.asString("language");
         // open home page in the DataSet language
-        Selenide.open("https://www.xceptance.com/" + lang);
+        Selenide.open("https://www.xceptance.com/" + language);
 
         // check message and comment
         $(".landing-intro>h1").should(matchText(DataUtils.asString("teaserMessage")));

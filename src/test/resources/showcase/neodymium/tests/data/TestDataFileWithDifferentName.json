@@ -1,7 +1,7 @@
 [
 	{
 		"testId": "en/JSON test data access using DataUtils.get method with jsonPath",
-		"lang": "en",
+		"language": "en",
 		"teaserMessage": "Committed to Software Quality",
 		"teaserComment": "We help our clients optimize software testing and quality assurance",
 		"serviceTiles": [
@@ -26,7 +26,7 @@
 	},
 	{
 		"testId": "de/JSON test data access using DataUtils.get method with jsonPath",
-		"lang": "de",
+		"language": "de",
 		"teaserMessage": "Der Qualität von Software verpflichtet",
 		"teaserComment": "Wir begleiten Sie auf Ihrem Weg zum besten Produkt.",
 		"serviceTiles": [
