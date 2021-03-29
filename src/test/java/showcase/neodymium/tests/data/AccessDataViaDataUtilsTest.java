@@ -27,15 +27,16 @@ public class AccessDataViaDataUtilsTest extends AbstractTest
     @Description(value = "Get test data using DataUtils methods")
     public void test()
     {
+        // use DataUtils to get the values of the current data set
+        String lang = DataUtils.asString("lang");
         // open home page in the DataSet language
-        // use DataUtils to get the values of the running data set
-        Selenide.open("https://www.xceptance.com/" + DataUtils.asString("lang"));
+        Selenide.open("https://www.xceptance.com/" + lang);
 
         // check message and comment
         $(".landing-intro>h1").should(matchText(DataUtils.asString("teaserMessage")));
         $(".landing-intro>p").should(matchText(DataUtils.asString("teaserComment")));
 
-        // check serviceTiles on the page
+        // check service tiles on the page
         int i = 0;
         while (DataUtils.exists("serviceTile_" + i + "_heading"))
         {

@@ -21,9 +21,9 @@ import showcase.neodymium.tests.AbstractTest;
 @SuppressDataSets
 public class AccessDataViaDataSetAnnotationTest extends AbstractTest
 {
+    // this method will run only once and without any data set because of the SuppressDataSets annotation on the class
     @Test
     @Description(value = "Get test data using @DataSet annotation")
-    // this method will run only once and without any data set because of the SuppressDataSets annotation on the class
     public void noDataSets()
     {
         // open home page

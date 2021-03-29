@@ -26,18 +26,19 @@ import showcase.neodymium.tests.data.dataobjects.ServiceTile;
 public class AccessDataViaDataObjectsTest extends AbstractTest
 {
 
+    // by default all available data sets will be executed, so there is no need to call them
+    // explicitly via the @DataSet annotation
     @Test
     @Description(value = "Get test data using Java Pojo")
-    // by default all available data sets will be executed, so there is no need to call them explicitly via the @DataSet
-    // annotation
     public void test()
     {
         // use DataUtils to map the test data into the corresponding data objects HomePageTestData and ServiceTile
         HomePageTestData testDataHomePage = DataUtils.get(HomePageTestData.class);
 
+        // use the testDataHomePage.getLang() method to retrieve the language
+        String lang = testDataHomePage.getLanguage();
         // open home page in the DataSet language
-        // use the testDataHomePage.getLang() method
-        Selenide.open("https://www.xceptance.com/" + testDataHomePage.getLang());
+        Selenide.open("https://www.xceptance.com/" + lang);
 
         // check for message and comment
         $(".landing-intro>h1").should(matchText(testDataHomePage.getTeaserMessage()));

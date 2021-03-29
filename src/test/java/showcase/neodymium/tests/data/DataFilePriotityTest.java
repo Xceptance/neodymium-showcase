@@ -31,9 +31,11 @@ public class DataFilePriotityTest extends AbstractTest
     @DataSet(id = "de/CSV test data access using Neodymium.dataValue method")
     public void test()
     {
+
+        // use Neodymium.dataValue to get the "lang" value from the current data set
+        String lang = Neodymium.dataValue("lang");
         // open home page in the DataSet language
-        // use Neodymium.dataValue to get the "lang" value from the actual data set
-        Selenide.open("https://www.xceptance.com/" + Neodymium.dataValue("lang"));
+        Selenide.open("https://www.xceptance.com/" + lang);
 
         // use Neodymium.dataValue to get the other test data values from the actual data set
         $(".landing-intro>h1").should(matchText(Neodymium.dataValue("teaserMessage")));

@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class HomePageTestData
 {
-    private String lang;
+    private String language;
 
     private String teaserMessage;
 
@@ -16,9 +16,12 @@ public class HomePageTestData
 
     private Integer numberServices;
 
-    public String getLang()
+    // example how to map a nested list of test data (e.g. JSON array)
+    private List<ServiceTile> serviceTiles;
+
+    public String getLanguage()
     {
-        return lang;
+        return language;
     }
 
     public String getTeaserMessage()
@@ -36,25 +39,23 @@ public class HomePageTestData
         return numberServices;
     }
 
-    // example how to map a nested list of test data (e.g. JSON array)
-    private List<ServiceTile> serviceTiles;
-
     public List<ServiceTile> getServiceTiles()
     {
         return serviceTiles;
     }
 
-    // System.out.println(someObject) calls the Object.toString() method.
-    // It returns a hash code representation of the object e.g.: HomePageTestData@12d1f1d4.
-    // To display the variables contained in the object, we recommend to override the toString () method.
+    // when printing an object the Object.toString() method will be called
+    // by default this returns the hash code representation of the object e.g.: HomePageTestData@12d1f1d4
+    // we recommend to override the toString() method to give more details about the object
     @Override
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
-        builder.append("HomePageTestData [Language=" + lang + ", ");
-        builder.append("TeaserMessage=" + teaserMessage + ", ");
-        builder.append("TeaserComment=" + teaserComment + ", ");
-        builder.append("Number of Services=" + numberServices + "]");
+        builder.append("HomePageTestData [language=" + language + ", ");
+        builder.append("teaser message=" + teaserMessage + ", ");
+        builder.append("teaser comment=" + teaserComment + ", ");
+        builder.append("number of services=" + numberServices + ", ");
+        builder.append("service tiles" + serviceTiles + "]");
         return builder.toString();
     }
 }
