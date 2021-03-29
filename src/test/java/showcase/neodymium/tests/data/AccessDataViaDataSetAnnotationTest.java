@@ -41,7 +41,7 @@ public class AccessDataViaDataSetAnnotationTest extends AbstractTest
         // open home page in the right language
         Selenide.open("https://www.xceptance.com/" + DataUtils.asString("lang"));
 
-        // // check headline and description
+        // check headline and description
         $(".landing-intro>h1").should(matchText(DataUtils.asString("headline")));
         $(".landing-intro>p").should(matchText(DataUtils.asString("description")));
     }

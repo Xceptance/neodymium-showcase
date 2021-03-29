@@ -25,7 +25,7 @@ import showcase.neodymium.tests.data.dataobjects.ServiceTile;
  * The method DataUtils.get() uses the JsonPath here.
  */
 @Tag("data object test data access")
-// force Neodymium to use a different than standard named data file under src/test/ressources/
+// tell Neodymium to use a different than standard named data file under src/test/ressources/
 @DataFile("showcase/neodymium/tests/data/TestDataFileWithDifferentName.json")
 public class AccessDataViaJsonPathTest extends AbstractTest
 {

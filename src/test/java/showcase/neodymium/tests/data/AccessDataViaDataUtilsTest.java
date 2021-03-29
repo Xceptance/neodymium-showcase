@@ -15,7 +15,7 @@ import io.qameta.allure.junit4.Tag;
 import showcase.neodymium.tests.AbstractTest;
 
 /**
- * This is a show case to explain how to deal with test data using the Neodymium built in features.<br>
+ * This is a show case to explain how to deal with test data using the Neodymium built-in features.<br>
  * The example focuses on the very basic direct test data retrieval.<br>
  * In this case the test data are taken from the XML file.<br>
  * The method DataUtils.asString() is used

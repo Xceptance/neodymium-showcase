@@ -34,7 +34,7 @@ public class AccessDataViaDataObjectsTest extends AbstractTest
     {
         // use DataUtils to map the test data into the corresponding data objects HomePageTestData and ServiceTile
         HomePageTestData testDataHomePage = DataUtils.get(HomePageTestData.class);
-        System.out.println(testDataHomePage);
+
         // open home page in the DataSet language
         // use the testDataHomePage.getLang() method
         Selenide.open("https://www.xceptance.com/" + testDataHomePage.getLang());
@@ -47,14 +47,11 @@ public class AccessDataViaDataObjectsTest extends AbstractTest
         // the ServiceTile test data are provided within HomePageTestData as a list
         for (ServiceTile serviceTile : testDataHomePage.getServiceTiles())
         {
-            System.out.println(serviceTile);
             // check heading with its position
             $$(".caption .icon>h2").get(serviceTile.getPosition()).should(matchesText(serviceTile.getHeading()));
 
-            // check explanation test with its position
+            // check explanation text with its position
             $$(".caption > p").get(serviceTile.getPosition()).should(matchesText(serviceTile.getExplanation()));
-
-            // next serviceTile is expected at next position
         }
 
         // check the number of services

@@ -44,6 +44,9 @@ public class HomePageTestData
         return serviceTiles;
     }
 
+    // System.out.println(someObject) calls the Object.toString() method.
+    // It returns a hash code representation of the object e.g.: HomePageTestData@12d1f1d4.
+    // To display the variables contained in the object, we recommend to override the toString () method.
     @Override
     public String toString()
     {
