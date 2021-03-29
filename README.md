@@ -48,5 +48,15 @@ The `showcase.neodymium.tests.logging` package shows how log4j2 can be used for 
 ## 9. iFrame
 This show case in the `showcase.neodymium.tests.iframe` package explains with an example implementation how to test a web site using frames. Selenide offers a straight forward approach to handle such frames and within Neodymium this is simply applied.
 
+## 10. Test data access
+The various options for providing test data are shown in the package `showcase.neodymium.tests.data`.
+
+* `AccessDataViaDataObjectsTest.java` demonstrates how to perform a data access via POJO.
+* `AccessDataViaDataSetAnnotationTest.java` shows how different data can be selected using annotation.
+* `AccessDataViaDataUtilsTest.java` shows data access with the help of DataUtils class in the Neodymium library.
+* `AccessDataViaJsonPathTest.java` shows data access by means of Json Path.
+* `DataFilePriotityTest.java` shows the priority when accessing different file formats.
+
+
 ## License
 MIT
