@@ -33,10 +33,10 @@ public class ServiceTile
     @Override
     public String toString()
     {
-        StringBuilder builder = new StringBuilder();
-        builder.append("ServiceTile [heading=" + heading + ", ");
-        builder.append("Explanation=" + explanation + ", ");
-        builder.append("Position=" + position + "]");
-        return builder.toString();
+        var stringBuilder = new StringBuilder();
+        stringBuilder.append("ServiceTile [heading=" + heading + ", ");
+        stringBuilder.append("Explanation=" + explanation + ", ");
+        stringBuilder.append("Position=" + position + "]");
+        return stringBuilder.toString();
     }
 }

@@ -2,7 +2,6 @@ package showcase.neodymium.tests.random;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -30,46 +29,46 @@ public class FixedRandomTest extends AbstractTest
     @Description(value = "Showcase for usage of Neodymium#getRandom.")
     public void testRandom()
     {
-        Random random = Neodymium.getRandom();
+        var random = Neodymium.getRandom();
 
-        ArrayList<String> listOfNames = new ArrayList<String>();
-        listOfNames.add("Mia");
-        listOfNames.add("Emilia");
-        listOfNames.add("Hannah");
-        listOfNames.add("Emma");
-        listOfNames.add("Sophia");
-        listOfNames.add("Noah");
-        listOfNames.add("Ben");
-        listOfNames.add("Matteo");
-        listOfNames.add("Finn");
-        listOfNames.add("Leon");
+        var<String> arrayListOfNames = new ArrayList<String>();
+        arrayListOfNames.add("Mia");
+        arrayListOfNames.add("Emilia");
+        arrayListOfNames.add("Hannah");
+        arrayListOfNames.add("Emma");
+        arrayListOfNames.add("Sophia");
+        arrayListOfNames.add("Noah");
+        arrayListOfNames.add("Ben");
+        arrayListOfNames.add("Matteo");
+        arrayListOfNames.add("Finn");
+        arrayListOfNames.add("Leon");
 
         // shuffles the order in the array
-        Collections.shuffle(listOfNames, random);
+        Collections.shuffle(arrayListOfNames, random);
 
-        Assert.assertEquals("Leon", listOfNames.get(0));
-        Assert.assertEquals("Hannah", listOfNames.get(1));
-        Assert.assertEquals("Emilia", listOfNames.get(2));
-        Assert.assertEquals("Ben", listOfNames.get(3));
-        Assert.assertEquals("Sophia", listOfNames.get(4));
-        Assert.assertEquals("Finn", listOfNames.get(5));
-        Assert.assertEquals("Matteo", listOfNames.get(6));
-        Assert.assertEquals("Emma", listOfNames.get(7));
-        Assert.assertEquals("Mia", listOfNames.get(8));
-        Assert.assertEquals("Noah", listOfNames.get(9));
+        Assert.assertEquals("Leon", arrayListOfNames.get(0));
+        Assert.assertEquals("Hannah", arrayListOfNames.get(1));
+        Assert.assertEquals("Emilia", arrayListOfNames.get(2));
+        Assert.assertEquals("Ben", arrayListOfNames.get(3));
+        Assert.assertEquals("Sophia", arrayListOfNames.get(4));
+        Assert.assertEquals("Finn", arrayListOfNames.get(5));
+        Assert.assertEquals("Matteo", arrayListOfNames.get(6));
+        Assert.assertEquals("Emma", arrayListOfNames.get(7));
+        Assert.assertEquals("Mia", arrayListOfNames.get(8));
+        Assert.assertEquals("Noah", arrayListOfNames.get(9));
 
         // shuffles the order in the array again
-        Collections.shuffle(listOfNames, random);
+        Collections.shuffle(arrayListOfNames, random);
 
-        Assert.assertEquals("Emilia", listOfNames.get(0));
-        Assert.assertEquals("Leon", listOfNames.get(1));
-        Assert.assertEquals("Noah", listOfNames.get(2));
-        Assert.assertEquals("Hannah", listOfNames.get(3));
-        Assert.assertEquals("Finn", listOfNames.get(4));
-        Assert.assertEquals("Matteo", listOfNames.get(5));
-        Assert.assertEquals("Sophia", listOfNames.get(6));
-        Assert.assertEquals("Ben", listOfNames.get(7));
-        Assert.assertEquals("Mia", listOfNames.get(8));
-        Assert.assertEquals("Emma", listOfNames.get(9));
+        Assert.assertEquals("Emilia", arrayListOfNames.get(0));
+        Assert.assertEquals("Leon", arrayListOfNames.get(1));
+        Assert.assertEquals("Noah", arrayListOfNames.get(2));
+        Assert.assertEquals("Hannah", arrayListOfNames.get(3));
+        Assert.assertEquals("Finn", arrayListOfNames.get(4));
+        Assert.assertEquals("Matteo", arrayListOfNames.get(5));
+        Assert.assertEquals("Sophia", arrayListOfNames.get(6));
+        Assert.assertEquals("Ben", arrayListOfNames.get(7));
+        Assert.assertEquals("Mia", arrayListOfNames.get(8));
+        Assert.assertEquals("Emma", arrayListOfNames.get(9));
     }
 }

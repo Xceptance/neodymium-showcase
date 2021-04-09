@@ -33,20 +33,20 @@ public class AccessDataViaDataObjectsTest extends AbstractTest
     public void test()
     {
         // use DataUtils to map the test data into the corresponding data objects HomePageTestData and ServiceTile
-        HomePageTestData testDataHomePage = DataUtils.get(HomePageTestData.class);
+        var homePageTestData = DataUtils.get(HomePageTestData.class);
 
         // use the testDataHomePage.getLang() method to retrieve the language
-        String language = testDataHomePage.getLanguage();
+        String language = homePageTestData.getLanguage();
         // open home page in the DataSet language
         Selenide.open("https://www.xceptance.com/" + language);
 
         // check for message and comment
-        $(".landing-intro>h1").should(matchText(testDataHomePage.getTeaserMessage()));
-        $(".landing-intro>p").should(matchText(testDataHomePage.getTeaserComment()));
+        $(".landing-intro>h1").should(matchText(homePageTestData.getTeaserMessage()));
+        $(".landing-intro>p").should(matchText(homePageTestData.getTeaserComment()));
 
         // check for service tiles on the page
         // the ServiceTile test data are provided within HomePageTestData as a list
-        for (ServiceTile serviceTile : testDataHomePage.getServiceTiles())
+        for (ServiceTile serviceTile : homePageTestData.getServiceTiles())
         {
             // check heading with its position
             $$(".caption .icon>h2").get(serviceTile.getPosition()).should(matchesText(serviceTile.getHeading()));
@@ -56,6 +56,6 @@ public class AccessDataViaDataObjectsTest extends AbstractTest
         }
 
         // check the number of services
-        $$(".caption").shouldHaveSize(testDataHomePage.getNumberServices());
+        $$(".caption").shouldHaveSize(homePageTestData.getNumberServices());
     }
 }

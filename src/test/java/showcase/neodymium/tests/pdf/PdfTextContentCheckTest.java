@@ -1,6 +1,5 @@
 package showcase.neodymium.tests.pdf;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -39,18 +38,18 @@ public class PdfTextContentCheckTest extends AbstractTest
     public void test() throws IOException, InterruptedException, URISyntaxException
     {
         // download PDF file
-        File pdfFile = Selenide.download("https://s1.q4cdn.com/806093406/files/doc_downloads/test.pdf");
+        var file = Selenide.download("https://s1.q4cdn.com/806093406/files/doc_downloads/test.pdf");
 
         // create new PDF document and load file into it
-        PDDocument document = PDDocument.load(pdfFile);
+        var pdDocument = PDDocument.load(file);
 
         // save the text of the PDF file
-        String text = new PDFTextStripper().getText(document);
+        String text = new PDFTextStripper().getText(pdDocument);
 
         // check the text
         Assert.assertTrue(text.contains("This is a test PDF document."));
 
         // close the document
-        document.close();
+        pdDocument.close();
     }
 }

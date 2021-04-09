@@ -50,12 +50,12 @@ public class HomePageTestData
     @Override
     public String toString()
     {
-        StringBuilder builder = new StringBuilder();
-        builder.append("HomePageTestData [language=" + language + ", ");
-        builder.append("teaser message=" + teaserMessage + ", ");
-        builder.append("teaser comment=" + teaserComment + ", ");
-        builder.append("number of services=" + numberServices + ", ");
-        builder.append("service tiles" + serviceTiles + "]");
-        return builder.toString();
+        var stringBuilder = new StringBuilder();
+        stringBuilder.append("HomePageTestData [language=" + language + ", ");
+        stringBuilder.append("teaser message=" + teaserMessage + ", ");
+        stringBuilder.append("teaser comment=" + teaserComment + ", ");
+        stringBuilder.append("number of services=" + numberServices + ", ");
+        stringBuilder.append("service tiles" + serviceTiles + "]");
+        return stringBuilder.toString();
     }
 }
