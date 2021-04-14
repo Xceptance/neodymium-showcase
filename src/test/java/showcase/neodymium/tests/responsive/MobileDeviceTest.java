@@ -16,7 +16,7 @@ import showcase.neodymium.tests.AbstractTest;
  * Most web sites provide their content in different resolutions for different devices.<br>
  * In order to test a cell phone for example, the emulation of various mobile devices integrated in Chrome can be
  * used.<br>
- * Browser profiles are defined in the config/browser.properties file.<br>
+ * Browser profiles are defined in the <i>config/browser.properties</i> file.<br>
  * There is a value for chromeEmulationProfile necessary, in our example: "iPhone X".<br>
  * Possible values can be found in the Chrome browser in the developer tools "Toggle device toolbar" drop down menu<br>
  */
