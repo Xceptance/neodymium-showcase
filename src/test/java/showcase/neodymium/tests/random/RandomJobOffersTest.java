@@ -16,6 +16,20 @@ import io.qameta.allure.Description;
 import showcase.flows.OpenPageFlow;
 import showcase.neodymium.tests.AbstractTest;
 
+/**
+ * This show case shows the use of the Neodymium.getRandom() method.<br>
+ * Random values are useful to run different test cases with different values.<br>
+ * It is also useful to test a web application with different paths like a real user would.<br>
+ * The NeodymiumRandom class extends the functionality of java.util.Random.<br>
+ * In this case the use of the <i>nextInt()</i> method is shown.<br>
+ * To get to know more possibilities take a closer look at the class.<br>
+ * <br>
+ * <b>REQUIRED CONFIGURATION:</b> <i>config/neodymium.properties</i>
+ * <ul>
+ * <li>A value for neodymium.context.random.initialValue must NOT be set.</li>
+ * </ul>
+ * <b>CAUTION:</b> This test case fails if initialValue is set.
+ */
 public class RandomJobOffersTest extends AbstractTest
 {
     @Before
@@ -28,7 +42,7 @@ public class RandomJobOffersTest extends AbstractTest
     }
 
     @Test
-    @Description(value = "Showcase for clicking a random element in the list of urrent job offers.")
+    @Description(value = "Showcase for clicking a random element in the list of current job offers.")
     public void testRandomJobs()
     {
         // open the demo page and prepare it for the test

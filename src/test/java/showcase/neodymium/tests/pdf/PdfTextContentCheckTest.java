@@ -23,11 +23,6 @@ import showcase.neodymium.tests.AbstractTest;
  * implemented in Java and the execution environment is configured with Maven any available 3rd party technology can be
  * added to the test automation.<br>
  * This show case gives an basic example how to implement an PDF content check using pdfbox.<br>
- * <br>
- * <b>REQUIRED CONFIGURATION</b> <i>pom.xml</i>:
- * <ul>
- * <li>org.apache.pdfbox/pdfbox must be added to the dependencies section</li>
- * </ul>
  */
 @Severity(SeverityLevel.NORMAL)
 @Owner("Test Developer")
