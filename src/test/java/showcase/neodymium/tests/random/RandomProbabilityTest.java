@@ -61,7 +61,7 @@ public class RandomProbabilityTest extends AbstractTest
         // this means that true is returned at 80% and false at 20%
         trueCount = 0;
         falseCount = 0;
-        logger.error("Part 3: Probability = 80  -  100% false will be returned");
+        logger.error("Part 3: Probability = 80  -  80% true and 20% false will be returned");
         for (int i = 0; i < 1000; i++)
         {
             final boolean randomBoolean = NeodymiumRandom.nextBoolean(80);
@@ -76,7 +76,7 @@ public class RandomProbabilityTest extends AbstractTest
         // this means that only true is returned
         trueCount = 0;
         falseCount = 0;
-        logger.error("Part 4: Probability = 100  -  50% true and false will be returned");
+        logger.error("Part 4: Probability = 100  -  100% true will be returned");
         for (int i = 0; i < 100; i++)
         {
             final boolean randomBoolean = NeodymiumRandom.nextBoolean(100);
