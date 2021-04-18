@@ -22,7 +22,7 @@ import showcase.neodymium.tests.AbstractTest;
  * <br>
  * <b>REQUIRED CONFIGURATION:</b> <i>config/neodymium.properties</i>
  * <ul>
- * <li>A value for neodymium.context.random.initialValue must be set.</li>
+ * <li>A value for neodymium.context.random.initialValue must be set to 123456789.</li>
  * </ul>
  * <b>CAUTION:</b> This test case fails if initialValue is NOT set.
  */

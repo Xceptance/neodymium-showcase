@@ -21,7 +21,7 @@ import showcase.neodymium.tests.logging.LoggingFirstTest;
 @SuppressBrowsers
 public class RandomProbabilityTest extends AbstractTest
 {
-    private static Logger logger = LogManager.getLogger(LoggingFirstTest.class);
+    private static final Logger logger = LogManager.getLogger(LoggingFirstTest.class);
 
     @Test
     @Description(value = "Showcase for usage of NeodymiumRandom#nextBoolean(int trueCaseProbability).")
@@ -43,7 +43,7 @@ public class RandomProbabilityTest extends AbstractTest
         logger.error("Count of true:  " + trueCount + "    Count of false:  " + falseCount);
 
         // Part 2: create a random boolean with probability 50
-        // this means that true and false are returned in equal parts
+        // this mean that true and false should be returned approximately equally probable
         trueCount = 0;
         falseCount = 0;
         logger.error("Part 2: Probability = 50  -  50% true and false will be returned");
@@ -58,7 +58,7 @@ public class RandomProbabilityTest extends AbstractTest
         logger.error("Count of true:  " + trueCount + "    Count of false:  " + falseCount);
 
         // Part 3: create a random boolean with probability 80
-        // this means that true is returned at 80% and false at 20%
+        // this means the ratio of true and false should be approximately about 80 to 20 in favor of true
         trueCount = 0;
         falseCount = 0;
         logger.error("Part 3: Probability = 80  -  80% true and 20% false will be returned");
