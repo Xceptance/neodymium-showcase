@@ -13,7 +13,8 @@ import showcase.neodymium.tests.AbstractTest;
  * Neodymium provides extended logging. The log4j-api and log4j-core are included in the Neodymium library.<br>
  * Therefore it is not necessary to add an entry in the pom.<br>
  * ConfigurationFactory class will look for <i>log4j2-test.properties</i> in the classpath.<br>
- * Then it will look for log4j2.properties on the classpath. The same goes for yaml, json and xml files.<br>
+ * Then it will look for log4j2.properties on the classpath.<br>
+ * The same mechanism applies for other file formats like yaml, json and xml.<br>
  * As soon as the search was successful, log4j2 will stop and load the configuration file.
  */
 @SuppressBrowsers
