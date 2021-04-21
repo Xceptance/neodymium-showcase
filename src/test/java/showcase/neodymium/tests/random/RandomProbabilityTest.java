@@ -43,7 +43,7 @@ public class RandomProbabilityTest extends AbstractTest
         logger.error("Count of true:  " + trueCount + "    Count of false:  " + falseCount);
 
         // Part 2: create a random boolean with probability 50
-        // this mean that true and false should be returned approximately equally
+        // this means that true and false should be returned approximately equally
         trueCount = 0;
         falseCount = 0;
         logger.error("Part 2: Probability = 50  -  50% true and false will be returned");
