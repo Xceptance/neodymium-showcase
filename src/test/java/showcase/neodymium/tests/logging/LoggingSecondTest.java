@@ -15,7 +15,7 @@ import showcase.neodymium.tests.AbstractTest;
 @SuppressBrowsers
 public class LoggingSecondTest extends AbstractTest
 {
-    private static Logger logger = LogManager.getLogger(LoggingSecondTest.class);
+    private static final Logger logger = LogManager.getLogger(LoggingSecondTest.class);
 
     @Test
     @Description("Showcase for logging with log4j2.")
