@@ -9,12 +9,14 @@ import com.xceptance.neodymium.module.statement.browser.multibrowser.SuppressBro
 import io.qameta.allure.Description;
 import showcase.neodymium.tests.AbstractTest;
 
+/**
+ * This second logging test is added to show that a separate log file can be written for each test case.
+ */
 @SuppressBrowsers
 public class LoggingSecondTest extends AbstractTest
 {
-    private static Logger logger = LogManager.getLogger(LoggingSecondTest.class);
+    private static final Logger logger = LogManager.getLogger(LoggingSecondTest.class);
 
-    // This second test is added to show that a separate log file can be written for each test case.
     @Test
     @Description("Showcase for logging with log4j2.")
     public void testSecondLogging()
