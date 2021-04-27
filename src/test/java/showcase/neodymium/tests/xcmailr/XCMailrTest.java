@@ -32,13 +32,12 @@ import xcmailr.client.Mail;
  * <b>ATTENTION:</b> This test case requires manual actions.<br>
  * To have this test case working you need to perform three tasks.
  * <ul>
- * <li>* The first is to configure the things mentioned below.</li>
+ * <li>The first is to configure the things mentioned below.</li>
  * <li>The second is to start the test.</li>
  * <li>The third task is to send an e-mail to the configured mailbox using the subject and the textToSend configures in
  * the class fields below. If the e-mail is received within 15 minutes your test should become successful.</li>
  * </ul>
- * <b>REQUIRED CONFIGURATION</b>:<br>
- * <i>config/xcmailr.properties</i>:
+ * <b>REQUIRED CONFIGURATION:</b> <i>config/xcmailr.properties</i>
  * <ul>
  * <li>xcmailr.apiToken = [YOUR_XCMAILR_API_TOKEN] (read how to get one in the link above)</li>
  * <li>xcmailr.url = [YOUR_XCMAILR_INSTANCE_URL] (read how to get one in the link above)</li>
@@ -72,14 +71,14 @@ public class XCMailrTest extends AbstractTest
     public static void configureApiToken() throws ClientProtocolException, IOException
     {
         // required configuration checks
-        Assert.assertNotEquals("Please enter your xcmailr api token to config/xcmailr.properties",
-                               "", XcMailrApi.getConfiguration().apiToken());
+        Assert.assertNotNull("Please enter your xcmailr api token to config/xcmailr.properties",
+                             XcMailrApi.getConfiguration().apiToken());
 
-        Assert.assertNotEquals("Please enter your xcmailr url to config/xcmailr.properties",
-                               "", XcMailrApi.getConfiguration().url());
+        Assert.assertNotNull("Please enter your xcmailr url to config/xcmailr.properties",
+                             XcMailrApi.getConfiguration().url());
 
-        Assert.assertNotEquals("Please enter the e-mail address you will create at your xcmailr instance.",
-                               "", receiverEmail);
+        Assert.assertNotNull("Please enter the e-mail address you will create at your xcmailr instance.",
+                             receiverEmail);
     }
 
     @Before

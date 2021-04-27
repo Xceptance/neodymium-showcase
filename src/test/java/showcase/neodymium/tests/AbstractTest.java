@@ -1,6 +1,3 @@
-/**
- * 
- */
 package showcase.neodymium.tests;
 
 import org.junit.runner.RunWith;
@@ -13,5 +10,6 @@ import com.xceptance.neodymium.module.statement.browser.multibrowser.Browser;
  */
 @RunWith(NeodymiumRunner.class)
 @Browser("Chrome_1024x768")
-public abstract class AbstractTest {
+public abstract class AbstractTest
+{
 }

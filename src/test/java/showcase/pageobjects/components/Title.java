@@ -10,6 +10,7 @@ import io.cucumber.java.en.Then;
 
 public class Title extends AbstractComponent
 {
+    @Override
     public void isComponentAvailable()
     {
     }

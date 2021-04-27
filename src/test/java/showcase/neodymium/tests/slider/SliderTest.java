@@ -25,12 +25,7 @@ import showcase.neodymium.tests.AbstractTest;
  * horizontally but there are also vertical sliders. Manipulation of slider can be a little tricky using the pure
  * Selenium API. Therefore Neodymium provides an approach that requires less knowledge about Selenium's paradigms.<br>
  * This show case provides possible approaches how to handle and interact with sliders and they indicators. The first
- * and the second test demonstrate horizontal while the other tests show case vertical movements.<br>
- * <br>
- * <b>REQUIRED CONFIGURATION</b>:
- * <ul>
- * <li>This test case does not require a specific setup (or adjustment) of the Neodymium configuration</li>
- * </ul>
+ * and the second test demonstrate horizontal while the other tests show case vertical movements.
  */
 @Severity(SeverityLevel.TRIVIAL)
 @Owner("Test Developer")

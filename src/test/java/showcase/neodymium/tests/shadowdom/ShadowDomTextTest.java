@@ -26,11 +26,6 @@ import showcase.pageobjects.components.Title;
  * DOM can be nested into the DOM tree of a web site without any side effects. This approach is used to build reusable
  * components which can be integrated on every page without introducing side effect.<br>
  * This show case provides possible approaches how to perform tests for Shadow DOM elements.<br>
- * <br>
- * <b>REQUIRED CONFIGURATION</b>:
- * <ul>
- * <li>This test case does not require a specific setup (or adjustment) of the Neodymium configuration</li>
- * </ul>
  */
 @Severity(SeverityLevel.TRIVIAL)
 @Owner("Test Developer")
