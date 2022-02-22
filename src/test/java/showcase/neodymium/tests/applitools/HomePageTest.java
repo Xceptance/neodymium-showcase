@@ -57,7 +57,7 @@ public class HomePageTest extends AbstractTest
         // call this method to end all visual assertion for current test
         // if you don't call this method, you'll receive exception trying to call ApplitoolsApi.openEyes(testname) for
         // the new test
-        ApplitoolsApi.endAssertions();
+        ApplitoolsApi.closeEyes();
     }
 
     @Test
