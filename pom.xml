@@ -31,7 +31,7 @@
 		<aspectj.version>1.9.6</aspectj.version>
 		<allure.version>2.10.0</allure.version>
 		<neodymium.version>4.1.4</neodymium.version>
-		<pdfbox.version>2.0.21</pdfbox.version>
+		<pdfbox.version>2.0.24</pdfbox.version>
 	</properties>
 
 	<build>
