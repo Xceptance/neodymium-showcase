@@ -1,14 +1,13 @@
 package showcase.neodymium.tests.data;
 
+import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.matchText;
-import static com.codeborne.selenide.Condition.matchesText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-import org.junit.Test;
-
 import com.codeborne.selenide.Selenide;
-import com.xceptance.neodymium.module.statement.testdata.DataFile;
+import com.xceptance.neodymium.common.testdata.DataFile;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.DataUtils;
 
 import io.qameta.allure.Description;
@@ -30,7 +29,7 @@ import showcase.neodymium.tests.data.dataobjects.ServiceTile;
 public class AccessDataViaJsonPathTest extends AbstractTest
 {
 
-    @Test
+    @NeodymiumTest
     @Description(value = "Get test data using DataUtils.get method with jsonPath")
     public void test()
     {
@@ -48,15 +47,15 @@ public class AccessDataViaJsonPathTest extends AbstractTest
         ServiceTile serviceTile = DataUtils.get("$.serviceTiles[2]", ServiceTile.class);
 
         // check the heading with the right text
-        $$(".caption .icon>h2").get(2).should(matchesText(serviceTile.getHeading()));
+        $$(".caption .icon>h2").get(2).should(matchText(serviceTile.getHeading()));
 
         // check explanation with the right text
-        $$(".caption > p").get(2).should(matchesText(serviceTile.getExplanation()));
+        $$(".caption > p").get(2).should(matchText(serviceTile.getExplanation()));
 
         // get integer test data using DataUtils.get() via JsonPath
         int numberServices = DataUtils.get("$.numberServices", Integer.class);
 
         // check the number of services
-        $$(".caption").shouldHaveSize(numberServices);
+        $$(".caption").shouldHave(size(numberServices));
     }
 }

@@ -1,7 +1,7 @@
 package showcase.neodymium.tests.data;
 
+import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.matchText;
-import static com.codeborne.selenide.Condition.matchesText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -49,13 +49,13 @@ public class AccessDataViaDataObjectsTest extends AbstractTest
         for (ServiceTile serviceTile : testDataHomePage.getServiceTiles())
         {
             // check heading with its position
-            $$(".caption .icon>h2").get(serviceTile.getPosition()).should(matchesText(serviceTile.getHeading()));
+            $$(".caption .icon>h2").get(serviceTile.getPosition()).should(matchText(serviceTile.getHeading()));
 
             // check explanation text with its position
-            $$(".caption > p").get(serviceTile.getPosition()).should(matchesText(serviceTile.getExplanation()));
+            $$(".caption > p").get(serviceTile.getPosition()).should(matchText(serviceTile.getExplanation()));
         }
 
         // check the number of services
-        $$(".caption").shouldHaveSize(testDataHomePage.getNumberServices());
+        $$(".caption").shouldHave(size(testDataHomePage.getNumberServices()));
     }
 }

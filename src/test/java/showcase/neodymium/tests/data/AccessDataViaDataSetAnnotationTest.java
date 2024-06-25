@@ -6,8 +6,9 @@ import static com.codeborne.selenide.Selenide.$;
 import org.junit.Test;
 
 import com.codeborne.selenide.Selenide;
-import com.xceptance.neodymium.module.statement.testdata.DataSet;
-import com.xceptance.neodymium.module.statement.testdata.SuppressDataSets;
+import com.xceptance.neodymium.common.testdata.DataSet;
+import com.xceptance.neodymium.common.testdata.SuppressDataSets;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.DataUtils;
 
 import io.qameta.allure.Description;
@@ -33,7 +34,7 @@ public class AccessDataViaDataSetAnnotationTest extends AbstractTest
         $(".landing-intro>h1").should(matchText("Committed to Software Quality"));
     }
 
-    @Test
+    @NeodymiumTest
     // overrides the class level @SuppressDataSets to run only the first data set
     @DataSet(1)
     public void onlyFirstDataSet()
@@ -46,7 +47,7 @@ public class AccessDataViaDataSetAnnotationTest extends AbstractTest
         $(".landing-intro>p").should(matchText(DataUtils.asString("description")));
     }
 
-    @Test
+    @NeodymiumTest
     // overrides the class level @SuppressDataSets to run all data sets
     @DataSet
     public void allDataSets()

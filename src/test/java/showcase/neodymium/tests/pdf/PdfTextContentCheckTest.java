@@ -7,9 +7,9 @@ import java.net.URISyntaxException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.junit.Assert;
-import org.junit.Test;
 
 import com.codeborne.selenide.Selenide;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -32,7 +32,7 @@ import showcase.neodymium.tests.AbstractTest;
 @Tag("pdf")
 public class PdfTextContentCheckTest extends AbstractTest
 {
-    @Test
+    @NeodymiumTest
     @Description("Showcase for testing PDF text content")
     public void test() throws IOException, InterruptedException, URISyntaxException
     {

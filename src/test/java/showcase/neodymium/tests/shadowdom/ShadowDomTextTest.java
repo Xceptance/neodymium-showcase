@@ -7,10 +7,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.switchTo;
 
-import org.junit.Test;
-
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.Selenide;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -33,7 +32,7 @@ import showcase.pageobjects.components.Title;
 @DisplayName("Texttest")
 public class ShadowDomTextTest extends AbstractTest
 {
-    @Test
+    @NeodymiumTest
     @Description(value = "Check that text field exists and control text")
     public void testTextField()
     {

@@ -3,10 +3,9 @@ package showcase.neodymium.tests.data;
 import static com.codeborne.selenide.Condition.matchText;
 import static com.codeborne.selenide.Selenide.$;
 
-import org.junit.Test;
-
 import com.codeborne.selenide.Selenide;
-import com.xceptance.neodymium.module.statement.testdata.DataSet;
+import com.xceptance.neodymium.common.testdata.DataSet;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.Neodymium;
 
 import io.qameta.allure.Description;
@@ -24,7 +23,7 @@ import showcase.neodymium.tests.AbstractTest;
 @Tag("direct test data access")
 public class DataFilePriotityTest extends AbstractTest
 {
-    @Test
+    @NeodymiumTest
     @Description(value = "Get test data using Neodymium.dataValue method")
     // these data sets are defined in DataFilePriotityTest.csv not in DataFilePriotityTest.json
     @DataSet(id = "en/CSV test data access using Neodymium.dataValue method")

@@ -4,10 +4,9 @@ import static com.codeborne.selenide.Condition.hidden;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
-import org.junit.Test;
-
 import com.codeborne.selenide.Selenide;
-import com.xceptance.neodymium.module.statement.browser.multibrowser.Browser;
+import com.xceptance.neodymium.common.browser.Browser;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.Neodymium;
 
 import showcase.neodymium.tests.AbstractTest;
@@ -24,7 +23,7 @@ import showcase.neodymium.tests.AbstractTest;
 @Browser("Chrome_iPhoneX")
 public class MobileDeviceTest extends AbstractTest
 {
-    @Test
+    @NeodymiumTest
     public void testProductListPageIsResponsive()
     {
         // go to the web page

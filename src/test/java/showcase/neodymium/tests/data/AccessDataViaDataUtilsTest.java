@@ -1,13 +1,12 @@
 package showcase.neodymium.tests.data;
 
+import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.matchText;
-import static com.codeborne.selenide.Condition.matchesText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-import org.junit.Test;
-
 import com.codeborne.selenide.Selenide;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.DataUtils;
 
 import io.qameta.allure.Description;
@@ -23,7 +22,7 @@ import showcase.neodymium.tests.AbstractTest;
 @Tag("direct test data access")
 public class AccessDataViaDataUtilsTest extends AbstractTest
 {
-    @Test
+    @NeodymiumTest
     @Description(value = "Get test data using DataUtils methods")
     public void test()
     {
@@ -41,16 +40,16 @@ public class AccessDataViaDataUtilsTest extends AbstractTest
         while (DataUtils.exists("serviceTile_" + i + "_heading"))
         {
             // check heading text
-            $$(".caption .icon>h2").get(i).should(matchesText(DataUtils.asString("serviceTile_" + i + "_heading")));
+            $$(".caption .icon>h2").get(i).should(matchText(DataUtils.asString("serviceTile_" + i + "_heading")));
 
             // check explanation text
-            $$(".caption > p").get(i).should(matchesText(DataUtils.asString("serviceTile_" + i + "_explanation")));
+            $$(".caption > p").get(i).should(matchText(DataUtils.asString("serviceTile_" + i + "_explanation")));
 
             // next serviceTile
             i++;
         }
 
         // check the number of services using an integer value provided by DataUtils
-        $$(".caption").shouldHaveSize(DataUtils.asInt("numberServices"));
+        $$(".caption").shouldHave(size(DataUtils.asInt("numberServices")));
     }
 }

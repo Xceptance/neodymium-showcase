@@ -12,6 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.Neodymium;
 
 import io.qameta.allure.Description;
@@ -35,7 +36,7 @@ import showcase.pageobjects.components.Title;
 @DisplayName("Checkboxtest")
 public class ShadowDomCheckboxTest extends AbstractTest
 {
-    @Test
+    @NeodymiumTest
     @Description(value = "Showcase for nested shadow DOM.")
     public void testNestedShadowDOM()
     {

@@ -5,10 +5,10 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import com.codeborne.selenide.ElementsCollection;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.Neodymium;
 import com.xceptance.neodymium.util.NeodymiumRandom;
 
@@ -32,7 +32,7 @@ import showcase.neodymium.tests.AbstractTest;
  */
 public class RandomJobOffersTest extends AbstractTest
 {
-    @Before
+    @BeforeEach
     public void configurationCheck()
     {
         // by setting the neodymium.context.random.initialValue, the random result can be kept constant
@@ -41,7 +41,7 @@ public class RandomJobOffersTest extends AbstractTest
                           Neodymium.configuration().initialRandomValue());
     }
 
-    @Test
+    @NeodymiumTest
     @Description(value = "Showcase for clicking a random element in the list of current job offers.")
     public void testRandomJobs()
     {

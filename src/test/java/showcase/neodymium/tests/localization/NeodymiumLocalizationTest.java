@@ -4,10 +4,9 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
-import org.junit.Test;
-
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.Neodymium;
 
 import io.qameta.allure.Description;
@@ -32,7 +31,7 @@ import showcase.pageobjects.components.Title;
 @Tag("localization")
 public class NeodymiumLocalizationTest extends AbstractTest
 {
-    @Test
+    @NeodymiumTest
     @Description(value = "Neodymium localization show case")
     public void test()
     {

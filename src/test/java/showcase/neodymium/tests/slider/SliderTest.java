@@ -10,6 +10,7 @@ import org.junit.Test;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.ex.ElementNotFound;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.SelenideAddons;
 
 import io.qameta.allure.Description;
@@ -37,7 +38,7 @@ public class SliderTest extends AbstractTest
 
     private static final int INTERACTION_PAUSE = 3000;
 
-    @Test
+    @NeodymiumTest
     @Description(value = "Showcase for a horizontal drag and drop of a web slider to the right side.")
     public void testHorizontalRightMovement()
     {
@@ -103,7 +104,7 @@ public class SliderTest extends AbstractTest
         SelenideAddons.dragAndDropUntilCondition(elementUnderTest, elementUnderTest, 0, -10, INTERACTION_PAUSE, MAX_RETRIES, attribute("aria-valuenow", "16"));
     }
 
-    @Test
+    @NeodymiumTest
     @Description(value = "Showcase for a vertical drag and drop of a web slider to the bottom.")
     public void testVerticalDownMovement()
     {

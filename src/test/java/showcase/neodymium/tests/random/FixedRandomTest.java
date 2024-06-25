@@ -5,10 +5,9 @@ import java.util.Collections;
 import java.util.Random;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 
-import com.xceptance.neodymium.module.statement.browser.multibrowser.SuppressBrowsers;
+import com.xceptance.neodymium.common.browser.SuppressBrowsers;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.Neodymium;
 
 import io.qameta.allure.Description;
@@ -29,7 +28,7 @@ import showcase.neodymium.tests.AbstractTest;
 @SuppressBrowsers
 public class FixedRandomTest extends AbstractTest
 {
-    @Before
+    @NeodymiumTest
     public void configurationCheck()
     {
         // by setting the neodymium.context.random.initialValue, the random result can be kept constant
@@ -38,7 +37,7 @@ public class FixedRandomTest extends AbstractTest
                             Long.valueOf("123456789"), Neodymium.configuration().initialRandomValue());
     }
 
-    @Test
+    @NeodymiumTest
     @Description(value = "Showcase for usage of Neodymium#getRandom.")
     public void testFixedRandom()
     {
