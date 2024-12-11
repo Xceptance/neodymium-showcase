@@ -18,11 +18,11 @@ import showcase.neodymium.tests.AbstractTest;
 import showcase.pageobjects.components.Title;
 
 /**
- * Most web sites provide their content in different languages to address different users. Due to the fact test
+ * Most websites provide their content in different languages to address different users. Due to the fact test
  * automation has often to work with localized content or even validate that general localized formats (e.G. the price
- * format) are correct. Neodymium provides support to handle this. This show case demonstrates a possible approach.<br>
+ * format) are correct. Neodymium provides support to handle this. This showcase demonstrates a possible approach.<br>
  * The localization file is <i>config/localization.yaml</i> and Neodymium introduces a override mechanism. The most
- * specific definition for a key and a locale will be taken. Otherwise a default value is taken or an exception is
+ * specific definition for a key and a locale will be taken. Otherwise, a default value is taken or an exception is
  * raised if no value for the key could be found within the localization file.</li>
  * </ul>
  */
@@ -32,7 +32,7 @@ import showcase.pageobjects.components.Title;
 public class NeodymiumLocalizationTest extends AbstractTest
 {
     @NeodymiumTest
-    @Description(value = "Neodymium localization show case")
+    @Description(value = "Neodymium localization showcase")
     public void test()
     {
         /*

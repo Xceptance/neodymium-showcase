@@ -17,7 +17,7 @@ import showcase.neodymium.tests.data.dataobjects.HomePageTestData;
 import showcase.neodymium.tests.data.dataobjects.ServiceTile;
 
 /**
- * This is a show case to explain how to deal with test data using the Neodymium built-in features.<br>
+ * This is a showcase to explain how to deal with test data using the Neodymium built-in features.<br>
  * The example focuses on test data retrieval based on data objects.<br>
  * In this case the test data are converted from a JSON file into Java POJOs HomePageTestData and ServiceTile.<br>
  * This is an example for working with a more complex test object that contains a list of serviceTiles.

@@ -12,7 +12,7 @@ import com.xceptance.neodymium.util.Neodymium;
 import showcase.neodymium.tests.AbstractTest;
 
 /**
- * Most web sites provide their content in different resolutions for different devices.<br>
+ * Most websites provide their content in different resolutions for different devices.<br>
  * In order to test a cell phone for example, the emulation of various mobile devices integrated in Chrome can be
  * used.<br>
  * Browser profiles are defined in the <i>config/browser.properties</i> file.<br>

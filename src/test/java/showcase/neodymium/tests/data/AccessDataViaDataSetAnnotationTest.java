@@ -15,7 +15,7 @@ import io.qameta.allure.Description;
 import showcase.neodymium.tests.AbstractTest;
 
 /**
- * This is a show case to explain how to deal with test data using the Neodymium built-in features.<br>
+ * This is a showcase to explain how to deal with test data using the Neodymium built-in features.<br>
  * The example shows how to select test data with @DataSet annotation
  */
 // disables data set support for the whole class

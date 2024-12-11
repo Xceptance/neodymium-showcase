@@ -13,7 +13,7 @@ import io.qameta.allure.junit4.Tag;
 import showcase.neodymium.tests.AbstractTest;
 
 /**
- * This show case explains how to access test data using the features built into the Neodymium framework.<br>
+ * This showcase explains how to access test data using the features built into the Neodymium framework.<br>
  * By default, Neodymium looks for a data file that has the same name as the test case and is located in the same
  * package in the resources folder.<br>
  * This example shows the reading from a CSV file, although a matching JSON file exists.<br>
@@ -21,11 +21,11 @@ import showcase.neodymium.tests.AbstractTest;
  * The use of the method Neodymium.dataValue() is shown here.
  */
 @Tag("direct test data access")
-public class DataFilePriotityTest extends AbstractTest
+public class DataFilePriorityTest extends AbstractTest
 {
     @NeodymiumTest
     @Description(value = "Get test data using Neodymium.dataValue method")
-    // these data sets are defined in DataFilePriotityTest.csv not in DataFilePriotityTest.json
+    // these data sets are defined in DataFilePriorityTest.csv not in DataFilePriorityTest.json
     @DataSet(id = "en/CSV test data access using Neodymium.dataValue method")
     @DataSet(id = "de/CSV test data access using Neodymium.dataValue method")
     public void test()

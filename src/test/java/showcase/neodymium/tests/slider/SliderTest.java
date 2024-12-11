@@ -24,9 +24,9 @@ import showcase.neodymium.tests.AbstractTest;
 /**
  * Sliders are control elements to give the user the opportunity to select a value on a web page. Mostly there are used
  * horizontally but there are also vertical sliders. Manipulation of slider can be a little tricky using the pure
- * Selenium API. Therefore Neodymium provides an approach that requires less knowledge about Selenium's paradigms.<br>
- * This show case provides possible approaches how to handle and interact with sliders and they indicators. The first
- * and the second test demonstrate horizontal while the other tests show case vertical movements.
+ * Selenium API. Therefore, Neodymium provides an approach that requires less knowledge about Selenium's paradigms.<br>
+ * This showcase provides possible approaches how to handle and interact with sliders and they indicators. The first
+ * and the second test demonstrate horizontal while the other tests showcase vertical movements.
  */
 @Severity(SeverityLevel.TRIVIAL)
 @Owner("Test Developer")

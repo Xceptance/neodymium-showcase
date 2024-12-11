@@ -14,7 +14,7 @@ import io.qameta.allure.Description;
 import showcase.neodymium.tests.AbstractTest;
 
 /**
- * This show case shows the use of the Neodymium.getRandom() method.<br>
+ * This showcase shows the use of the Neodymium.getRandom() method.<br>
  * Random values are useful to run different test cases with different values.<br>
  * In some cases it is necessary to be able to repeat a test with the same random value (e.g. debugging).<br>
  * Here you can see how a fixed random value can be used.<br>

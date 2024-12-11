@@ -22,7 +22,7 @@ import showcase.pageobjects.components.Title;
 /**
  * If the system under test requires HTTP Basic Authentication then using an embedded local proxy provided by Neodymium
  * is one possible approach.<br>
- * Especially if the standard way (see: {@link SelenideBasicAuthenticationTest} show case) is not applicable due to
+ * Especially if the standard way (see: {@link SelenideBasicAuthenticationTest} showcase) is not applicable due to
  * restrictions of the used WebDriver. The proxy is created on the fly and passed to the WebDriver.<br>
  * All requests running in the Neodymium test execution process are automatically routed through this proxy. The local
  * proxy provided by Neodymium can perform automatic authorizations.<br>

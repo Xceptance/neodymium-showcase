@@ -64,7 +64,7 @@ public class XCMailrTest extends AbstractTest
     // the text of the first email
     protected final static String textToSend = "This is the text you should send.";
 
-    // Define a test email address which is used through out the test
+    // Define a test email address which is used throughout the test
     protected final static String receiverEmail = "";
 
     @BeforeAll

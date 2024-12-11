@@ -22,12 +22,12 @@ import showcase.pageobjects.components.Title;
  * If the system under test requires HTTP Basic Authentication then using Selenide together with the Neodymium
  * configuration is a possible approach. The basic authentication credentials can be set within the Neodymium
  * configuration and used when calling
- * {@link Selenide#open(String relativeOrAbsoluteUrl, String domain, String login, String password)} as this show case
+ * {@link Selenide#open(String relativeOrAbsoluteUrl, String domain, String login, String password)} as this showcase
  * demonstrates.<br>
  * Selenide prefixes the basic authentication credentials to the URL. Due to security reasons this method is not
  * supported for all browsers (e.g. Edge) anymore. Some browsers require enabling this method before it can be used. If
  * your test project needs testing with such a browser you can consider the usage of the embedded local proxy provided
- * by Neodymium as a solution (see: {@link NeodymiumLocalProxyBasicAuthenticationHostTest} show case).<br>
+ * by Neodymium as a solution (see: {@link NeodymiumLocalProxyBasicAuthenticationHostTest} showcase).<br>
  * <br>
  * <b>REQUIRED CONFIGURATION:</b> <i>config/neodymium.properties</i>
  * <ul>

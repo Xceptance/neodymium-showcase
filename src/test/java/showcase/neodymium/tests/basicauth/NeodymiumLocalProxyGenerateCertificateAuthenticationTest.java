@@ -25,10 +25,10 @@ import showcase.pageobjects.components.Title;
  * this.<br>
  * Therefore Neodymium provides a way to configure a certificate that will be used to authenticate the communication
  * between the parties involved. All requests running in the Neodymium test execution process are automatically routed
- * through this proxy which acts as an certified MITM (Man in the Middle). The advantage of this approach is that an
+ * through this proxy which acts as a certified MITM (Man in the Middle). The advantage of this approach is that an
  * officially signed certificate can be used to secure the communication.<br>
  * If a certificate is required that is signed by an authority for your test case this can be configured using Neodymium
- * (see: {@link NeodymiumLocalProxyCertificateAuthenticationTest} show case)<br>
+ * (see: {@link NeodymiumLocalProxyCertificateAuthenticationTest} showcase)<br>
  * <br>
  * <b>REQUIRED CONFIGURATION:</b> <i>config/neodymium.properties</i>
  * <ul>

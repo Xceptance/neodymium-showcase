@@ -13,7 +13,7 @@ import io.qameta.allure.junit4.Tag;
 import showcase.neodymium.tests.AbstractTest;
 
 /**
- * This show case explains with an example implementation how to test a web site using frames (iframe).<br>
+ * This showcase explains with an example implementation how to test a website using frames (iframe).<br>
  * Selenide offers a straight forward approach to handle such frames and within Neodymium this is simply applied.<br>
  */
 @Tag("iFrame")

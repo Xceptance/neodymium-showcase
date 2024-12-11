@@ -16,7 +16,7 @@ import showcase.neodymium.tests.AbstractTest;
 import showcase.neodymium.tests.data.dataobjects.ServiceTile;
 
 /**
- * This show case explains how to access test data using the features built into the Neodymium framework.<br>
+ * This showcase explains how to access test data using the features built into the Neodymium framework.<br>
  * By default, Neodymium looks for a data file that has the same name as the test case and is located in the same
  * package in the resources folder.<br>
  * This example shows the reading from a JSON file that does not meet the naming conventions.<br>
@@ -24,7 +24,7 @@ import showcase.neodymium.tests.data.dataobjects.ServiceTile;
  * The method DataUtils.get() uses the JsonPath here.
  */
 @Tag("data object test data access")
-// tell Neodymium to use a different than standard named data file under src/test/ressources/
+// tell Neodymium to use a different named data file under src/test/resources/ instead the standard one
 @DataFile("showcase/neodymium/tests/data/TestDataFileWithDifferentName.json")
 public class AccessDataViaJsonPathTest extends AbstractTest
 {

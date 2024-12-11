@@ -17,7 +17,7 @@ import showcase.flows.OpenPageFlow;
 import showcase.neodymium.tests.AbstractTest;
 
 /**
- * This show case shows the use of the Neodymium.getRandom() method.<br>
+ * This showcase shows the use of the Neodymium.getRandom() method.<br>
  * Random values are useful to run different test cases with different values.<br>
  * It is also useful to test a web application with different paths like a real user would.<br>
  * The NeodymiumRandom class extends the functionality of java.util.Random.<br>
