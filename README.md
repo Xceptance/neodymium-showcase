@@ -77,7 +77,7 @@ cell phone for example, the emulation of various mobile devices integrated in Ch
 The `showcase.neodymium.tests.random` package contains the selection of random web elements from a website under test.
 
 * `FixedRandomTest.java` shows how a random test can be run again in the same way.
-* `RandomJobOffersTest.java` demonstrates the selection of different job offers.
+* `RandomProductCategoryTest.java` demonstrates the selection of different products at random.
 
 ## 9. Logging with log4j2
 

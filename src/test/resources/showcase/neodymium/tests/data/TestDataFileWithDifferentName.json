@@ -7,19 +7,23 @@
 		"serviceTiles": [
 			{
 				"heading": "Manual & Automated Testing",
-				"explanation": "We test your product based on individual requirements, with an ideal mix of manual and automated testing."
+				"explanation": "We test your product based on individual requirements, with an ideal mix of manual and automated testing.",
+				"position": 0
 			},
 			{
 				"heading": "Load & Performance Testing",
-				"explanation": "We simulate the traffic you expect on your platform and deliver detailed test reports whether it is a web-based or API-based test. Find out how your site really performs on server and client side."
+				"explanation": "We simulate the traffic you expect on your platform and deliver detailed test reports whether it is a web-based or API-based test. Find out how your site really performs on server and client side.",
+				"position": 1
 			},
 			{
 				"heading": "Test Guidance & Support",
-				"explanation": "We love to share our knowledge and can help you establish or improve your own quality assurance processes. Let us inspire you to test better!"
+				"explanation": "We love to share our knowledge and can help you establish or improve your own quality assurance processes. Let us inspire you to test better!",
+				"position": 2
 			},
 			{
 				"heading": "Our Testing Tool",
-				"explanation": "XLT covers all your web performance testing needs. It is extensively used by us and continuously improved. Functional test automation can also be done with XLT and is used when real browser performance testing is needed. XLT is Open Source under Apache License 2.0."
+				"explanation": "XLT covers all your web performance testing needs. It is extensively used by us and continuously improved. Functional test automation can also be done with XLT and is used when real browser performance testing is needed. XLT is Open Source under Apache License 2.0.",
+				"position": 3
 			}
 		],
 		"numberServices": 4
@@ -32,19 +36,23 @@
 		"serviceTiles": [
 			{
 				"heading": "Manuelle Tests & Testautomatisierung",
-				"explanation": "Wir arbeiten mit einem ide­alen Mix aus ma­nu­ellen und auto­ma­ti­sierten Test­ver­fah­ren, ganz nach Ihren per­sön­lichen Wün­schen und Vor­stel­lungen."
+				"explanation": "Wir arbeiten mit einem ide­alen Mix aus ma­nu­ellen und auto­ma­ti­sierten Test­ver­fah­ren, ganz nach Ihren per­sön­lichen Wün­schen und Vor­stel­lungen.",
+				"position": 0
 			},
 			{
 				"heading": "Last- & Performancetests",
-				"explanation": "Wir simulieren jede Benutzer- und Transaktions­menge und liefern umfassende Test­reports. Erfahren Sie, was Ihre Website leistet."
+				"explanation": "Wir simulieren jede Benutzer- und Transaktions­menge und liefern umfassende Test­reports. Erfahren Sie, was Ihre Website leistet.",
+				"position": 1
 			},
 			{
 				"heading": "Testunterstützung",
-				"explanation": "Wir teilen unsere Erfahrungen und helfen Ihnen, QS-Prozesse zu etablieren und zu optimieren. Lassen Sie sich von uns inspirieren."
+				"explanation": "Wir teilen unsere Erfahrungen und helfen Ihnen, QS-Prozesse zu etablieren und zu optimieren. Lassen Sie sich von uns inspirieren.",
+				"position": 2
 			},
 			{
 				"heading": "Unser Testwerkzeug",
-				"explanation": "XLT deckt Ihre Last- und Performance­test-Anfor­de­rungen ab und ermöglicht ebenso WebDriver-basierte Testautomation. XLT ist Open Source."
+				"explanation": "XLT deckt Ihre Last- und Performance­test-Anfor­de­rungen ab und ermöglicht ebenso WebDriver-basierte Testautomation. XLT ist Open Source.",
+				"position": 3
 			}
 		],
 		"numberServices": 4

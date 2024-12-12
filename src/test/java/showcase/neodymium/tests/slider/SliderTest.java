@@ -1,18 +1,10 @@
 package showcase.neodymium.tests.slider;
 
-import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Condition.hidden;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-
-import org.junit.Test;
-
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.ex.ElementNotFound;
 import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.SelenideAddons;
-
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
@@ -21,12 +13,14 @@ import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.junit4.Tag;
 import showcase.neodymium.tests.AbstractTest;
 
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
+
 /**
- * Sliders are control elements to give the user the opportunity to select a value on a web page. Mostly there are used
- * horizontally but there are also vertical sliders. Manipulation of slider can be a little tricky using the pure
- * Selenium API. Therefore, Neodymium provides an approach that requires less knowledge about Selenium's paradigms.<br>
- * This showcase provides possible approaches how to handle and interact with sliders and they indicators. The first
- * and the second test demonstrate horizontal while the other tests showcase vertical movements.
+ * Sliders are control elements to give the user the opportunity to select a value on a web page. Mostly there are used horizontally but there are also vertical
+ * sliders. Manipulation of slider can be a little tricky using the pure Selenium API. Therefore, Neodymium provides an approach that requires less knowledge
+ * about Selenium's paradigms.<br> This showcase provides possible approaches how to handle and interact with sliders and they indicators. The first and the
+ * second test demonstrate horizontal while the other tests showcase vertical movements.
  */
 @Severity(SeverityLevel.TRIVIAL)
 @Owner("Test Developer")
@@ -46,7 +40,7 @@ public class SliderTest extends AbstractTest
         openSliderPage();
 
         // the slider element that will be used for the test
-        SelenideElement elementUnderTest = $(".balSlider a[role=slider]").scrollIntoView("{block:'center'}");
+        SelenideElement elementUnderTest = $(".balSlider [role=slider]").scrollIntoView("{block:'center'}");
 
         // Interaction: move the slider to the right
         //
@@ -60,7 +54,7 @@ public class SliderTest extends AbstractTest
         SelenideAddons.dragAndDropUntilCondition(elementUnderTest, elementUnderTest, 40, 0, INTERACTION_PAUSE, MAX_RETRIES, attribute("aria-valuenow", "8"));
     }
 
-    @Test
+    @NeodymiumTest
     @Description(value = "Showcase for a horizontal drag and drop of a web slider to the left side.")
     public void testHorizontalLeftMovement()
     {
@@ -68,7 +62,8 @@ public class SliderTest extends AbstractTest
         openSliderPage();
 
         // the slider element that will be used for the test
-        SelenideElement elementUnderTest = $(".balSlider a[role=slider]").scrollIntoView("{block:'center'}");
+        // .balSlider .k-slider-track
+        SelenideElement elementUnderTest = $(".balSlider [role=slider]").scrollIntoView("{block:'center'}");
 
         // Interaction: move the slider to the left
         //
@@ -82,7 +77,7 @@ public class SliderTest extends AbstractTest
         SelenideAddons.dragAndDropUntilCondition(elementUnderTest, elementUnderTest, -40, 0, INTERACTION_PAUSE, MAX_RETRIES, attribute("aria-valuenow", "-8"));
     }
 
-    @Test
+    @NeodymiumTest
     @Description(value = "Showcase for a vertical drag and drop of a web slider to the top.")
     public void testVerticalUpMovement()
     {
@@ -90,7 +85,7 @@ public class SliderTest extends AbstractTest
         openSliderPage();
 
         // the slider element that will be used for the test
-        SelenideElement elementUnderTest = $("#equalizer .k-slider-vertical:first-child a").scrollIntoView("{block:'center'}");
+        SelenideElement elementUnderTest = $("#equalizer .k-slider-vertical:first-child [role='slider']").scrollIntoView("{block:'center'}");
 
         // Interaction: move the slider upwards
         //
@@ -112,7 +107,7 @@ public class SliderTest extends AbstractTest
         openSliderPage();
 
         // the slider element that will be used for the test
-        SelenideElement elementUnderTest = $("#equalizer .k-slider-vertical:first-child a").scrollIntoView("{block:'center'}");
+        SelenideElement elementUnderTest = $("#equalizer .k-slider-vertical:first-child [role='slider']").scrollIntoView("{block:'center'}");
 
         // Interaction: move the slider downwards
         //
@@ -123,7 +118,7 @@ public class SliderTest extends AbstractTest
         // pause between movements: 3000ms
         // retries: 5
         // condition until the movement is performed: aria-valuenow = -6
-        SelenideAddons.dragAndDropUntilCondition(elementUnderTest, elementUnderTest, 0, 10, INTERACTION_PAUSE, MAX_RETRIES, attribute("aria-valuenow", "-6"));
+        SelenideAddons.dragAndDropUntilCondition(elementUnderTest, elementUnderTest, 0, 10, INTERACTION_PAUSE, MAX_RETRIES, attribute("aria-valuenow", "-5"));
     }
 
     // a helper function to open the page and close the GDPR dialog to avoid duplicate code
