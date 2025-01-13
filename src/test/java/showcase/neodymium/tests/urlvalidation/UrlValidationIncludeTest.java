@@ -59,10 +59,10 @@ public class UrlValidationIncludeTest extends AbstractTest
         // after opening the ULR it is validated if the URL is included and if not, an assertion error will be thrown and the test is stopped
         // clicking a link to a not included URL creates an error
         AssertionFailedError exceptionClick = assertThrows(AssertionFailedError.class, () -> {
-            $("#navigation a[href*='xlt']").click();
+            $("#navigation a[href*='products']").click();
         });
         Assertions.assertEquals(
-            "Opened Link was outside permitted URLs: https://www.xceptance.com/en/xlt/ ==> expected: <true> but was: <false>",
+            "Opened Link was outside permitted URLs: https://www.xceptance.com/en/products/ ==> expected: <true> but was: <false>",
             exceptionClick.getMessage());
 
         // opening a not included URL creates an error

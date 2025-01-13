@@ -1,34 +1,30 @@
 package showcase.neodymium.tests.shadowdom;
 
-import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.value;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-
-import org.junit.Test;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
-
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.Neodymium;
-
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.junit4.Tag;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import showcase.neodymium.tests.AbstractTest;
 import showcase.pageobjects.components.Title;
 
+import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.value;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+
 /**
- * Shadow DOM is a technique for encapsulation. It allows the user to create a separate and independent DOM. This second
- * DOM can be nested into the DOM tree of a website without any side effects. This approach is used to build reusable
- * components which can be integrated on every page without introducing side effect.<br>
- * This showcase provides possible approaches how to perform tests for Shadow DOM elements.<br>
+ * Shadow DOM is a technique for encapsulation. It allows the user to create a separate and independent DOM. This second DOM can be nested into the DOM tree of
+ * a website without any side effects. This approach is used to build reusable components which can be integrated on every page without introducing side
+ * effect.<br> This showcase provides possible approaches how to perform tests for Shadow DOM elements.<br>
  */
 @Severity(SeverityLevel.TRIVIAL)
 @Owner("Test Developer")
@@ -51,7 +47,7 @@ public class ShadowDomCheckboxTest extends AbstractTest
 
         /*
          * Nested shadow DOM demo test
-         * 
+         *
          * Since shadow DOM can be nested into any DOM it's possible to have a shadow DOM within a shadow DOM. The
          * following tests demonstrates how you can handle this.
          */
@@ -78,7 +74,7 @@ public class ShadowDomCheckboxTest extends AbstractTest
         $(Selectors.shadowCss(target, shadowHost, nestedShadowHost)).shouldNotBe(visible);
     }
 
-    @Test
+    @NeodymiumTest
     @Description(value = "Simple showcase for usage of shadow DOM")
     public void testSimpleShadowDOM()
     {
@@ -93,7 +89,7 @@ public class ShadowDomCheckboxTest extends AbstractTest
 
         /*
          * Basic shadow DOM demo test
-         * 
+         *
          * This is a straight forward approach how to validate shadow DOM elements.
          */
 

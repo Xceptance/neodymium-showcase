@@ -29,7 +29,7 @@ public class AdvancedScreenshotTest extends AbstractTest
     public static final String TEMP_PROPERTIES_FILE = "temp-ScreenshotTest-neodymium.properties";
 
     @BeforeAll
-    public static void addPopupBlockerSelectorToTempProperties()
+    public static void addScreenshotTempProperties()
     {
         /*
          * In general the properties should be defined directly in the neodymium.properties, but for the showcase to see some example values this is done

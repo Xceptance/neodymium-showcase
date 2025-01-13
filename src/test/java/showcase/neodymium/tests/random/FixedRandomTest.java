@@ -34,7 +34,7 @@ public class FixedRandomTest extends AbstractTest
     public static final String TEMP_PROPERTIES_FILE = "temp-FixedRandomTest-neodymium.properties";
 
     @BeforeAll
-    public static void addPopupBlockerSelectorToTempProperties()
+    public static void addRandomSeedTempProperties()
     {
         /*
          * In general the properties should be defined directly in the neodymium.properties, but for the showcase to see some example values this is done
