@@ -1,6 +1,7 @@
 package showcase.neodymium.tests.basicauth;
 
 import com.codeborne.selenide.Selenide;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
@@ -8,7 +9,6 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.junit4.Tag;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import showcase.neodymium.tests.AbstractTest;
 
 import java.util.Map;
@@ -66,7 +66,7 @@ public class NeodymiumLocalProxyBasicAuthenticationTest extends AbstractTest
                         ));
     }
 
-    @Test
+    @NeodymiumTest
     @Description(value = "Showcase for basic authentication using Neodymium Local Proxy")
     public void test()
     {
