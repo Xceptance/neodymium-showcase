@@ -53,8 +53,8 @@ public class DifferentBrowserSessionTest extends AbstractTest
         cleanUpWindowHandle = Neodymium.getDriver().getWindowHandle();
 
         // different browsers should generate different window handles
-        Assertions.assertNotEquals(setUpWindowHandle, testWindowHandle);
-        Assertions.assertNotEquals(setUpWindowHandle, cleanUpWindowHandle);
-        Assertions.assertNotEquals(testWindowHandle, cleanUpWindowHandle);
+        Assertions.assertNotEquals(setUpWindowHandle, testWindowHandle, "setup and test window handle are the same");
+        Assertions.assertNotEquals(setUpWindowHandle, cleanUpWindowHandle, "setup and cleanup window handle are the same");
+        Assertions.assertNotEquals(testWindowHandle, cleanUpWindowHandle, "test and cleanup window handle are the same");
     }
 }

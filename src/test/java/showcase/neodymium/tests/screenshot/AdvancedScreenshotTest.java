@@ -3,9 +3,7 @@ package showcase.neodymium.tests.screenshot;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.ex.ElementNotFound;
 import com.xceptance.neodymium.junit5.NeodymiumTest;
-import com.xceptance.neodymium.util.Neodymium;
 import io.qameta.allure.junit4.Tag;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -40,24 +38,21 @@ public class AdvancedScreenshotTest extends AbstractTest
          * neodymium.screenshots.fullpagecapture.enable=true
          * neodymium.screenshots.fullpagecapture.highlightViewport=true
          * neodymium.screenshots.fullpagecapture.highlightColor=#735369
+         * neodymium.screenshots.enableOnSuccess=true - only necessary because the exception is caught and this disables the advanced screenshots
          */
         addTempProperty(TEMP_PROPERTIES_FILE,
                         Map.of(
                             "neodymium.screenshots.enableAdvancedScreenshots", "true",
                             "neodymium.screenshots.fullpagecapture.enable", "true",
                             "neodymium.screenshots.fullpagecapture.highlightViewport", "true",
-                            "neodymium.screenshots.fullpagecapture.highlightColor", "#735369"
+                            "neodymium.screenshots.fullpagecapture.highlightColor", "#735369",
+                            "neodymium.screenshots.enableOnSuccess", "true"
                         ));
     }
 
     @NeodymiumTest
     public void testAdvancedScreenshots()
     {
-
-        // TODO fix screenshot
-
-        ConfigFactory.setProperty(Neodymium.TEMPORARY_CONFIG_FILE_PROPERTY_NAME, "file:config/" + TEMP_PROPERTIES_FILE);
-
         Selenide.open("https://www.xceptance.com/en/");
 
         ElementNotFound exception = assertThrows(ElementNotFound.class, () -> {
