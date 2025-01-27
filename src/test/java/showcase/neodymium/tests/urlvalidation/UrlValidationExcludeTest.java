@@ -4,14 +4,12 @@ import com.codeborne.selenide.Selenide;
 import com.xceptance.neodymium.junit5.NeodymiumTest;
 import io.qameta.allure.junit4.Tag;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.opentest4j.AssertionFailedError;
 import showcase.neodymium.tests.AbstractTest;
 
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static com.codeborne.selenide.Selenide.$;
 import static showcase.flows.PropertiesFlow.addTempProperty;
 import static showcase.flows.PropertiesFlow.deleteTempPropertiesFile;
 
@@ -48,24 +46,28 @@ public class UrlValidationExcludeTest extends AbstractTest
     public void testExcludeList()
     {
         Selenide.open("https://posters.xceptance.io:8443/");
+        Selenide.open("https://www.xceptance.com/de/");
+        Selenide.open("https://www.google.com");
+    }
+
+    @NeodymiumTest
+    public void failingTestClickExcludedUrl()
+    {
+        Selenide.open("https://posters.xceptance.io:8443/");
         Selenide.sleep(1000);
+
+        $(".navbar-toggler").click();
+        $(".nav-link[href*='Dining']").click();
+    }
+
+    @NeodymiumTest
+    public void failingTestOpenExcludedUrl()
+    {
+        Selenide.open("https://posters.xceptance.io:8443/");
 
         // after opening the ULR it is validated if the URL is excluded and if so, an assertion error will be thrown and the test is stopped
         // expected error is caught to make the test pass
-        AssertionFailedError exceptionRegex = assertThrows(AssertionFailedError.class, () -> {
-            Selenide.open("https://posters.xceptance.io:8443/topCategory/Dining?categoryId=2");
-        });
-        Assertions.assertEquals(
-            "Opened Link was to forbidden site: https://posters.xceptance.io:8443/topCategory/Dining?categoryId=2 ==> expected: <true> but was: <false>",
-            exceptionRegex.getMessage());
-
-        // expected error is caught to make the test pass
-        AssertionFailedError exception = assertThrows(AssertionFailedError.class, () -> {
-            Selenide.open("https://www.xceptance.com/en/");
-        });
-        Assertions.assertEquals(
-            "Opened Link was to forbidden site: https://www.xceptance.com/en/ ==> expected: <true> but was: <false>",
-            exception.getMessage());
+        Selenide.open("https://posters.xceptance.io:8443/topCategory/Dining?categoryId=2");
     }
 
     @AfterAll

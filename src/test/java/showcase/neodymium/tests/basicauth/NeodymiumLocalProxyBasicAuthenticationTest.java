@@ -10,6 +10,7 @@ import io.qameta.allure.junit4.Tag;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import showcase.neodymium.tests.AbstractTest;
+import showcase.pageobjects.components.Title;
 
 import java.util.Map;
 
@@ -54,15 +55,11 @@ public class NeodymiumLocalProxyBasicAuthenticationTest extends AbstractTest
          *
          * neodymium.localproxy=true
          * neodymium.url.host=authenticationtest.com
-         * neodymium.basicauth.username=User
-         * neodymium.basicauth.password=Pass
          */
         addTempProperty(TEMP_PROPERTIES_FILE,
                         Map.of(
                             "neodymium.localproxy", "true",
-                            "neodymium.url.host", "authenticationtest.com",
-                            "neodymium.basicauth.username", "User",
-                            "neodymium.basicauth.password", "Pass"
+                            "neodymium.url.host", "authenticationtest.com"
                         ));
     }
 
@@ -74,7 +71,7 @@ public class NeodymiumLocalProxyBasicAuthenticationTest extends AbstractTest
         Selenide.open("https://authenticationtest.com/HTTPAuth/");
 
         // validate the page title
-        //        new Title().validateTitle("Authentication Test");
+        new Title().validateTitle("Authentication Test");
 
         // check that basic alert message is visible
         $(".alert-success").shouldBe(visible);

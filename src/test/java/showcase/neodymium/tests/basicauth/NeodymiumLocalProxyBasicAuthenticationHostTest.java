@@ -51,9 +51,7 @@ public class NeodymiumLocalProxyBasicAuthenticationHostTest extends AbstractTest
          * here.
          * The following call will create a temp properties file with the values:
          *
-         * neodymium.localproxy.enable=true
-         * neodymium.localproxy.certificate=true
-         * neodymium.localproxy.certificate.generate=true
+         * neodymium.localproxy=true
          */
         addTempProperty(TEMP_PROPERTIES_FILE,
                         Map.of(
@@ -83,6 +81,5 @@ public class NeodymiumLocalProxyBasicAuthenticationHostTest extends AbstractTest
     public static void cleanUp()
     {
         deleteTempPropertiesFile(TEMP_PROPERTIES_FILE);
-        deleteTempPropertiesFile("embeddedLocalProxySelfSignedRootCertificate.p12");
     }
 }

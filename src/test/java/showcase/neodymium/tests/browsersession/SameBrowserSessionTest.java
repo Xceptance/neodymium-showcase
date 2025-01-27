@@ -1,14 +1,16 @@
 package showcase.neodymium.tests.browsersession;
 
+import com.codeborne.selenide.ClickOptions;
 import com.xceptance.neodymium.junit5.NeodymiumTest;
-import com.xceptance.neodymium.util.Neodymium;
+import com.xceptance.neodymium.util.SelenideAddons;
 import io.qameta.allure.junit4.Tag;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import showcase.neodymium.tests.AbstractTest;
 
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static showcase.flows.OpenPageFlow.openCollapsedMenu;
 
 /**
  * It is also possible to reuse the same browser thought the whole test including setup and cleanup. This is demonstrated here and the default behaviour.
@@ -16,37 +18,30 @@ import static com.codeborne.selenide.Selenide.open;
 @Tag("BrowserSession")
 public class SameBrowserSessionTest extends AbstractTest
 {
-    private String setUpWindowHandle;
-
-    private String testWindowHandle;
-
-    private String cleanUpWindowHandle;
-
     @BeforeEach
     public void setUp()
     {
-        // Setup code using dedicated browser
-        open("https://www.xceptance.com/en/");
-        setUpWindowHandle = Neodymium.getDriver().getWindowHandle();
+        open("https://posters.xceptance.io:8443/");
+
+        // open the first product
+        $(".product-tile:first-of-type img").click(ClickOptions.usingJavaScript());
+
+        // add it to the cart
+        $("#btn-add-to-cart").click(ClickOptions.usingJavaScript());
     }
 
     @NeodymiumTest
     public void testSameBrowserSession()
     {
-        open("https://www.xceptance.com/en/");
-        testWindowHandle = Neodymium.getDriver().getWindowHandle();
+        open("https://posters.xceptance.io:8443/");
+        SelenideAddons.optionalWaitUntilCondition($("#carousel-product-display"), visible);
+
+        // check if the nav bar is collapsed and if so open it
+        openCollapsedMenu();
+
+        // check that the product from the setup is present
+        $("#header-cart-overview").click();
+        $(".go-to-cart").shouldBe(visible);
     }
 
-    @AfterEach
-    public void cleanUp()
-    {
-        // Cleanup code using dedicated browser
-        open("https://www.xceptance.com/en/");
-        cleanUpWindowHandle = Neodymium.getDriver().getWindowHandle();
-
-        // using the same browsers and same tab should not generate different window handles
-        Assertions.assertEquals(setUpWindowHandle, testWindowHandle, "setup and test window handle are different");
-        Assertions.assertEquals(setUpWindowHandle, cleanUpWindowHandle, "setup and cleanup window handle are different");
-        Assertions.assertEquals(testWindowHandle, cleanUpWindowHandle, "test and cleanup window handle are different");
-    }
 }

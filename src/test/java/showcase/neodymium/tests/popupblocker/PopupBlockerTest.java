@@ -23,7 +23,6 @@ import static showcase.flows.PropertiesFlow.deleteTempPropertiesFile;
 @Tag("PopupBlocker")
 public class PopupBlockerTest extends AbstractTest
 {
-
     public static final String TEMP_PROPERTIES_FILE = "temp-PopupBlockerTest-neodymium.properties";
 
     @BeforeAll

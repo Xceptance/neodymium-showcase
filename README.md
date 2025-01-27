@@ -141,6 +141,12 @@ To prevent the test automation to reach sites that are out of scope or should no
 include and exclude lists in the `neodymium.config`. The setup and usage of those lists is demonstrated in the showcases
 in the package `showcase.neodymium.tests.urlvalidation`.
 
+## 18.
+
+It is possible to add custom values to differentiate between environments or profiles within your test runs, enhancing
+the granularity of your test environment information. A very basic example can be found in the showcase
+`showcase.neodymium.tests.customenvironmentdata.CustomEnvironmentDataTest`.
+
 ## License
 
 MIT

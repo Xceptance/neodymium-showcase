@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class PropertiesFlow
@@ -31,11 +32,7 @@ public class PropertiesFlow
      */
     public static void addTempProperty(String filename, Map<String, String> properties)
     {
-        // define and set the properties
-        for (String key : properties.keySet())
-        {
-            Neodymium.configuration().setProperty(key, properties.get(key));
-        }
+        setTempProperties(properties);
 
         String propertiesString = properties.entrySet().stream()
                                             .map(entry -> entry.getKey() + "=" + entry.getValue())
@@ -81,5 +78,37 @@ public class PropertiesFlow
         {
             throw new RuntimeException(e);
         }
+
+        ConfigFactory.clearProperty(Neodymium.TEMPORARY_CONFIG_FILE_PROPERTY_NAME);
+        Neodymium.clearThreadContext();
+    }
+
+    /**
+     * Helper method to add the properties to the current Neodymium configuration
+     *
+     * @param properties
+     *     a map containing the properties and values to add
+     */
+    public static void setTempProperties(Map<String, String> properties)
+    {
+        // define and set the properties
+        for (String key : properties.keySet())
+        {
+            Neodymium.configuration().setProperty(key, properties.get(key));
+        }
+    }
+
+    /**
+     * Helper method to remove the properties from the current Neodymium configuration
+     *
+     * @param properties
+     *     a set containing the properties to remove
+     */
+    public static void removeTempProperties(Set<String> properties)
+    {
+        properties.forEach(p -> {
+            Neodymium.configuration().removeProperty(p);
+            ConfigFactory.clearProperty(p);
+        });
     }
 }

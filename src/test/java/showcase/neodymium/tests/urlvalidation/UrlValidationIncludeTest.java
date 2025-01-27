@@ -4,15 +4,12 @@ import com.codeborne.selenide.Selenide;
 import com.xceptance.neodymium.junit5.NeodymiumTest;
 import io.qameta.allure.junit4.Tag;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.opentest4j.AssertionFailedError;
 import showcase.neodymium.tests.AbstractTest;
 
 import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.$;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static showcase.flows.PropertiesFlow.addTempProperty;
 import static showcase.flows.PropertiesFlow.deleteTempPropertiesFile;
 
@@ -49,29 +46,27 @@ public class UrlValidationIncludeTest extends AbstractTest
     public void testIncludeList()
     {
         Selenide.open("https://posters.xceptance.io:8443/");
-        Selenide.sleep(1000);
 
-        $(".navbar-toggler").click();
-        $(".nav-link[href*='Dining']").click();
+        Selenide.open("https://www.xceptance.com/en/");
+    }
 
+    @NeodymiumTest
+    public void failingTestClickNotIncludedUrl()
+    {
         Selenide.open("https://www.xceptance.com/en/");
 
         // after opening the ULR it is validated if the URL is included and if not, an assertion error will be thrown and the test is stopped
         // clicking a link to a not included URL creates an error
-        AssertionFailedError exceptionClick = assertThrows(AssertionFailedError.class, () -> {
-            $("#navigation a[href*='products']").click();
-        });
-        Assertions.assertEquals(
-            "Opened Link was outside permitted URLs: https://www.xceptance.com/en/products/ ==> expected: <true> but was: <false>",
-            exceptionClick.getMessage());
+        $("#navigation a[href*='products']").click();
+    }
+
+    @NeodymiumTest
+    public void failingTestOpenNotIncludedUrl()
+    {
+        Selenide.open("https://www.xceptance.com/en/");
 
         // opening a not included URL creates an error
-        AssertionFailedError exceptionOpenUrl = assertThrows(AssertionFailedError.class, () -> {
-            Selenide.open("https://github.com/Xceptance/neodymium");
-        });
-        Assertions.assertEquals(
-            "Opened Link was outside permitted URLs: https://github.com/Xceptance/neodymium ==> expected: <true> but was: <false>",
-            exceptionOpenUrl.getMessage());
+        Selenide.open("https://github.com/Xceptance/neodymium");
     }
 
     @AfterAll

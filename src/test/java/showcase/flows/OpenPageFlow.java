@@ -1,11 +1,12 @@
 package showcase.flows;
 
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.ex.ElementNotFound;
+
 import static com.codeborne.selenide.Condition.hidden;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
-
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.ex.ElementNotFound;
 
 public class OpenPageFlow
 {
@@ -32,6 +33,18 @@ public class OpenPageFlow
         {
             $(".btn-link").click();
             $(".btn-link").shouldBe(hidden);
+        }
+    }
+
+    /**
+     * Helper function to open the menu on posters if it is collapsed
+     */
+    public static void openCollapsedMenu()
+    {
+        SelenideElement navBarToggle = $(".navbar-toggler");
+        if (navBarToggle.isDisplayed())
+        {
+            navBarToggle.click();
         }
     }
 }
