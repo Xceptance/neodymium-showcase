@@ -28,8 +28,6 @@ public class JsonAssertionTest
         String actualJson = Files.readString(actualJsonPath, StandardCharsets.UTF_8);
 
         // check that the files are equal
-        // expected error is caught to make the test pass
-        // the differences are still added to the report and can be seen
         JsonAssert.assertEquals(expectedJson, actualJson, JSONCompareMode.STRICT_ORDER);
     }
 

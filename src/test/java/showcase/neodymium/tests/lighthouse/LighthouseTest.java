@@ -16,21 +16,13 @@ import showcase.neodymium.tests.AbstractTest;
 public class LighthouseTest extends AbstractTest
 {
     @NeodymiumTest
-    public void testLighthouse()
+    public void testLighthouse() throws Exception
     {
         Selenide.open("https://www.xceptance.com/en/");
 
-        try
-        {
-            // calling createLightHouseReport() will create a Lighthouse report for the current page
-            // this will open a new tab and open the same page again in the new tab
-            // after generating the report, the additional tab will be closed and the test automatically proceeds with the initial tab
-            // ATTENTION: can currently cause problems for unique sites tied to a session like order confirmation pages for logged in customers
-            LighthouseUtils.createLightHouseReport("testReport");
-        }
-        catch (Exception e)
-        {
-            throw new RuntimeException(e);
-        }
+        // calling createLightHouseReport() will create a Lighthouse report for the current page
+        // this will open a new tab and open the same page again in the new tab
+        // after generating the report, the additional tab will be closed and the test automatically proceeds with the initial tab
+        LighthouseUtils.createLightHouseReport("testReport");
     }
 }

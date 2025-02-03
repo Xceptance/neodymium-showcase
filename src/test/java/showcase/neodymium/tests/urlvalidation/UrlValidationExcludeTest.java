@@ -66,7 +66,6 @@ public class UrlValidationExcludeTest extends AbstractTest
         Selenide.open("https://posters.xceptance.io:8443/");
 
         // after opening the ULR it is validated if the URL is excluded and if so, an assertion error will be thrown and the test is stopped
-        // expected error is caught to make the test pass
         Selenide.open("https://posters.xceptance.io:8443/topCategory/Dining?categoryId=2");
     }
 
