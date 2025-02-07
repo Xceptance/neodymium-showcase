@@ -43,15 +43,15 @@ public class AccessDataViaJsonPathTest extends AbstractTest
         ServiceTile serviceTile = DataUtils.get("$.serviceTiles[2]", ServiceTile.class);
 
         // check the heading with the right text
-        $$("h2").get(2).should(matchText(serviceTile.getHeading()));
+        $$("a h2").get(2).should(matchText(serviceTile.getHeading()));
 
         // check explanation with the right text
-        $$(".explanation").get(2).should(matchText(serviceTile.getExplanation()));
+        $$(".bg-dark .explanation").get(2).should(matchText(serviceTile.getExplanation()));
 
         // get integer test data using DataUtils.get() via JsonPath
         int numberServices = DataUtils.get("$.numberServices", Integer.class);
 
         // check the number of services
-        $$(".explanation").shouldHave(size(numberServices));
+        $$(".bg-dark .explanation").shouldHave(size(numberServices));
     }
 }

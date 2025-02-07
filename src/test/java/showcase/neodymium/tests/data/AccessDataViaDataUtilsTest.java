@@ -37,16 +37,16 @@ public class AccessDataViaDataUtilsTest extends AbstractTest
         while (DataUtils.exists("serviceTile_" + i + "_heading"))
         {
             // check heading text
-            $$("h2").get(i).should(matchText(DataUtils.asString("serviceTile_" + i + "_heading")));
+            $$("a h2").get(i).should(matchText(DataUtils.asString("serviceTile_" + i + "_heading")));
 
             // check explanation text
-            $$(".explanation").get(i).should(matchText(DataUtils.asString("serviceTile_" + i + "_explanation")));
+            $$(".bg-dark .explanation").get(i).should(matchText(DataUtils.asString("serviceTile_" + i + "_explanation")));
 
             // next serviceTile
             i++;
         }
 
         // check the number of services using an integer value provided by DataUtils
-        $$(".explanation").shouldHave(size(DataUtils.asInt("numberServices")));
+        $$(".bg-dark .explanation").shouldHave(size(DataUtils.asInt("numberServices")));
     }
 }

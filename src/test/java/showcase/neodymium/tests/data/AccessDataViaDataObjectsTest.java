@@ -46,13 +46,13 @@ public class AccessDataViaDataObjectsTest extends AbstractTest
         for (ServiceTile serviceTile : testDataHomePage.getServiceTiles())
         {
             // check heading with its position
-            $$("h2").get(serviceTile.getPosition()).should(matchText(serviceTile.getHeading()));
+            $$("a h2").get(serviceTile.getPosition()).should(matchText(serviceTile.getHeading()));
 
             // check explanation text with its position
-            $$(".explanation").get(serviceTile.getPosition()).should(matchText(serviceTile.getExplanation()));
+            $$(".bg-dark .explanation").get(serviceTile.getPosition()).should(matchText(serviceTile.getExplanation()));
         }
 
         // check the number of services
-        $$(".explanation").shouldHave(size(testDataHomePage.getNumberServices()));
+        $$(".bg-dark .explanation").shouldHave(size(testDataHomePage.getNumberServices()));
     }
 }
