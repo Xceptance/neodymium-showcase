@@ -1,0 +1,14 @@
+[
+  {
+    "categoryBeforeUpdate":
+    {
+      "name": "category one",
+      "image": "https://placeimg.com/100/100/any"
+    },
+    "categoryUpdate":
+    {
+      "name": "category one update",
+      "image": "https://placeimg.com/100/100/any/update"
+    }
+  }
+]
