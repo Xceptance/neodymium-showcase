@@ -30,6 +30,7 @@
 		<surefire.version>2.22.2</surefire.version>
 		<aspectj.version>1.9.21</aspectj.version>
 		<allure.version>2.12.0</allure.version>
+    <allure.report.version>2.29.0</allure.report.version>
 		<neodymium.version>5.2.0</neodymium.version>
 		<pdfbox.version>2.0.24</pdfbox.version>
 	</properties>
@@ -72,7 +73,7 @@
 				<artifactId>allure-maven</artifactId>
 				<version>${allure.version}</version>
 				<configuration>
-					<reportVersion>${allure.version}</reportVersion>
+					<reportVersion>${allure.report.version}</reportVersion>
 				</configuration>
 			</plugin>
 			<plugin>
