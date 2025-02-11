@@ -10,19 +10,19 @@ import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 
-public class TestContext
+public class RestHelperContext
 {
-    private static final Map<Thread, TestContext> CONTEXTS = Collections.synchronizedMap(new WeakHashMap<>());
+    private static final Map<Thread, RestHelperContext> CONTEXTS = Collections.synchronizedMap(new WeakHashMap<>());
     
     // global configuration
-    private final Configuration configuration;
+    private final RestConfiguration configuration;
     
     /**
      * Constructor
      */
-    private TestContext()
+    private RestHelperContext()
     {
-        configuration = ConfigFactory.create(Configuration.class, System.getProperties(), System.getenv());
+        configuration = ConfigFactory.create(RestConfiguration.class, System.getProperties(), System.getenv());
     }
     
     /**
@@ -33,7 +33,7 @@ public class TestContext
         // make sure to have a specific test context for each test run
         clearThreadContext();
 
-        Configuration configuration = getContext().configuration;
+        RestConfiguration configuration = getContext().configuration;
 
         if (configuration.enableRequestLogging())
         {
@@ -51,10 +51,10 @@ public class TestContext
      * 
      * @return the context instance for the current Thread
      */
-    static TestContext getContext()
+    static RestHelperContext getContext()
     {
         return CONTEXTS.computeIfAbsent(Thread.currentThread(), key -> {
-            return new TestContext();
+            return new RestHelperContext();
         });
     }
     
@@ -63,7 +63,7 @@ public class TestContext
      * 
      * @return neodymiumConfiguration
      */
-    public static Configuration configuration()
+    public static RestConfiguration configuration()
     {
         return getContext().configuration;
     }

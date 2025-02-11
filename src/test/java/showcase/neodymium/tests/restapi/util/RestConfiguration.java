@@ -13,7 +13,7 @@ import org.aeonbits.owner.Mutable;
     "system:env",
     "file:config/api.properties"
 })
-public interface Configuration extends Mutable
+public interface RestConfiguration extends Mutable
 {
     @Key("logging.request")
     @DefaultValue("false")
