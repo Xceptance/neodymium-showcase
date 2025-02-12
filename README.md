@@ -119,7 +119,7 @@ the [reports section](https://github.com/Xceptance/neodymium/wiki/Reports#add-js
 Due to the steadily increasing importance of accessibility Google Lighthouse is now part of our test framework and can
 be used to get an accessibility score for the desired websites. To demonstrate the usage the showcase
 `showcase.neodymium.tests.lighthouse.LighthouseTest.java` was created.
-Further reading: [lighthouse section](https://github.com/Xceptance/neodymium/wiki/Reports#lighthouse)
+Further reading: [lighthouse section](https://github.com/Xceptance/neodymium/wiki/Accessibility#lighthouse)
 
 ## 15. Popup blocker
 
@@ -141,7 +141,7 @@ To prevent the test automation to reach sites that are out of scope or should no
 include and exclude lists in the `neodymium.config`. The setup and usage of those lists is demonstrated in the showcases
 in the package `showcase.neodymium.tests.urlvalidation`.
 
-## 18.
+## 18. Custom environment data
 
 It is possible to add custom values to differentiate between environments or profiles within your test runs, enhancing
 the granularity of your test environment information. A very basic example can be found in the showcase
