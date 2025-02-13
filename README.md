@@ -60,6 +60,9 @@ The various options for providing test data are shown in the package `showcase.n
 * `AccessDataViaJsonPathTest.java` shows data access by means of Json Path.
 * `DataFilePriotityTest.java` shows the priority when accessing different file formats.
 
+## 12. REST testing
+Neodymium also allows to work with rest-assured to support your REST testing needs.
+
 
 ## License
 MIT
