@@ -7,10 +7,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.switchTo;
 
-import org.junit.Test;
-
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.Selenide;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -23,9 +22,9 @@ import showcase.pageobjects.components.Title;
 
 /**
  * Shadow DOM is a technique for encapsulation. It allows the user to create a separate and independent DOM. This second
- * DOM can be nested into the DOM tree of a web site without any side effects. This approach is used to build reusable
+ * DOM can be nested into the DOM tree of a website without any side effects. This approach is used to build reusable
  * components which can be integrated on every page without introducing side effect.<br>
- * This show case provides possible approaches how to perform tests for Shadow DOM elements.<br>
+ * This showcase provides possible approaches how to perform tests for Shadow DOM elements.<br>
  */
 @Severity(SeverityLevel.TRIVIAL)
 @Owner("Test Developer")
@@ -33,7 +32,7 @@ import showcase.pageobjects.components.Title;
 @DisplayName("Texttest")
 public class ShadowDomTextTest extends AbstractTest
 {
-    @Test
+    @NeodymiumTest
     @Description(value = "Check that text field exists and control text")
     public void testTextField()
     {

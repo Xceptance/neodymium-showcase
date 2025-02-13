@@ -1,50 +1,58 @@
 [
 	{
-		"testId": "en/JSON test data access using DataUtils.get method with jsonPath",
+		"testId": "en/JSON test data access using Java Pojo",
 		"language": "en",
 		"teaserMessage": "Committed to Software Quality",
-		"teaserComment": "We help our clients optimize software testing and quality assurance",
+		"teaserComment": "We Help Our Clients Optimize Software Testing and Quality Assurance.",
 		"serviceTiles": [
 			{
 				"heading": "Manual & Automated Testing",
-				"explanation": "We test your product based on individual requirements, with an ideal mix of manual and automated testing."
+				"explanation": "We test your product based on individual requirements using an ideal mix of manual and automated testing. Learn More",
+				"position": 0
 			},
 			{
 				"heading": "Load & Performance Testing",
-				"explanation": "We simulate the traffic you expect on your platform and deliver detailed test reports whether it is a web-based or API-based test. Find out how your site really performs on server and client side."
+				"explanation": "We simulate the traffic you expect on your platform and deliver detailed test reports for both web and API testing. Discover how your site truly performs on both the server and client sides. Learn More",
+				"position": 1
 			},
 			{
 				"heading": "Test Guidance & Support",
-				"explanation": "We love to share our knowledge and can help you establish or improve your own quality assurance processes. Let us inspire you to test better!"
+				"explanation": "We love to share our knowledge and can help you establish or improve your own quality assurance processes. Let us inspire you to test better! Learn More",
+				"position": 2
 			},
 			{
-				"heading": "Our Testing Tool",
-				"explanation": "XLT covers all your web performance testing needs. It is extensively used by us and continuously improved. Functional test automation can also be done with XLT and is used when real browser performance testing is needed. XLT is Open Source under Apache License 2.0."
+				"heading": "Testing Tools",
+				"explanation": "We offer tools for load testing, monitoring, and functional test automation of web applications. Learn More",
+				"position": 3
 			}
 		],
 		"numberServices": 4
 	},
 	{
-		"testId": "de/JSON test data access using DataUtils.get method with jsonPath",
+		"testId": "de/JSON test data access using Java Pojo",
 		"language": "de",
 		"teaserMessage": "Der Qualität von Software verpflichtet",
 		"teaserComment": "Wir begleiten Sie auf Ihrem Weg zum besten Produkt.",
 		"serviceTiles": [
 			{
 				"heading": "Manuelle Tests & Testautomatisierung",
-				"explanation": "Wir arbeiten mit einem ide­alen Mix aus ma­nu­ellen und auto­ma­ti­sierten Test­ver­fah­ren, ganz nach Ihren per­sön­lichen Wün­schen und Vor­stel­lungen."
+				"explanation": "Wir arbeiten mit einem ide\u00ADalen Mix aus ma\u00ADnu\u00ADellen und auto\u00ADma\u00ADti\u00ADsierten Test\u00ADver\u00ADfah\u00ADren, ganz nach Ihren per\u00ADsön\u00ADlichen Wün\u00ADschen und Vor\u00ADstel\u00ADlungen. Mehr",
+				"position": 0
 			},
 			{
 				"heading": "Last- & Performancetests",
-				"explanation": "Wir simulieren jede Benutzer- und Transaktions­menge und liefern umfassende Test­reports. Erfahren Sie, was Ihre Website leistet."
+				"explanation": "Wir simulieren jede Benutzer- und Transaktions\u00ADmenge und liefern umfassende Test\u00ADreports. Erfahren Sie, was Ihre Website leistet. Mehr",
+				"position": 1
 			},
 			{
 				"heading": "Testunterstützung",
-				"explanation": "Wir teilen unsere Erfahrungen und helfen Ihnen, QS-Prozesse zu etablieren und zu optimieren. Lassen Sie sich von uns inspirieren."
+				"explanation": "Wir teilen unsere Erfahrungen und helfen Ihnen, QS-Prozesse zu etablieren und zu optimieren. Lassen Sie sich von uns inspirieren. Mehr",
+				"position": 2
 			},
 			{
-				"heading": "Unser Testwerkzeug",
-				"explanation": "XLT deckt Ihre Last- und Performance­test-Anfor­de­rungen ab und ermöglicht ebenso WebDriver-basierte Testautomation. XLT ist Open Source."
+				"heading": "Testwerkzeuge",
+				"explanation": "Wir bieten Werkzeuge für Lasttests, Monitoring und funktionale Testautomatisierung von Web-Anwendungen an. Mehr",
+				"position": 3
 			}
 		],
 		"numberServices": 4

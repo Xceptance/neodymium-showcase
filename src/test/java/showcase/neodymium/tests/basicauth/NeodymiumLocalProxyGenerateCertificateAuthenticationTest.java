@@ -1,34 +1,33 @@
 package showcase.neodymium.tests.basicauth;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
 import com.browserup.bup.proxy.auth.AuthType;
 import com.codeborne.selenide.Selenide;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.Neodymium;
-
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.junit4.Tag;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import showcase.neodymium.tests.AbstractTest;
 import showcase.pageobjects.components.Title;
 
+import java.util.Map;
+
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static showcase.flows.PropertiesFlow.addTempProperty;
+import static showcase.flows.PropertiesFlow.deleteTempPropertiesFile;
+
 /**
- * The default usage of the embedded local proxy provided by Neodymium disables proxy certificate verification. Due to
- * this fact it possible to intercept the communication of the test cases. Some WebDriver will inform you about
- * this.<br>
- * Therefore Neodymium provides a way to configure a certificate that will be used to authenticate the communication
- * between the parties involved. All requests running in the Neodymium test execution process are automatically routed
- * through this proxy which acts as an certified MITM (Man in the Middle). The advantage of this approach is that an
- * officially signed certificate can be used to secure the communication.<br>
- * If a certificate is required that is signed by an authority for your test case this can be configured using Neodymium
- * (see: {@link NeodymiumLocalProxyCertificateAuthenticationTest} show case)<br>
+ * The default usage of the embedded local proxy provided by Neodymium disables proxy certificate verification. Due to this fact it possible to intercept the
+ * communication of the test cases. Some WebDriver will inform you about this.<br> Therefore Neodymium provides a way to configure a certificate that will be
+ * used to authenticate the communication between the parties involved. All requests running in the Neodymium test execution process are automatically routed
+ * through this proxy which acts as a certified MITM (Man in the Middle). The advantage of this approach is that an officially signed certificate can be used to
+ * secure the communication.<br> If a certificate is required that is signed by an authority for your test case this can be configured using Neodymium (see:
+ * {@link NeodymiumLocalProxyCertificateAuthenticationTest} showcase)<br>
  * <br>
  * <b>REQUIRED CONFIGURATION:</b> <i>config/neodymium.properties</i>
  * <ul>
@@ -44,21 +43,29 @@ import showcase.pageobjects.components.Title;
 @Tag("embedded local proxy")
 public class NeodymiumLocalProxyGenerateCertificateAuthenticationTest extends AbstractTest
 {
-    @Before
-    public void configurationCheck()
+    public static final String TEMP_PROPERTIES_FILE = "temp-LocalProxyGenCert-neodymium.properties";
+
+    @BeforeAll
+    public static void addLocalProxyGenCertTempProperties()
     {
-        // required configuration checks
-        Assert.assertEquals("NeodymiumLocalProxyGenerateCertificateAuthenticationTest: neodymium.localproxy is not set to true",
-                            true, Neodymium.configuration().useLocalProxy());
-
-        Assert.assertEquals("NeodymiumLocalProxyGenerateCertificateAuthenticationTest: neodymium.localproxy.certificate is not set to true",
-                            true, Neodymium.configuration().useLocalProxyWithSelfSignedCertificate());
-
-        Assert.assertEquals("NeodymiumLocalProxyGenerateCertificateAuthenticationTest: neodymium.localproxy.certificate.generate is not set to true",
-                            true, Neodymium.configuration().localProxyGenerateSelfSignedCertificate());
+        /*
+         * In general the properties should be defined directly in the neodymium.properties, but for the showcase to see some example values this is done
+         * here.
+         * The following call will create a temp properties file with the values:
+         *
+         * neodymium.localproxy.enable=true
+         * neodymium.localproxy.certificate=true
+         * neodymium.localproxy.certificate.generate=true
+         */
+        addTempProperty(TEMP_PROPERTIES_FILE,
+                        Map.of(
+                            "neodymium.localproxy", "true",
+                            "neodymium.localproxy.certificate", "true",
+                            "neodymium.localproxy.certificate.generate", "true"
+                        ));
     }
 
-    @Test
+    @NeodymiumTest
     @Description(value = "Showcase for certificate authentication using Neodymium Local Proxy")
     public void test()
     {
@@ -72,5 +79,12 @@ public class NeodymiumLocalProxyGenerateCertificateAuthenticationTest extends Ab
 
         // check that basic alert message is visible
         $(".alert-success").shouldBe(visible);
+    }
+
+    @AfterAll
+    public static void cleanUp()
+    {
+        deleteTempPropertiesFile(TEMP_PROPERTIES_FILE);
+        deleteTempPropertiesFile("embeddedLocalProxySelfSignedRootCertificate.p12");
     }
 }

@@ -2,9 +2,9 @@ package showcase.neodymium.tests.random;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Test;
 
-import com.xceptance.neodymium.module.statement.browser.multibrowser.SuppressBrowsers;
+import com.xceptance.neodymium.common.browser.SuppressBrowsers;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.NeodymiumRandom;
 
 import io.qameta.allure.Description;
@@ -23,7 +23,7 @@ public class RandomProbabilityTest extends AbstractTest
 {
     private static final Logger logger = LogManager.getLogger(LoggingFirstTest.class);
 
-    @Test
+    @NeodymiumTest
     @Description(value = "Showcase for usage of NeodymiumRandom#nextBoolean(int trueCaseProbability).")
     public void testRandomProbability()
     {
@@ -58,7 +58,7 @@ public class RandomProbabilityTest extends AbstractTest
         logger.error("Count of true:  " + trueCount + "    Count of false:  " + falseCount);
 
         // Part 3: create a random boolean with probability 80
-        // this means the ratio of true and false should be approximately about 80 to 20 in favor of true
+        // this means the ratio of true and false should be approximately 80 to 20 in favor of true
         trueCount = 0;
         falseCount = 0;
         logger.error("Part 3: Probability = 80  -  80% true and 20% false will be returned");

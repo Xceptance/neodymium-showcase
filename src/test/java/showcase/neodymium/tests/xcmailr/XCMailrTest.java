@@ -3,14 +3,14 @@ package showcase.neodymium.tests.xcmailr;
 import java.io.IOException;
 
 import org.apache.hc.client5.http.ClientProtocolException;
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.plugin.xcmailr.XcMailrApi;
 import com.xceptance.neodymium.util.SelenideAddons;
 
@@ -64,10 +64,10 @@ public class XCMailrTest extends AbstractTest
     // the text of the first email
     protected final static String textToSend = "This is the text you should send.";
 
-    // Define a test email address which is used through out the test
+    // Define a test email address which is used throughout the test
     protected final static String receiverEmail = "";
 
-    @BeforeClass
+    @BeforeAll
     public static void configureApiToken() throws ClientProtocolException, IOException
     {
         // required configuration checks
@@ -81,21 +81,21 @@ public class XCMailrTest extends AbstractTest
                              receiverEmail);
     }
 
-    @Before
+    @BeforeEach
     public void createTempEmailAndSendEmail()
     {
         // Create temporary email with the XcMailrApi
         XcMailrApi.createTemporaryEmail(receiverEmail, false);
     }
 
-    @After
+    @AfterEach
     public void deleteTempEmail()
     {
         // Delete temporary email with the XcMailrApi
         XcMailrApi.deleteMailbox(receiverEmail);
     }
 
-    @Test
+    @NeodymiumTest
     public void testRetrieveLastEmail()
     {
         // Get the mail

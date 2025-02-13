@@ -1,24 +1,26 @@
 package showcase.neodymium.tests.random;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
-
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
-import com.xceptance.neodymium.module.statement.browser.multibrowser.SuppressBrowsers;
+import com.xceptance.neodymium.common.browser.SuppressBrowsers;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.Neodymium;
-
 import io.qameta.allure.Description;
+import org.junit.Assert;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import showcase.neodymium.tests.AbstractTest;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Random;
+
+import static showcase.flows.PropertiesFlow.addTempProperty;
+import static showcase.flows.PropertiesFlow.deleteTempPropertiesFile;
+
 /**
- * This show case shows the use of the Neodymium.getRandom() method.<br>
- * Random values are useful to run different test cases with different values.<br>
- * In some cases it is necessary to be able to repeat a test with the same random value (e.g. debugging).<br>
- * Here you can see how a fixed random value can be used.<br>
+ * This showcase shows the use of the Neodymium.getRandom() method.<br> Random values are useful to run different test cases with different values.<br> In some
+ * cases it is necessary to be able to repeat a test with the same random value (e.g. debugging).<br> Here you can see how a fixed random value can be
+ * used.<br>
  * <br>
  * <b>REQUIRED CONFIGURATION:</b> <i>config/neodymium.properties</i>
  * <ul>
@@ -29,16 +31,23 @@ import showcase.neodymium.tests.AbstractTest;
 @SuppressBrowsers
 public class FixedRandomTest extends AbstractTest
 {
-    @Before
-    public void configurationCheck()
+    public static final String TEMP_PROPERTIES_FILE = "temp-FixedRandomTest-neodymium.properties";
+
+    @BeforeAll
+    public static void addRandomSeedTempProperties()
     {
-        // by setting the neodymium.context.random.initialValue, the random result can be kept constant
-        // check if the initialValue is enabled in neodymium.properties
-        Assert.assertEquals("FixedRandomTest: neodymium.context.random.initialValue is not set",
-                            Long.valueOf("123456789"), Neodymium.configuration().initialRandomValue());
+        /*
+         * In general the properties should be defined directly in the neodymium.properties, but for the showcase to see some example values this is done
+         * here.
+         * The following call will create a temp properties file with the values:
+         *
+         * neodymium.popup.cookieBanner = #privacy-message .close
+         */
+        addTempProperty(TEMP_PROPERTIES_FILE,
+                        Map.of("neodymium.context.random.initialValue", "123456789"));
     }
 
-    @Test
+    @NeodymiumTest
     @Description(value = "Showcase for usage of Neodymium#getRandom.")
     public void testFixedRandom()
     {
@@ -83,5 +92,11 @@ public class FixedRandomTest extends AbstractTest
         Assert.assertEquals("Ben", listOfNames.get(7));
         Assert.assertEquals("Mia", listOfNames.get(8));
         Assert.assertEquals("Emma", listOfNames.get(9));
+    }
+
+    @AfterAll
+    public static void cleanUp()
+    {
+        deleteTempPropertiesFile(TEMP_PROPERTIES_FILE);
     }
 }

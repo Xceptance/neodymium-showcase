@@ -1,15 +1,9 @@
 package showcase.neodymium.tests.localization;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-
-import org.junit.Test;
-
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import com.xceptance.neodymium.util.Neodymium;
-
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
@@ -18,13 +12,16 @@ import io.qameta.allure.junit4.Tag;
 import showcase.neodymium.tests.AbstractTest;
 import showcase.pageobjects.components.Title;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+
 /**
- * Most web sites provide their content in different languages to address different users. Due to the fact test
- * automation has often to work with localized content or even validate that general localized formats (e.G. the price
- * format) are correct. Neodymium provides support to handle this. This show case demonstrates a possible approach.<br>
- * The localization file is <i>config/localization.yaml</i> and Neodymium introduces a override mechanism. The most
- * specific definition for a key and a locale will be taken. Otherwise a default value is taken or an exception is
- * raised if no value for the key could be found within the localization file.</li>
+ * Most websites provide their content in different languages to address different users. Due to the fact test automation has often to work with localized
+ * content or even validate that general localized formats (e.G. the price format) are correct. Neodymium provides support to handle this. This showcase
+ * demonstrates a possible approach.<br> The localization file is <i>config/localization.yaml</i> and Neodymium introduces a override mechanism. The most
+ * specific definition for a key and a locale will be taken. Otherwise, a default value is taken or an exception is raised if no value for the key could be
+ * found within the localization file.</li>
  * </ul>
  */
 @Severity(SeverityLevel.NORMAL)
@@ -32,8 +29,8 @@ import showcase.pageobjects.components.Title;
 @Tag("localization")
 public class NeodymiumLocalizationTest extends AbstractTest
 {
-    @Test
-    @Description(value = "Neodymium localization show case")
+    @NeodymiumTest
+    @Description(value = "Neodymium localization showcase")
     public void test()
     {
         /*
@@ -51,8 +48,8 @@ public class NeodymiumLocalizationTest extends AbstractTest
         new Title().validateTitle(titleText);
 
         // get headline and subtitle element only needs to be done once
-        SelenideElement headLine = $("div.landing-intro > h1");
-        SelenideElement subTitle = $("div.landing-intro > p");
+        SelenideElement headLine = $("#introduction h1");
+        SelenideElement subTitle = $("#introduction p");
 
         // check headline and subtitle are visible
         headLine.shouldBe(visible);

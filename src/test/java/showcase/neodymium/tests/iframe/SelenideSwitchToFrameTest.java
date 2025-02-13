@@ -1,26 +1,24 @@
 package showcase.neodymium.tests.iframe;
 
-import static com.codeborne.selenide.Condition.matchText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.switchTo;
-
-import org.junit.Test;
-
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.Tag;
 import showcase.neodymium.tests.AbstractTest;
 
+import static com.codeborne.selenide.Condition.matchText;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.switchTo;
+
 /**
- * This show case explains with an example implementation how to test a web site using frames (iframe).<br>
- * Selenide offers a straight forward approach to handle such frames and within Neodymium this is simply applied.<br>
+ * This showcase explains with an example implementation how to test a website using frames (iframe).<br> Selenide offers a straight forward approach to handle
+ * such frames and within Neodymium this is simply applied.<br>
  */
 @Tag("iFrame")
 public class SelenideSwitchToFrameTest extends AbstractTest
 {
-    @Test
+    @NeodymiumTest
     @Description(value = "Showcase for iFrames.")
     public void test()
     {

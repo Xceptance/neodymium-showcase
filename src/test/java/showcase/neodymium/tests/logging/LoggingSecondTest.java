@@ -2,9 +2,9 @@ package showcase.neodymium.tests.logging;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Test;
 
-import com.xceptance.neodymium.module.statement.browser.multibrowser.SuppressBrowsers;
+import com.xceptance.neodymium.common.browser.SuppressBrowsers;
+import com.xceptance.neodymium.junit5.NeodymiumTest;
 
 import io.qameta.allure.Description;
 import showcase.neodymium.tests.AbstractTest;
@@ -17,7 +17,7 @@ public class LoggingSecondTest extends AbstractTest
 {
     private static final Logger logger = LogManager.getLogger(LoggingSecondTest.class);
 
-    @Test
+    @NeodymiumTest
     @Description("Showcase for logging with log4j2.")
     public void testSecondLogging()
     {
