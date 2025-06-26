@@ -18,7 +18,7 @@ public class UpdateCategoryTest
     @DataItem
     private UpdateCategoryTestData updateCategoryTestData;
     
-    private Category categoryAfter;
+    private Category category;
     
     @BeforeEach
     public void setup()
@@ -30,18 +30,18 @@ public class UpdateCategoryTest
     public void updateNewCategory()
     {      
         // create category
-        Category categoryBefore = CategoryEndPoints.createCategory(updateCategoryTestData.getCategoryBeforeUpdate());
+        category = CategoryEndPoints.createCategory(updateCategoryTestData.getCategoryBeforeUpdate());
 
         // update category information
-        Category categoryChanges = categoryBefore;
+        Category categoryChanges = category.cloneCategory();
         categoryChanges.setName(updateCategoryTestData.getCategoryUpdate().getName());
         categoryChanges.setImage(updateCategoryTestData.getCategoryUpdate().getImage());
       
         // update category
-        categoryAfter = CategoryEndPoints.updateCategory(categoryChanges);
+        Category categoryAfterUpdate = CategoryEndPoints.updateCategory(categoryChanges);
          
         // validate product after update
-        categoryAfter.validate(categoryChanges);
+        categoryAfterUpdate.validate(categoryChanges);
     }
     
     @SuppressBrowsers
@@ -49,6 +49,6 @@ public class UpdateCategoryTest
     public void teardown() 
     {
         // delete category
-        CategoryEndPoints.deleteCategory(categoryAfter.getId());
+        CategoryEndPoints.deleteCategory(category.getId());
     }
 }

@@ -2,6 +2,8 @@ package showcase.neodymium.tests.restapi.dataobjects;
 
 import org.junit.jupiter.api.Assertions;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Category
 {
     Integer id;
@@ -13,6 +15,9 @@ public class Category
     String creationAt;
     
     String updatedAt;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    String slug;
     
     public Category(String name, String image)
     {
@@ -74,10 +79,34 @@ public class Category
         this.updatedAt = updatedAt;
     }
 
+
+    public String getSlug()
+    {
+        return slug;
+    }
+
+    public void setSlug(String slug)
+    {
+        this.slug = slug;
+    }
+
+    public Category cloneCategory()
+    {
+        Category category = new Category();
+        category.creationAt = this.creationAt;
+        category.id = this.id;
+        category.image = this.image;
+        category.name = this.name;
+        category.slug = this.slug;
+        category.updatedAt = this.updatedAt;
+        return category;
+    }
+
     @Override
     public String toString()
     {
-        return "Category [id=" + id + ", name=" + name + ", image=" + image + ", creationAt=" + creationAt + ", updatedAt=" + updatedAt + "]";
+        return "Category [id=" + id + ", name=" + name + ", image=" + image + ", creationAt=" + creationAt + ", updatedAt=" + updatedAt + ", slug=" + slug
+               + "]";
     }
 
     public void validate(Category dataObject)

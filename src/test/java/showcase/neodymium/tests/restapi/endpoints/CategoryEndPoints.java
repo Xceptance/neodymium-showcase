@@ -21,11 +21,12 @@ public class CategoryEndPoints
             .contentType(ContentType.JSON)
             .accept(ContentType.JSON)
             .body(category)
-        .when()
+                                   .when()
             .post(RestHelperContext.configuration().categoriesUrl());
 
         // validate response status code
-        Assertions.assertEquals(201, response.getStatusCode(), "failed to create category with name: " + category.getName());
+        Assertions.assertEquals(201, response.getStatusCode(), "Unexprected response code, failed to create category with name: " + category.getName()
+                                                               + " response was: " + response.getBody().asString());
 
         return response.getBody().as(Category.class);
     }

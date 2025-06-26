@@ -1,13 +1,27 @@
 [
   {
+    "id": "first_category",
     "categoryBeforeUpdate":
     {
-      "name": "category one",
+      "name": "Category One",
       "image": "https://placeimg.com/100/100/any"
     },
     "categoryUpdate":
     {
-      "name": "category one update",
+      "name": "Category One Update",
+      "image": "https://placeimg.com/100/100/any/update"
+    }
+  },
+  {
+	"id": "second_category",
+    "categoryBeforeUpdate":
+    {
+      "name": "Category Two",
+      "image": "https://placeimg.com/100/100/any"
+    },
+    "categoryUpdate":
+    {
+      "name": "Category Two Update",
       "image": "https://placeimg.com/100/100/any/update"
     }
   }
